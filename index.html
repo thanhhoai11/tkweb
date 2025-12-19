@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="vi">
   <head>
+    <style>
+      /* Hiệu ứng hiện menu mượt mà */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.2s ease-out forwards;
+      }
+    </style>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>PetHome - Trang chủ nhận nuôi chó mèo</title>
+    <title>FOURPAWS - Trang chủ nhận nuôi chó mèo</title>
+
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="stylesheet" href="assets/style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9EAA",
+              "primary-hover": "#F472B6",
+              secondary: "#FCD34D",
+              "background-light": "#FFFFFF",
+            },
+            fontFamily: {
+              display: ["Spline Sans", "sans-serif"],
+              body: ["Noto Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/pet-card.css" />
   </head>
+
   <body
-    class="bg-background-light text-gray-800 font-display overflow-x-hidden antialiased selection:bg-primary selection:text-white relative"
+    class="bg-background-light text-gray-800 font-display overflow-x-hidden antialiased selection:bg-pink-500 selection:text-white relative"
   >
+    <div id="header-placeholder"></div>
+
     <div
       class="fixed inset-0 z-[100] flex items-center justify-center bg-white animate-loader-fade"
       id="page-loader"
@@ -42,429 +82,258 @@
         ></div>
       </div>
     </div>
+
     <div class="custom-cursor" id="customCursor"></div>
+
     <div class="layout-container parallax-wrapper" id="parallaxContainer">
-      <header
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav border-b border-gray-100 -translate-y-full opacity-0"
-        id="main-header"
-      >
-        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-20">
-            <div class="flex items-center gap-3">
+      <main class="flex-1">
+        <section
+          class="hero-section relative w-full h-[600px] sm:h-screen overflow-hidden group bg-gray-900"
+        >
+          <div
+            id="hero-track"
+            class="hero-track flex h-full transition-transform duration-500 ease-out cursor-grab active:cursor-grabbing"
+          >
+            <div class="hero-slide w-full h-full flex-shrink-0 relative">
               <div
-                class="size-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary rounded-full text-white shadow-sm"
-              >
-                <span class="material-symbols-outlined text-[28px]">pets</span>
-              </div>
-              <span class="text-xl font-bold tracking-tight text-gray-900"
-                >PetHome</span
-              >
-            </div>
-            <div class="hidden md:flex items-center gap-8">
-              <a
-                class="text-sm font-medium text-gray-600 hover:text-primary-hover transition-colors"
-                href="#"
-                >Trang chủ</a
-              >
-              <a
-                class="text-sm font-medium text-gray-600 hover:text-primary-hover transition-colors"
-                href="#"
-                >Nhận nuôi</a
-              >
-              <a
-                class="text-sm font-medium text-gray-600 hover:text-primary-hover transition-colors"
-                href="#about-us"
-                >Về chúng tôi</a
-              >
-              <a
-                class="text-sm font-medium text-gray-600 hover:text-primary-hover transition-colors"
-                href="#"
-                >Quyên góp</a
-              >
-              <a
-                class="text-sm font-medium text-gray-600 hover:text-primary-hover transition-colors"
-                href="#"
-                >Liên hệ</a
-              >
-            </div>
-            <div class="flex items-center gap-4">
-              <button
-                class="hidden sm:flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white text-sm font-bold transition-transform hover:scale-105 shadow-md shadow-pink-200"
-              >
-                Đăng nhập
-              </button>
-              <button class="md:hidden p-2 text-gray-900">
-                <span class="material-symbols-outlined">menu</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <main class="flex-1 pt-20">
-        <section class="relative px-4 sm:px-6 lg:px-8 py-6">
-          <div class="max-w-[1280px] mx-auto">
-            <div
-              class="relative w-full h-[600px] rounded-2xl overflow-hidden group hero-container shadow-xl shadow-pink-200/50 clip-fix"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center bg-fixed hero-bg"
-                data-alt="Close up of a cute dog and owner resting on grass"
-                style="
-                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEjkJoWXmfSj4SF05uDw5je1bvIXG-Tt_dNe1HNc1bkTRLDNcxQQBdKfGxenZDxBpzjUzoareCwRsfc3DUdEhYiRo4_E132_OftfSUJk4jisK6ZTkkRwlm9g1oRhd-GZXzbIrHWDKpTdzwcYBu3f4i5w_M9kBbmX-dposXiV6nhJkkdathTTvqMR5IZbA8sAyY02L4HU5yr1XiJ9KgYsY4FsOjGocY0hkW6tawpGVOkSgpVYgMFT8GspdU6CqS_ItPLSGcpB3Ucu0');
-                "
+                class="hero-bg absolute inset-0 bg-cover bg-center animate-blur-in"
+                style="background-image: url('assets/picture/banner-1.jpg')"
               ></div>
               <div
-                class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/30 to-transparent pointer-events-none"
-              ></div>
-              <div
-                class="relative h-full flex flex-col justify-end p-8 sm:p-12 lg:p-16 max-w-3xl pointer-events-none"
+                class="hero-content absolute inset-0 flex flex-col justify-end items-center text-center pb-20 px-4 sm:px-6 z-10"
               >
-                <div class="flex items-center gap-2 mb-4 pointer-events-auto">
-                  <span
-                    class="px-3 py-1 rounded-full bg-white/90 text-primary-hover text-xs font-bold uppercase tracking-wider backdrop-blur-sm shadow-sm"
-                  >
-                    Tìm bạn đồng hành
-                  </span>
-                </div>
-                <h1
-                  class="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight drop-shadow-lg"
+                <span
+                  class="px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest border border-white/20 mb-6 animate-fade-in-up"
+                  >Tìm bạn đồng hành</span
                 >
-                  Mang yêu thương <br />
-                  <span
+                <h1
+                  class="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up"
+                  style="animation-delay: 0.2s"
+                >
+                  Mang yêu thương <br /><span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
                     >về nhà mới.</span
                   >
                 </h1>
                 <p
-                  class="text-gray-100 text-lg sm:text-xl mb-8 max-w-xl font-light drop-shadow-md"
+                  class="text-gray-200 text-lg sm:text-xl mb-10 max-w-2xl font-light drop-shadow animate-fade-in-up"
+                  style="animation-delay: 0.3s"
                 >
                   Hàng ngàn chó mèo đang chờ đợi một mái ấm. Hãy mở rộng vòng
                   tay và trái tim của bạn ngay hôm nay.
                 </p>
-                <div class="flex flex-wrap gap-4 pointer-events-auto">
+                <div
+                  class="flex gap-4 animate-fade-in-up"
+                  style="animation-delay: 0.4s"
+                >
                   <button
-                    class="h-14 px-8 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white text-base font-bold flex items-center gap-2 transition-all hover:scale-105 shadow-lg shadow-pink-300/30"
+                    class="h-14 px-10 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg shadow-pink-500/30 transition-transform hover:scale-105"
                   >
-                    <span class="material-symbols-outlined">search</span>
                     Tìm hiểu ngay
                   </button>
+                </div>
+              </div>
+            </div>
+            <div class="hero-slide w-full h-full flex-shrink-0 relative">
+              <div
+                class="hero-bg absolute inset-0 bg-cover bg-center animate-blur-in"
+                style="background-image: url('assets/picture/banner-2.webp')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-gray-900/90"
+              ></div>
+              <div
+                class="hero-content absolute inset-0 flex flex-col justify-end items-center text-center pb-20 px-4 sm:px-6 z-10"
+              >
+                <span
+                  class="px-4 py-1.5 rounded-full bg-yellow-500/20 backdrop-blur-md text-yellow-300 text-xs font-bold uppercase tracking-widest border border-yellow-500/30 mb-6"
+                  >Sự kiện tháng 12</span
+                >
+                <h1
+                  class="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+                >
+                  Ngày hội <span class="text-secondary">Nhận nuôi</span>
+                  <br />Open Day 2025
+                </h1>
+                <div class="flex gap-4">
                   <button
-                    class="h-14 px-8 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/30 text-base font-bold flex items-center gap-2 transition-all"
+                    class="h-14 px-10 rounded-full bg-white text-gray-900 hover:bg-gray-100 font-bold shadow-lg transition-transform hover:scale-105"
                   >
-                    <span class="material-symbols-outlined">play_circle</span>
-                    Xem video
+                    Đăng ký tham gia
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hero-slide w-full h-full flex-shrink-0 relative">
+              <div
+                class="hero-bg absolute inset-0 bg-cover bg-center animate-blur-in"
+                style="background-image: url('assets/picture/banner-3.webp')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-gray-900/90"
+              ></div>
+              <div
+                class="hero-content absolute inset-0 flex flex-col justify-end items-center text-center pb-20 px-4 sm:px-6 z-10"
+              >
+                <span
+                  class="px-4 py-1.5 rounded-full bg-pink-500/20 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest border border-pink-500/30 mb-6"
+                  >Câu chuyện cảm động</span
+                >
+                <h1
+                  class="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+                >
+                  Hành trình của <br /><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                    >Chú chó Vàng</span
+                  >
+                </h1>
+                <p
+                  class="text-gray-200 text-lg sm:text-xl mb-10 max-w-2xl font-light drop-shadow"
+                >
+                  Từ một chú chó bị bỏ rơi đến ngôi sao sáng nhất của trạm cứu
+                  hộ FOURPAWS.
+                </p>
+                <div
+                  class="flex gap-4 items-center animate-fade-in-up"
+                  style="animation-delay: 0.3s"
+                >
+                  <button
+                    onclick="openPopupVideo()"
+                    class="group h-16 w-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer"
+                  >
+                    <span
+                      class="material-symbols-outlined text-4xl fill-current"
+                      >play_arrow</span
+                    >
+                  </button>
+                  <button
+                    class="h-14 px-8 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg transition-transform hover:scale-105"
+                  >
+                    Đọc câu chuyện
                   </button>
                 </div>
               </div>
             </div>
           </div>
+          <button
+            id="prev-slide"
+            class="hero-nav-btn hero-prev absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center transition-all hover:scale-110 z-20 group-hover:opacity-100 opacity-0 md:opacity-100"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button
+            id="next-slide"
+            class="hero-nav-btn hero-next absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center transition-all hover:scale-110 z-20 group-hover:opacity-100 opacity-0 md:opacity-100"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+          <div
+            id="slider-dots"
+            class="hero-dots-container absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20"
+          ></div>
         </section>
-        <section class="px-4 sm:px-6 lg:px-8 py-12">
+
+        <section
+          class="px-4 sm:px-6 lg:px-8 py-12 bg-white relative"
+          id="pet-section"
+        >
           <div class="max-w-[1280px] mx-auto">
             <div
               class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
             >
-              <div class="animate-fade-in-up">
+              <div>
                 <h2 class="text-3xl font-bold text-gray-900 mb-1">
                   Các bé đang chờ
                 </h2>
                 <p class="text-gray-500 text-sm">
-                  Hơn 50+ thú cưng mới được cập nhật tuần này
+                  Trượt để xem thêm các bé khác 🐾
                 </p>
               </div>
-              <div
-                class="flex overflow-x-auto no-scrollbar gap-3 pb-2 md:pb-0 animate-fade-in-up"
-                style="animation-delay: 0.1s"
-              >
+              <div class="flex gap-3">
                 <button
-                  class="flex-shrink-0 h-10 px-6 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-md shadow-pink-200 font-semibold text-sm flex items-center gap-2 transition-transform active:scale-95"
+                  onclick="filterAndRender('all')"
+                  data-id="all"
+                  class="filter-btn px-6 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md transition-transform active:scale-95"
                 >
-                  <span class="material-symbols-outlined text-[20px]"
-                    >grid_view</span
-                  >
                   Tất cả
                 </button>
                 <button
-                  class="flex-shrink-0 h-10 px-6 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-primary-hover hover:border-primary font-medium text-sm flex items-center gap-2 transition-all active:scale-95"
+                  onclick="filterAndRender('dog')"
+                  data-id="dog"
+                  class="filter-btn px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95"
                 >
-                  <span class="material-symbols-outlined text-[20px]"
-                    >pet_supplies</span
-                  >
                   Chó
                 </button>
                 <button
-                  class="flex-shrink-0 h-10 px-6 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-primary-hover hover:border-primary font-medium text-sm flex items-center gap-2 transition-all active:scale-95"
+                  onclick="filterAndRender('cat')"
+                  data-id="cat"
+                  class="filter-btn px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95"
                 >
-                  <span class="material-symbols-outlined text-[20px]"
-                    >cruelty_free</span
-                  >
                   Mèo
                 </button>
-                <button
-                  class="flex-shrink-0 h-10 px-6 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-primary-hover hover:border-primary font-medium text-sm flex items-center gap-2 transition-all active:scale-95"
-                >
-                  <span class="material-symbols-outlined text-[20px]"
-                    >flutter</span
-                  >
-                  Khác
-                </button>
               </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div
-                class="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg shadow-pink-50 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 image-card-hover opacity-0 animate-slide-in-left clip-fix"
-                style="animation-delay: 0.2s"
-              >
-                <div
-                  class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative"
-                >
-                  <div
-                    class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Orange tabby cat looking curious"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1thT4yqtID_kAPXwOX1HzVUI2VBmojuokipCuYiTP13AXKeZjUUC1ljgtrAl4XGzyCO_ZzIumbO0nOObJlcLfnEnUDPqiZehnpcbjkeLVYE8WJR33QRfdmIcBWKi8L-Vz7SDko5lM33WzDt66KuiqbKUTeNpzGOmRG9oQ4wGtm8jBvGW9iFfB663H-AD5ZyOkPadz_6ZRVscmmN2uA8BNXMSUaALPa3quRHCnnkim5lDT5g9si021IA6B9d6OPtyrchnYT8b2JUQ');
-                    "
-                  ></div>
-                  <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  ></div>
-                  <div
-                    class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-pink-100 shadow-sm z-10"
-                  >
-                    <p
-                      class="text-primary-hover text-xs font-bold flex items-center gap-1"
-                    >
-                      <span class="material-symbols-outlined text-[14px]"
-                        >female</span
-                      >
-                      2 tuổi
-                    </p>
-                  </div>
-                  <div
-                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent hover-info z-10"
-                  >
-                    <p class="text-white text-sm font-medium">
-                      Bấm để xem chi tiết
-                    </p>
-                  </div>
-                </div>
-                <div class="p-4 relative z-20 bg-white">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 class="text-xl font-bold text-gray-900">Miu Miu</h3>
-                      <p class="text-sm text-gray-500">Mèo Anh Lông Ngắn</p>
-                    </div>
-                    <button
-                      class="size-10 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center hover:bg-pink-50 hover:text-primary-hover transition-colors"
-                    >
-                      <span class="material-symbols-outlined">favorite</span>
-                    </button>
-                  </div>
-                  <div class="flex gap-2 mt-3">
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-yellow-50 text-yellow-700"
-                      >Đã tiêm</span
-                    >
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-pink-50 text-primary-hover"
-                      >Ngoan</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                class="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg shadow-pink-50 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 image-card-hover opacity-0 animate-slide-in-left clip-fix"
-                style="animation-delay: 0.4s"
-              >
-                <div
-                  class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative"
-                >
-                  <div
-                    class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Golden Retriever puppy smiling"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD45NfCcnRXJlwVO_fGCaWidmpn-2Z-UPAX4ikTLUOqM6biQYZh-Jz97QROEknf0eHKtsppwjdlUIwnD3DyWX9HiMkF1orjccU1HBEYyzRZjLHVbQPYHXN6zuaVomZ1DhfMwol_9DQ7KxTY4STbgH3lf3dlUdECtwKl_mejmPRUS8NpQaKhuqw_nDxcHb9c8n6IwpyaejIszzcbTjycAzM64BQhcXLH5sgc8sDMlFVa6KW_OW8Htfthr5FAKyfX46wcD7bTan3f1_E');
-                    "
-                  ></div>
-                  <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  ></div>
-                  <div
-                    class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-pink-100 shadow-sm z-10"
-                  >
-                    <p
-                      class="text-primary-hover text-xs font-bold flex items-center gap-1"
-                    >
-                      <span class="material-symbols-outlined text-[14px]"
-                        >male</span
-                      >
-                      5 tháng
-                    </p>
-                  </div>
-                  <div
-                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent hover-info z-10"
-                  >
-                    <p class="text-white text-sm font-medium">
-                      Bấm để xem chi tiết
-                    </p>
-                  </div>
-                </div>
-                <div class="p-4 relative z-20 bg-white">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 class="text-xl font-bold text-gray-900">Vàng</h3>
-                      <p class="text-sm text-gray-500">Golden Retriever</p>
-                    </div>
-                    <button
-                      class="size-10 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center hover:bg-pink-50 hover:text-primary-hover transition-colors"
-                    >
-                      <span class="material-symbols-outlined">favorite</span>
-                    </button>
-                  </div>
-                  <div class="flex gap-2 mt-3">
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-yellow-50 text-yellow-700"
-                      >Thân thiện</span
-                    >
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-pink-50 text-primary-hover"
-                      >Năng động</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                class="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg shadow-pink-50 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 image-card-hover opacity-0 animate-slide-in-right clip-fix"
-                style="animation-delay: 0.6s"
-              >
-                <div
-                  class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative"
-                >
-                  <div
-                    class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Beagle dog looking sideways"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1F7IC3TcEeokR39Bwg9wVgA9KRfoiNoeWh8ncNNs35_x9OXvV4qtnaHAL4KXHbjVZUXSl93cZ1MGme2qvX9cO7STLrd_dyMXJtyJPtkeuSMyIrDrFHj8q4uy0_ugBIoxH7CvTik35E43qy852bTP51YGwv7nAeOWXVLufu2H_o73hanuilDZeH6cJNeE9xtRHW7V1LMrx2X0vlANuhls5gtpBqXcwG4V57MZOWk1nmjZ7NbjEI0W88OrTHXiLawmKk3cqvrHfa50');
-                    "
-                  ></div>
-                  <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  ></div>
-                  <div
-                    class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-pink-100 shadow-sm z-10"
-                  >
-                    <p
-                      class="text-primary-hover text-xs font-bold flex items-center gap-1"
-                    >
-                      <span class="material-symbols-outlined text-[14px]"
-                        >male</span
-                      >
-                      3 tuổi
-                    </p>
-                  </div>
-                  <div
-                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent hover-info z-10"
-                  >
-                    <p class="text-white text-sm font-medium">
-                      Bấm để xem chi tiết
-                    </p>
-                  </div>
-                </div>
-                <div class="p-4 relative z-20 bg-white">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 class="text-xl font-bold text-gray-900">Sữa</h3>
-                      <p class="text-sm text-gray-500">Beagle</p>
-                    </div>
-                    <button
-                      class="size-10 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center hover:bg-pink-50 hover:text-primary-hover transition-colors"
-                    >
-                      <span class="material-symbols-outlined">favorite</span>
-                    </button>
-                  </div>
-                  <div class="flex gap-2 mt-3">
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-pink-50 text-primary-hover"
-                      >Tình cảm</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                class="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg shadow-pink-50 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 image-card-hover opacity-0 animate-slide-in-right clip-fix"
-                style="animation-delay: 0.8s"
-              >
-                <div
-                  class="aspect-[4/5] w-full overflow-hidden bg-gray-100 relative"
-                >
-                  <div
-                    class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Cute kitten sitting on a blanket"
-                    style="
-                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9PC-6VCElUjhUAr1paauAYE1jyKautmQJmWhpm8Ylx_KW0XOoStDDS1kNkKl3GyN3AWD5mFihd2wmvEe9YZCESgvmcdAxDIbbdexnipS0zYa1-WYSDSwH4tez2GL7eR6Nm8mqLDB5vnDV3yOnDDXAg-prUcu8P0pzmgJtv-bnnh8RC8a3Cfd3P8M-DBMF5xOVD0lBfAmPA84hPhEaahJZ9w2JXPZGeF5ZvTZyL5pByk2CPlF5zGzSYiEaVJqtDzNxp5WJNcozryE');
-                    "
-                  ></div>
-                  <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  ></div>
-                  <div
-                    class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-pink-100 shadow-sm z-10"
-                  >
-                    <p
-                      class="text-primary-hover text-xs font-bold flex items-center gap-1"
-                    >
-                      <span class="material-symbols-outlined text-[14px]"
-                        >female</span
-                      >
-                      6 tháng
-                    </p>
-                  </div>
-                  <div
-                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent hover-info z-10"
-                  >
-                    <p class="text-white text-sm font-medium">
-                      Bấm để xem chi tiết
-                    </p>
-                  </div>
-                </div>
-                <div class="p-4 relative z-20 bg-white">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 class="text-xl font-bold text-gray-900">Bông</h3>
-                      <p class="text-sm text-gray-500">Mèo Ta</p>
-                    </div>
-                    <button
-                      class="size-10 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center hover:bg-pink-50 hover:text-primary-hover transition-colors"
-                    >
-                      <span class="material-symbols-outlined">favorite</span>
-                    </button>
-                  </div>
-                  <div class="flex gap-2 mt-3">
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-yellow-50 text-yellow-700"
-                      >Quấn người</span
-                    >
-                    <span
-                      class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-pink-50 text-primary-hover"
-                      >Triệt sản</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex justify-center mt-12 animate-fade-in-up"
-              style="animation-delay: 1s"
+            <section
+              class="py-16 bg-yellow-50 relative overflow-hidden"
+              id="top-pets-section"
             >
+              <div
+                class="absolute top-0 right-0 w-64 h-64 bg-yellow-200 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2"
+              ></div>
+
+              <div
+                class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+              >
+                <div class="text-center mb-10">
+                  <span
+                    class="text-secondary font-bold text-sm uppercase tracking-wider"
+                    >Hall of Fame</span
+                  >
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+                    🏆 Những Bé Ngoan Nhất Tuần
+                  </h2>
+                </div>
+
+                <div
+                  id="top-pets-container"
+                  class="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
+                  <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+                  <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+                  <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+                </div>
+              </div>
+            </section>
+            <div class="relative group">
+              <button
+                onclick="scrollPets('left')"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <div
+                id="pet-grid-container"
+                class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar py-4 px-1"
+              ></div>
+              <button
+                onclick="scrollPets('right')"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+
+            <div class="flex justify-center mt-8">
               <button
                 class="flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 hover:border-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white text-gray-600 font-medium transition-all"
               >
-                Xem thêm thú cưng
+                Xem toàn bộ danh sách
                 <span class="material-symbols-outlined">arrow_forward</span>
               </button>
             </div>
           </div>
         </section>
+
         <section
           class="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-white via-pink-50/30 to-yellow-50/30 relative overflow-hidden"
         >
@@ -492,79 +361,15 @@
             <div class="flex flex-col md:flex-row gap-12 items-center">
               <div class="w-full md:w-1/2">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Quy trình nhận nuôi <br />
-                  <span class="text-primary-hover"
-                    >Đơn giản &amp; Minh bạch</span
+                  Quy trình nhận nuôi <br /><span class="text-primary-hover"
+                    >Đơn giản & Minh bạch</span
                   >
                 </h2>
                 <p class="text-gray-600 mb-8 leading-relaxed">
                   Chúng tôi cố gắng làm cho quá trình nhận nuôi trở nên dễ dàng
-                  nhất có thể để bạn và người bạn mới có thể bắt đầu cuộc sống
-                  cùng nhau sớm hơn.
+                  nhất có thể.
                 </p>
-                <div class="space-y-6">
-                  <div class="flex gap-4 group">
-                    <div
-                      class="size-12 rounded-full bg-white border border-primary text-primary-hover flex items-center justify-center shrink-0 shadow-md shadow-pink-100 group-hover:scale-110 transition-transform duration-300"
-                    >
-                      <span
-                        class="material-symbols-outlined group-hover:animate-wiggle"
-                        >search</span
-                      >
-                    </div>
-                    <div>
-                      <h3
-                        class="text-lg font-bold text-gray-900 group-hover:text-primary-hover transition-colors"
-                      >
-                        1. Tìm hiểu &amp; Lựa chọn
-                      </h3>
-                      <p class="text-sm text-gray-500 mt-1">
-                        Xem hồ sơ trực tuyến, tìm hiểu tính cách và nhu cầu của
-                        bé.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex gap-4 group">
-                    <div
-                      class="size-12 rounded-full bg-white border border-primary text-primary-hover flex items-center justify-center shrink-0 shadow-md shadow-pink-100 group-hover:scale-110 transition-transform duration-300"
-                    >
-                      <span
-                        class="material-symbols-outlined group-hover:animate-wiggle"
-                        >meeting_room</span
-                      >
-                    </div>
-                    <div>
-                      <h3
-                        class="text-lg font-bold text-gray-900 group-hover:text-primary-hover transition-colors"
-                      >
-                        2. Gặp gỡ trực tiếp
-                      </h3>
-                      <p class="text-sm text-gray-500 mt-1">
-                        Đến trạm cứu hộ để làm quen và xem mức độ hòa hợp.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex gap-4 group">
-                    <div
-                      class="size-12 rounded-full bg-white border border-primary text-primary-hover flex items-center justify-center shrink-0 shadow-md shadow-pink-100 group-hover:scale-110 transition-transform duration-300"
-                    >
-                      <span
-                        class="material-symbols-outlined group-hover:animate-wiggle"
-                        >home</span
-                      >
-                    </div>
-                    <div>
-                      <h3
-                        class="text-lg font-bold text-gray-900 group-hover:text-primary-hover transition-colors"
-                      >
-                        3. Đón về nhà
-                      </h3>
-                      <p class="text-sm text-gray-500 mt-1">
-                        Hoàn tất thủ tục, nhận tư vấn chăm sóc và đón bé về.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <div class="space-y-6"></div>
               </div>
               <div class="w-full md:w-1/2 relative">
                 <div
@@ -572,20 +377,21 @@
                 >
                   <div
                     class="w-full h-full bg-cover bg-center"
-                    data-alt="Girl hugging a big fluffy dog outdoors"
                     style="
                       background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXE852oLEKo6ysxhR-uj672d2j0WayBFcZHhDQF4uioDrYfS14d1uE6Kv9VTIaORw7GASXf_K9GLqVO4_BXo0deODoRJxEWrOOpSIVyrhJ6nkC2YZy79MXzumLpyZIR5qujjDYHfSCOISpQdLR7OHA7ShkhB0uWr_agrQP90s8stKPsbDCa5uOUSXDPTFDV6e-bJgcEydqPHvFgLiOk-Qt4vCajrMJ4zMYhEExEytysmueeaRqcVlqa7k_YcegGzEKMrOK4Xs-msc');
                     "
                   ></div>
                 </div>
                 <div
-                  class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl border border-gray-100 max-w-[240px] shadow-xl animate-float-3"
+                  class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl border border-gray-100 max-w-[240px] shadow-xl animate-bounce-slow z-20"
                 >
-                  <div class="flex items-center gap-2 mb-2 text-primary-hover">
+                  <div
+                    class="flex items-center gap-2 mb-2 text-primary-hover font-bold"
+                  >
                     <span class="material-symbols-outlined"
                       >volunteer_activism</span
                     >
-                    <span class="font-bold">Hạnh phúc lan tỏa</span>
+                    <span>Hạnh phúc lan tỏa</span>
                   </div>
                   <p class="text-xs text-gray-500">
                     "Nhận nuôi Bella là quyết định tuyệt vời nhất năm nay của
@@ -596,66 +402,20 @@
             </div>
           </div>
         </section>
+
         <section
           class="px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden bg-white mouse-trail-area"
           id="about-us"
           onmousemove="handleMouseMove(event)"
         >
-          <script>
-            let lastTime = 0;
-            function handleMouseMove(e) {
-              const now = Date.now();
-              if (now - lastTime < 100) return; // Limit creation rate
-              lastTime = now;
-              const section = e.currentTarget;
-              const pet = document.createElement("div");
-              pet.classList.add("trail-pet", "animate-pop-in-out");
-              // Random pet icon or small image
-              const images = [
-                "https://api.iconify.design/noto:dog-face.svg",
-                "https://api.iconify.design/noto:cat-face.svg",
-                "https://api.iconify.design/noto:paw-prints.svg",
-                "https://api.iconify.design/noto:hamster.svg",
-              ];
-              const randomImage =
-                images[Math.floor(Math.random() * images.length)];
-              pet.style.backgroundImage = `url('${randomImage}')`;
-              // Position relative to the container
-              const rect = section.getBoundingClientRect();
-              const x = e.clientX - rect.left;
-              const y = e.clientY - rect.top;
-              pet.style.left = `${x}px`;
-              pet.style.top = `${y}px`;
-              section.appendChild(pet);
-              // Remove element after animation
-              setTimeout(() => {
-                pet.remove();
-              }, 1000);
-              // Move custom cursor
-              const cursor = document.getElementById("customCursor");
-              if (cursor) {
-                cursor.style.left = e.clientX + "px";
-                cursor.style.top = e.clientY + "px";
-              }
-            }
-            // Ensure cursor follows even if not creating trails
-            document
-              .querySelector(".mouse-trail-area")
-              .addEventListener("mousemove", (e) => {
-                const cursor = document.getElementById("customCursor");
-                if (cursor) {
-                  cursor.style.left = e.clientX + "px";
-                  cursor.style.top = e.clientY + "px";
-                }
-              });
-          </script>
           <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-primary to-secondary blur-[100px] opacity-20 rounded-full pointer-events-none"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-primary to-secondary blur-[100px] opacity-20 rounded-full"
           ></div>
-          <div class="max-w-[1280px] mx-auto relative z-10 cursor-none">
+
+          <div class="max-w-[1280px] mx-auto relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
               <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Về PetHome
+                Về FOURPAWS
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
                   >Family</span
@@ -663,10 +423,11 @@
               </h2>
               <p class="text-gray-600 text-lg leading-relaxed">
                 Chúng tôi không chỉ là một trạm cứu hộ, mà là ngôi nhà tạm thời
-                tràn đầy tình thương. Sứ mệnh của PetHome là chữa lành những vết
-                thương và kết nối những trái tim cô đơn lại với nhau.
+                tràn đầy tình thương. Sứ mệnh của FOURPAWS là chữa lành những
+                vết thương và kết nối những trái tim cô đơn lại với nhau.
               </p>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div
                 class="group bg-white border border-gray-100 rounded-3xl p-8 shadow-lg shadow-pink-50 hover:border-primary transition-all duration-300 hover:-translate-y-2"
@@ -680,9 +441,8 @@
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-4">Mục tiêu</h3>
                 <p class="text-gray-500 leading-relaxed">
-                  Xây dựng một cộng đồng nhận nuôi văn minh, nơi mỗi thú cưng
-                  đều được định danh, chăm sóc y tế và tìm được chủ nhân phù hợp
-                  nhất với tính cách.
+                  Xây dựng cộng đồng nhận nuôi văn minh, nơi mỗi thú cưng đều
+                  được định danh và chăm sóc.
                 </p>
               </div>
               <div
@@ -698,8 +458,7 @@
                 <h3 class="text-xl font-bold text-gray-900 mb-4">Tầm nhìn</h3>
                 <p class="text-gray-500 leading-relaxed">
                   Trở thành hệ sinh thái bảo trợ động vật hàng đầu, lan tỏa
-                  thông điệp "Nhận nuôi thay vì mua bán" đến hàng triệu người
-                  Việt Nam.
+                  thông điệp "Nhận nuôi thay vì mua bán".
                 </p>
               </div>
               <div
@@ -714,12 +473,12 @@
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-4">Đội ngũ</h3>
                 <p class="text-gray-500 leading-relaxed">
-                  Đội ngũ bác sĩ thú y giàu kinh nghiệm, chuyên gia hành vi và
-                  mạng lưới tình nguyện viên tận tâm luôn túc trực 24/7 để hỗ
-                  trợ các bé.
+                  Đội ngũ bác sĩ thú y giàu kinh nghiệm và mạng lưới tình nguyện
+                  viên tận tâm 24/7.
                 </p>
               </div>
             </div>
+
             <div
               class="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 bg-gradient-to-r from-pink-50 to-yellow-50 border border-pink-100 rounded-3xl p-8 md:p-12"
             >
@@ -749,7 +508,7 @@
                   CL
                 </div>
                 <div
-                  class="size-12 rounded-full border-2 border-white bg-white flex items-center justify-center text-xs text-primary font-bold hover:bg-primary hover:text-white transition-colors cursor-pointer shadow-sm"
+                  class="size-12 rounded-full border-2 border-white bg-white flex items-center justify-center text-xs text-primary font-bold shadow-sm cursor-pointer"
                 >
                   +20
                 </div>
@@ -762,6 +521,7 @@
             </div>
           </div>
         </section>
+
         <section class="px-4 sm:px-6 lg:px-8 py-20">
           <div
             class="max-w-[960px] mx-auto bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-2xl shadow-pink-200 group clip-fix"
@@ -800,291 +560,534 @@
           </div>
         </section>
       </main>
-      <footer class="border-t border-gray-100 bg-gray-50 pt-16 pb-8">
-        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div class="md:col-span-1">
-              <div class="flex items-center gap-2 mb-4">
-                <div
-                  class="size-8 flex items-center justify-center bg-gradient-to-br from-primary to-secondary rounded-full text-white"
-                >
-                  <span class="material-symbols-outlined text-[20px]"
-                    >pets</span
-                  >
-                </div>
-                <span class="text-lg font-bold text-gray-900">PetHome</span>
-              </div>
-              <p class="text-gray-500 text-sm leading-relaxed">
-                Kết nối trái tim, chia sẻ yêu thương. Chúng tôi là cầu nối giữa
-                những thú cưng bị bỏ rơi và những gia đình mới tràn đầy tình
-                thương.
-              </p>
-            </div>
-            <div>
-              <h4 class="text-gray-900 font-bold mb-4">Về chúng tôi</h4>
-              <ul class="space-y-3 text-sm text-gray-500">
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Giới thiệu</a
-                  >
-                </li>
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Đội ngũ</a
-                  >
-                </li>
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Đối tác</a
-                  >
-                </li>
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Báo cáo tài chính</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="text-gray-900 font-bold mb-4">Hỗ trợ</h4>
-              <ul class="space-y-3 text-sm text-gray-500">
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Câu hỏi thường gặp</a
-                  >
-                </li>
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Quy định nhận nuôi</a
-                  >
-                </li>
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Tình nguyện viên</a
-                  >
-                </li>
-                <li>
-                  <a class="hover:text-primary-hover transition-colors" href="#"
-                    >Liên hệ</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="text-gray-900 font-bold mb-4">Liên hệ</h4>
-              <ul class="space-y-3 text-sm text-gray-500">
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[18px]"
-                    >location_on</span
-                  >
-                  123 Đường ABC, Quận 1, TP.HCM
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[18px]"
-                    >call</span
-                  >
-                  090 123 4567
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[18px]"
-                    >mail</span
-                  >
-                  contact@pethome.vn
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
-          >
-            <p class="text-gray-500 text-xs">
-              © 2023 PetHome. All rights reserved.
-            </p>
-            <div class="flex gap-6">
-              <a
-                class="text-gray-400 hover:text-primary-hover transition-colors"
-                href="#"
-              >
-                <span class="sr-only">Facebook</span>
-                <svg
-                  aria-hidden="true"
-                  class="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                    fill-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                class="text-gray-400 hover:text-primary-hover transition-colors"
-                href="#"
-              >
-                <span class="sr-only">Instagram</span>
-                <svg
-                  aria-hidden="true"
-                  class="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.428 2h.08zm0 1.802h-.08c-2.583 0-2.9.01-3.926.056-.976.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.869v.156c0 2.518.01 2.846.058 3.869.044.976.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                    fill-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+
+      <div id="footer-placeholder"></div>
     </div>
+
     <div id="follower-dog"></div>
+
     <div
-      class="fixed bottom-8 right-8 z-[80] translate-y-20 opacity-0 transition-all duration-700 ease-out pointer-events-none"
-      id="puppy-popup"
+      id="pet-appeal-popup"
+      class="fixed bottom-5 left-5 z-[90] hidden max-w-[380px] w-[90%] md:w-auto cursor-default group"
     >
       <div
-        class="relative bg-white p-5 rounded-2xl shadow-2xl border border-pink-200 max-w-xs pointer-events-auto"
+        class="bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-2 border-pink-100 p-4 relative overflow-hidden flex items-center gap-5 transition-transform duration-300 hover:scale-[1.02]"
       >
         <button
-          class="absolute -top-3 -right-3 bg-white text-gray-400 hover:text-red-500 rounded-full p-1 shadow-md border border-gray-100 transition-colors"
-          onclick="document.getElementById('puppy-popup').classList.add('hidden')"
+          onclick="closeAppealPopup()"
+          class="absolute top-2 right-2 text-gray-300 hover:text-red-500 transition-all z-10 p-1 bg-white/80 rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100"
         >
-          <span class="material-symbols-outlined text-[20px]">close</span>
+          <span class="material-symbols-outlined text-base">close</span>
         </button>
-        <div class="flex flex-col items-center text-center gap-3">
-          <div
-            class="w-20 h-20 rounded-full overflow-hidden border-4 border-yellow-100 shadow-inner"
-          >
-            <img
-              alt="Cute Puppy"
-              class="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD45NfCcnRXJlwVO_fGCaWidmpn-2Z-UPAX4ikTLUOqM6biQYZh-Jz97QROEknf0eHKtsppwjdlUIwnD3DyWX9HiMkF1orjccU1HBEYyzRZjLHVbQPYHXN6zuaVomZ1DhfMwol_9DQ7KxTY4STbgH3lf3dlUdECtwKl_mejmPRUS8NpQaKhuqw_nDxcHb9c8n6IwpyaejIszzcbTjycAzM64BQhcXLH5sgc8sDMlFVa6KW_OW8Htfthr5FAKyfX46wcD7bTan3f1_E"
-            />
-          </div>
-          <div>
-            <h4 class="font-bold text-gray-900 text-lg">Chào bạn mới! 🐾</h4>
-            <p class="text-sm text-gray-500 mt-1">
-              Mình là Vàng. Bạn có muốn tìm hiểu thêm về quy trình nhận nuôi
-              không?
-            </p>
-            <button
-              class="mt-3 px-4 py-2 bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white text-sm font-bold rounded-full transition-colors shadow-sm w-full"
-            >
-              Tìm hiểu ngay
-            </button>
-          </div>
-        </div>
         <div
-          class="absolute -bottom-2 right-8 w-4 h-4 bg-white border-b border-r border-yellow-200 transform rotate-45"
-        ></div>
+          class="flex-shrink-0 relative size-24 rounded-xl overflow-hidden border-2 border-pink-200 shadow-sm pet-avatar-wobble"
+        >
+          <img
+            src="assets/picture/vang-hover.png"
+            class="w-full h-full object-cover"
+            alt="Pet waiting for adoption"
+          />
+        </div>
+        <div class="flex-1 pr-2">
+          <h4
+            class="text-sm font-bold text-primary mb-2 flex items-center gap-1"
+          >
+            <span
+              class="material-symbols-outlined text-sm animate-pulse fill-current"
+              >favorite</span
+            >
+            Một lời nhắn nhỏ
+          </h4>
+          <div class="relative">
+            <span
+              class="text-pink-200 text-3xl absolute -top-3 -left-2 font-serif leading-none"
+              >“</span
+            >
+            <p
+              class="text-[13px] text-gray-700 leading-relaxed italic relative z-10 pl-3"
+            >
+              Anh/chị ơi, có thể cho em xin một cái ôm không? Em hứa sẽ ngoan...
+            </p>
+            <span
+              class="text-pink-200 text-3xl absolute -bottom-4 right-0 font-serif leading-none"
+              >”</span
+            >
+          </div>
+          <a
+            href="#pet-section"
+            onclick="closeAppealPopup()"
+            class="mt-3 inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-primary to-secondary rounded-full text-white text-[11px] font-bold shadow-sm hover:shadow-md transition-all hover:scale-105"
+            >Đến gặp các bé ngay
+            <span class="material-symbols-outlined text-[12px]"
+              >arrow_forward</span
+            ></a
+          >
+        </div>
       </div>
     </div>
+
+    <div
+      id="popup-video-modal"
+      class="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center hidden opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl scale-95 transition-transform duration-300"
+      >
+        <button
+          onclick="closePopupVideo()"
+          class="absolute top-4 right-4 text-white hover:text-red-500 z-10"
+        >
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <iframe
+          id="popup-video-frame"
+          class="w-full h-full"
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <style>
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <div
+      class="fixed right-5 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4"
+    >
+      <a
+        href="https://m.me/61585477106241"
+        target="_blank"
+        class="group relative flex items-center justify-center w-12 h-12 bg-[#1877F2] rounded-full shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce-slow"
+      >
+        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+          <path
+            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+          />
+        </svg>
+        <span
+          class="absolute right-14 bg-gray-900 text-white text-xs font-bold py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none"
+        >
+          Theo dõi Facebook
+        </span>
+      </a>
+    </div>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // 1. Remove Loader safely to unlock scrolling
-        setTimeout(() => {
-          const loader = document.getElementById("page-loader");
-          if (loader) {
-            // Ensure it's hidden so it doesn't block clicks/scrolls
-            loader.style.display = "none";
+      /**
+       * ======================================================
+       * 1. KHAI BÁO BIẾN TOÀN CỤC & CẤU HÌNH
+       * ======================================================
+       */
+      let fullPetData = null;
+
+      /**
+       * ======================================================
+       * 2. HÀM TẢI COMPONENT (HEADER/FOOTER)
+       * ======================================================
+       */
+      async function loadComponent(id, file) {
+        try {
+          const response = await fetch(file);
+          if (!response.ok) throw new Error(`Không tìm thấy file: ${file}`);
+          const html = await response.text();
+          const element = document.getElementById(id);
+          if (element) {
+            element.innerHTML = html;
+            if (id === "header-placeholder") {
+              initHeaderLogic(); // Kích hoạt logic ngay khi Header vừa hiện diện
+            }
           }
-        }, 3500); // 2.5s delay + 1s animation
-        // 2. Show Popup after delay
-        setTimeout(() => {
-          const popup = document.getElementById("puppy-popup");
-          if (popup) {
-            popup.classList.remove("translate-y-20", "opacity-0");
-          }
-        }, 6000); // Show after 6 seconds
-        // 3. Header Scroll Logic
+        } catch (err) {
+          console.error("Lỗi tải component:", err);
+        }
+      }
+
+      /**
+       * ======================================================
+       * 3. LOGIC HEADER (LOGIN, SCROLL, MOBILE MENU)
+       * ======================================================
+       */
+      function initHeaderLogic() {
         const header = document.getElementById("main-header");
-        const handleScroll = () => {
-          if (window.scrollY > 100) {
-            header.classList.remove("-translate-y-full", "opacity-0");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navLinks = document.querySelectorAll("#nav-links a");
+        const icons = document.querySelectorAll(".header-icon");
+        const logoText = document.getElementById("logo-text");
+
+        if (!header) return;
+
+        // --- A. Kiểm tra và hiển thị trạng thái đăng nhập ---
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (currentUser) {
+          const loginButtons = Array.from(
+            document.querySelectorAll("button, a")
+          ).filter((el) => el.textContent.trim() === "Đăng nhập");
+
+          loginButtons.forEach((btn) => {
+            const userUI = document.createElement("div");
+            userUI.className =
+              "flex items-center gap-3 group relative cursor-pointer ml-2 pb-2";
+            userUI.innerHTML = `
+                    <div class="size-9 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-sm ring-2 ring-white">
+                        ${currentUser.ten.charAt(0).toUpperCase()}
+                    </div>
+                    <span class="hidden lg:block font-bold text-sm transition-colors duration-300 user-name-text">
+                        Hi, ${currentUser.ten}
+                    </span>
+                    <div class="absolute top-full right-0 pt-2 w-40 hidden group-hover:block z-[100] animate-fade-in">
+                        <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-1 text-gray-800">
+                            <a href="profile.html" class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 rounded-lg transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">person</span> Hồ sơ
+                            </a>
+                            <hr class="my-1 border-gray-50">
+                            <button onclick="logout()" class="w-full text-left flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg font-bold transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">logout</span> Đăng xuất
+                            </button>
+                        </div>
+                    </div>`;
+            btn.parentNode.replaceChild(userUI, btn);
+          });
+        }
+
+        // --- B. Hàm đổi màu Header khi cuộn trang ---
+        function setHeaderStyle() {
+          const isScrolled = window.scrollY > 50;
+          if (isScrolled) {
+            header.classList.add("bg-white", "text-gray-900", "shadow-md");
+            header.classList.remove("bg-transparent", "text-white");
+            navLinks.forEach((l) => {
+              l.classList.add("text-gray-600");
+              l.classList.remove("text-white");
+            });
+            icons.forEach((i) => i.classList.add("text-gray-600"));
+            document
+              .querySelectorAll(".user-name-text")
+              .forEach((t) => (t.style.color = "#111827"));
           } else {
-            header.classList.add("-translate-y-full", "opacity-0");
+            header.classList.remove("bg-white", "text-gray-900", "shadow-md");
+            header.classList.add("bg-transparent", "text-white");
+            navLinks.forEach((l) => {
+              l.classList.remove("text-gray-600");
+              l.classList.add("text-white");
+            });
+            icons.forEach((i) => i.classList.remove("text-gray-600"));
+            document
+              .querySelectorAll(".user-name-text")
+              .forEach((t) => (t.style.color = "#ffffff"));
+          }
+        }
+
+        window.addEventListener("scroll", setHeaderStyle);
+        setHeaderStyle();
+
+        // --- C. Logic Mobile Menu ---
+        window.toggleMobileMenu = function () {
+          if (!mobileMenu) return;
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.remove("hidden");
+            mobileMenu.classList.add("flex");
+            header.classList.add("bg-white", "text-gray-900");
+          } else {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+            setHeaderStyle();
           }
         };
-        window.addEventListener("scroll", handleScroll);
-        // 4. Follower Dog Logic (Improved)
+      }
+
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.reload();
+      }
+
+      /**
+       * ======================================================
+       * 4. DỮ LIỆU THÚ CƯNG (DATA & TOP PETS)
+       * ======================================================
+       */
+      async function initPetData() {
+        try {
+          const response = await fetch("assets/data/pets.json");
+          if (!response.ok) throw new Error("Không tải được file pets.json");
+          fullPetData = await response.json();
+          filterAndRender("all");
+          initTopPets();
+        } catch (error) {
+          console.error("Lỗi dữ liệu:", error);
+          document.getElementById(
+            "pet-grid-container"
+          ).innerHTML = `<p class="text-center col-span-full">Lỗi tải dữ liệu thú cưng.</p>`;
+        }
+      }
+
+      function filterAndRender(categoryId) {
+        if (!fullPetData) return;
+        let petsToRender = [];
+        if (categoryId === "all") {
+          fullPetData.categories.forEach(
+            (cat) => (petsToRender = [...petsToRender, ...cat.products])
+          );
+        } else {
+          const category = fullPetData.categories.find(
+            (cat) => cat.id === categoryId
+          );
+          if (category) petsToRender = category.products;
+        }
+        renderGrid(petsToRender);
+        updateActiveButton(categoryId);
+      }
+
+      function renderGrid(products) {
+        const container = document.getElementById("pet-grid-container");
+        if (!container) return;
+        container.innerHTML = products
+          .map(
+            (pet, index) => `
+            <div class="pet-card flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[19%] relative" style="animation: fade-in 0.5s ease-out ${
+              index * 0.1
+            }s forwards; opacity: 0;">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-1 transition-all duration-300">
+                    <div class="aspect-square relative overflow-hidden">
+                        <img src="${
+                          pet.defaultImage
+                        }" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-gray-900 truncate">${
+                          pet.name
+                        }</h3>
+                        <p class="text-sm text-gray-500">${
+                          pet.specs["Thông tin"]["Giống"]
+                        }</p>
+                    </div>
+                </div>
+            </div>`
+          )
+          .join("");
+      }
+
+      function initTopPets() {
+        const container = document.getElementById("top-pets-container");
+        if (!container || !fullPetData) return;
+
+        let topPets = JSON.parse(sessionStorage.getItem("myTopPets_v1"));
+        if (!topPets) {
+          let allPets = [];
+          fullPetData.categories.forEach(
+            (cat) => (allPets = [...allPets, ...cat.products])
+          );
+          const achievements = [
+            "Không cắn dép 3 ngày",
+            "Biết bắt tay xin ăn",
+            "Ngủ nướng giỏi nhất",
+            "Bắt được chuột",
+          ];
+          topPets = allPets
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 3)
+            .map((pet, i) => ({
+              ...pet,
+              achievement:
+                achievements[Math.floor(Math.random() * achievements.length)],
+              rankClass:
+                i === 1
+                  ? "transform md:-translate-y-6 shadow-2xl border-primary/30"
+                  : "shadow-xl border-yellow-100",
+            }));
+          sessionStorage.setItem("myTopPets_v1", JSON.stringify(topPets));
+        }
+
+        container.innerHTML = topPets
+          .map((pet, index) => {
+            const floatDelay = -(Math.random() * 5).toFixed(2);
+            const badgeHTML = pet.badge
+              ? `<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg z-20">${pet.badge}</div>`
+              : `<div class="absolute -top-4 -right-4 size-12 bg-yellow-400 rounded-full flex items-center justify-center text-white shadow-md z-20"><span class="material-symbols-outlined text-2xl animate-bounce">emoji_events</span></div>`;
+
+            return `
+    <div class="bg-white rounded-3xl p-4 transition-transform duration-300 relative border-2 ${pet.rankClass}" 
+         style="animation: floating 4s ease-in-out infinite ${floatDelay}s;">
+        ${badgeHTML}
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+            <img src="${pet.defaultImage}" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+        </div>
+        <div class="text-center">
+            <h3 class="text-xl font-bold text-gray-900">${pet.name}</h3>
+            <p class="text-sm text-yellow-600 font-bold mb-2">🏆 ${pet.achievement}</p>
+            <button onclick="location.href='#pet-section'" class="text-primary underline font-bold text-sm">Xem chi tiết</button>
+        </div>
+    </div>`;
+          })
+          .join("");
+      }
+
+      /**
+       * ======================================================
+       * 5. HIỆU ỨNG VÀ TIỆN ÍCH (SLIDER, MOUSE, POPUPS)
+       * ======================================================
+       */
+      function initHeroSlider() {
+        const track = document.getElementById("hero-track");
+        if (!track) return;
+        const slides = track.children.length;
+        let index = 0;
+        setInterval(() => {
+          index = (index + 1) % slides;
+          track.style.transform = `translateX(-${index * 100}%)`;
+        }, 6000);
+      }
+
+      function scrollPets(direction) {
+        const c = document.getElementById("pet-grid-container");
+        const amount = direction === "left" ? -c.clientWidth : c.clientWidth;
+        c.scrollBy({ left: amount, behavior: "smooth" });
+      }
+
+      function updateActiveButton(activeId) {
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          if (btn.dataset.id === activeId)
+            btn.className =
+              "filter-btn px-6 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md transition-transform active:scale-95";
+          else
+            btn.className =
+              "filter-btn px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-500 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95";
+        });
+      }
+
+      function initFollowerDog() {
         const dog = document.getElementById("follower-dog");
-        const walkingDogUrl = "https://api.iconify.design/noto:dog.svg";
-        const sittingDogUrl = "https://api.iconify.design/noto:dog-face.svg";
+        if (dog)
+          document.addEventListener("mousemove", (e) => {
+            dog.style.transform = `translate(${e.clientX - 32}px, ${
+              e.clientY - 50
+            }px)`;
+          });
+      }
+
+      function openPopupVideo() {
+        const m = document.getElementById("popup-video-modal");
+        const f = document.getElementById("popup-video-frame");
+        if (m) {
+          m.classList.remove("hidden");
+          setTimeout(() => m.classList.remove("opacity-0", "scale-95"), 10);
+          f.src = "assets/video/video-cho.mp4";
+        }
+      }
+
+      function closePopupVideo() {
+        const m = document.getElementById("popup-video-modal");
+        if (m) {
+          m.classList.add("opacity-0", "scale-95");
+          setTimeout(() => {
+            m.classList.add("hidden");
+            document.getElementById("popup-video-frame").src = "";
+          }, 300);
+        }
+      }
+
+      function initAppealPopup() {
+        setTimeout(() => {
+          const p = document.getElementById("pet-appeal-popup");
+          if (p) {
+            p.classList.remove("hidden");
+            p.classList.add("popup-animate-in");
+          }
+        }, 5000);
+      }
+
+      function closeAppealPopup() {
+        document.getElementById("pet-appeal-popup").style.display = "none";
+      }
+
+      /**
+       * ======================================================
+       * 6. KHỞI CHẠY HỆ THỐNG
+       * ======================================================
+       */
+      document.addEventListener("DOMContentLoaded", async () => {
+        // Tải Header & Footer đồng thời
+        await Promise.all([
+          loadComponent("header-placeholder", "assets/component/header.html"),
+          loadComponent("footer-placeholder", "assets/component/footer.html"),
+        ]);
+
+        // Khởi tạo các module
+        initPetData();
+        initHeroSlider();
+        initFollowerDog();
+        initAppealPopup();
+
+        // Ẩn Loader
+        setTimeout(() => {
+          const loader = document.getElementById("page-loader");
+          if (loader) loader.style.display = "none";
+        }, 800);
+      });
+      function initFollowerDog() {
+        const dog = document.getElementById("follower-dog");
+        if (!dog) return;
+
+        const idleURL = "https://api.iconify.design/noto:dog-face.svg";
+        const runURL = "https://api.iconify.design/noto:dog.svg";
+
         let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        let target = { x: pos.x, y: pos.y };
         let vel = { x: 0, y: 0 };
-        let target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        // Physics constants for more realistic movement
-        const SPRING = 0.05;
-        const FRICTION = 0.9;
         let isMoving = false;
-        if (dog) dog.style.backgroundImage = `url('${sittingDogUrl}')`;
-        // Update target on mousemove
+
         document.addEventListener("mousemove", (e) => {
           target.x = e.clientX;
           target.y = e.clientY;
         });
-        function animateDog() {
-          if (!dog) return;
-          // Physics calculation (Spring mass system)
+
+        function animate() {
           const dx = target.x - pos.x;
           const dy = target.y - pos.y;
-          const ax = dx * SPRING;
-          const ay = dy * SPRING;
-          vel.x += ax;
-          vel.y += ay;
-          vel.x *= FRICTION;
-          vel.y *= FRICTION;
+
+          vel.x += dx * 0.0015;
+          vel.y += dy * 0.0015;
+          vel.x *= 0.92;
+          vel.y *= 0.92;
+
           pos.x += vel.x;
           pos.y += vel.y;
+
           const speed = Math.sqrt(vel.x * vel.x + vel.y * vel.y);
-          const distanceToTarget = Math.sqrt(dx * dx + dy * dy);
-          // Determine state
-          // If moving fast or far from target -> Running
-          const isRunning = speed > 5 || distanceToTarget > 100;
-          if (isRunning) {
+          if (speed > 1) {
             if (!isMoving) {
               isMoving = true;
-              dog.style.backgroundImage = `url('${walkingDogUrl}')`;
+              dog.style.backgroundImage = `url('${runURL}')`;
             }
-            // Bobbing effect (simulate running steps)
-            // Faster frequency based on speed
-            const bobFreq = Date.now() / 60;
-            const bobAmp = Math.min(speed * 0.1, 8); // Amplitude depends on speed
-            const bobOffset = Math.sin(bobFreq) * bobAmp;
-            // Direction facing logic
-            // Noto Dog faces Left by default.
-            // If moving Right (vel.x > 0), flip it (-1).
-            const scaleX = vel.x > 0 ? -1 : 1;
-            // Tilt/Lean effect based on velocity
-            // Leaning into the run
-            const tilt = Math.max(-12, Math.min(12, vel.x * 1.5));
-            const rotateStr = `rotate(${scaleX === -1 ? tilt : -tilt}deg)`;
-            // Apply transform with bobbing
             dog.style.transform = `translate(${pos.x - 32}px, ${
-              pos.y - 50 + bobOffset
-            }px) scaleX(${scaleX}) ${rotateStr}`;
+              pos.y - 50
+            }px) scaleX(${vel.x > 0 ? 1 : -1})`;
           } else {
-            // If slow and close -> Sitting
             if (isMoving) {
               isMoving = false;
-              dog.style.backgroundImage = `url('${sittingDogUrl}')`;
+              dog.style.backgroundImage = `url('${idleURL}')`;
             }
-            // Breathing/Idle animation
-            const breathe = Math.sin(Date.now() / 800) * 3;
-            // When sitting, look straight (reset scaleX) and no bob
-            // Using scaleX(1) for Noto Dog Face (it's front facing, so 1 is normal)
-            dog.style.transform = `translate(${pos.x - 32}px, ${
-              pos.y - 50 + breathe
-            }px) scaleX(1)`;
+            dog.style.transform = `translate(${pos.x - 32}px, ${pos.y - 50}px)`;
           }
-          requestAnimationFrame(animateDog);
+          requestAnimationFrame(animate);
         }
-        animateDog();
-      });
+        dog.style.position = "fixed";
+        dog.style.width = "64px";
+        dog.style.height = "64px";
+        dog.style.zIndex = "9999";
+        dog.style.pointerEvents = "none";
+        dog.style.backgroundSize = "contain";
+        dog.style.backgroundRepeat = "no-repeat";
+        animate();
+      }
     </script>
   </body>
 </html>

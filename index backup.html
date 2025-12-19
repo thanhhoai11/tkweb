@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="vi">
+  <head>
+    <style>
+      /* Hiệu ứng hiện menu mượt mà */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.2s ease-out forwards;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FOURPAWS - Trang chủ nhận nuôi chó mèo</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9EAA",
+              "primary-hover": "#F472B6",
+              secondary: "#FCD34D",
+              "background-light": "#FFFFFF",
+            },
+            fontFamily: {
+              display: ["Spline Sans", "sans-serif"],
+              body: ["Noto Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/pet-card.css" />
+  </head>
+
+  <body
+    class="bg-background-light text-gray-800 font-display overflow-x-hidden antialiased selection:bg-pink-500 selection:text-white relative"
+  >
+    <div id="header-placeholder"></div>
+
+    <div
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-white animate-loader-fade"
+      id="page-loader"
+    >
+      <div class="relative w-32 h-32 flex flex-col items-center justify-center">
+        <div
+          class="absolute top-0 left-2 w-6 h-8 bg-primary rounded-full rotate-[-30deg] animate-paw-1"
+        ></div>
+        <div
+          class="absolute top-[-10px] left-10 w-6 h-9 bg-secondary rounded-full rotate-[-10deg] animate-paw-2"
+        ></div>
+        <div
+          class="absolute top-[-10px] right-10 w-6 h-9 bg-primary rounded-full rotate-[10deg] animate-paw-3"
+        ></div>
+        <div
+          class="absolute top-0 right-2 w-6 h-8 bg-secondary rounded-full rotate-[30deg] animate-paw-4"
+        ></div>
+        <div
+          class="absolute bottom-2 w-16 h-14 bg-gradient-to-t from-primary to-secondary rounded-[40%_40%_40%_40%/60%_60%_40%_40%] animate-paw-main"
+        ></div>
+      </div>
+    </div>
+
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <div class="layout-container parallax-wrapper" id="parallaxContainer">
+      <main class="flex-1">
+        <section
+          class="hero-section relative w-full h-[600px] sm:h-screen overflow-hidden group bg-gray-900"
+        >
+          <div
+            id="hero-track"
+            class="hero-track flex h-full transition-transform duration-500 ease-out cursor-grab active:cursor-grabbing"
+          >
+            <div class="hero-slide w-full h-full flex-shrink-0 relative">
+              <div
+                class="hero-bg absolute inset-0 bg-cover bg-center animate-blur-in"
+                style="background-image: url('assets/picture/banner-1.jpg')"
+              ></div>
+              <div
+                class="hero-content absolute inset-0 flex flex-col justify-end items-center text-center pb-20 px-4 sm:px-6 z-10"
+              >
+                <span
+                  class="px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest border border-white/20 mb-6 animate-fade-in-up"
+                  >Tìm bạn đồng hành</span
+                >
+                <h1
+                  class="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up"
+                  style="animation-delay: 0.2s"
+                >
+                  Mang yêu thương <br /><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                    >về nhà mới.</span
+                  >
+                </h1>
+                <p
+                  class="text-gray-200 text-lg sm:text-xl mb-10 max-w-2xl font-light drop-shadow animate-fade-in-up"
+                  style="animation-delay: 0.3s"
+                >
+                  Hàng ngàn chó mèo đang chờ đợi một mái ấm. Hãy mở rộng vòng
+                  tay và trái tim của bạn ngay hôm nay.
+                </p>
+                <div
+                  class="flex gap-4 animate-fade-in-up"
+                  style="animation-delay: 0.4s"
+                >
+                  <button
+                    class="h-14 px-10 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg shadow-pink-500/30 transition-transform hover:scale-105"
+                  >
+                    Tìm hiểu ngay
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hero-slide w-full h-full flex-shrink-0 relative">
+              <div
+                class="hero-bg absolute inset-0 bg-cover bg-center animate-blur-in"
+                style="background-image: url('assets/picture/banner-2.webp')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-gray-900/90"
+              ></div>
+              <div
+                class="hero-content absolute inset-0 flex flex-col justify-end items-center text-center pb-20 px-4 sm:px-6 z-10"
+              >
+                <span
+                  class="px-4 py-1.5 rounded-full bg-yellow-500/20 backdrop-blur-md text-yellow-300 text-xs font-bold uppercase tracking-widest border border-yellow-500/30 mb-6"
+                  >Sự kiện tháng 12</span
+                >
+                <h1
+                  class="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+                >
+                  Ngày hội <span class="text-secondary">Nhận nuôi</span>
+                  <br />Open Day 2025
+                </h1>
+                <div class="flex gap-4">
+                  <button
+                    class="h-14 px-10 rounded-full bg-white text-gray-900 hover:bg-gray-100 font-bold shadow-lg transition-transform hover:scale-105"
+                  >
+                    Đăng ký tham gia
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hero-slide w-full h-full flex-shrink-0 relative">
+              <div
+                class="hero-bg absolute inset-0 bg-cover bg-center animate-blur-in"
+                style="background-image: url('assets/picture/banner-3.webp')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-gray-900/90"
+              ></div>
+              <div
+                class="hero-content absolute inset-0 flex flex-col justify-end items-center text-center pb-20 px-4 sm:px-6 z-10"
+              >
+                <span
+                  class="px-4 py-1.5 rounded-full bg-pink-500/20 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest border border-pink-500/30 mb-6"
+                  >Câu chuyện cảm động</span
+                >
+                <h1
+                  class="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+                >
+                  Hành trình của <br /><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                    >Chú chó Vàng</span
+                  >
+                </h1>
+                <p
+                  class="text-gray-200 text-lg sm:text-xl mb-10 max-w-2xl font-light drop-shadow"
+                >
+                  Từ một chú chó bị bỏ rơi đến ngôi sao sáng nhất của trạm cứu
+                  hộ FOURPAWS.
+                </p>
+                <div
+                  class="flex gap-4 items-center animate-fade-in-up"
+                  style="animation-delay: 0.3s"
+                >
+                  <button
+                    onclick="openPopupVideo()"
+                    class="group h-16 w-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer"
+                  >
+                    <span
+                      class="material-symbols-outlined text-4xl fill-current"
+                      >play_arrow</span
+                    >
+                  </button>
+                  <button
+                    class="h-14 px-8 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg transition-transform hover:scale-105"
+                  >
+                    Đọc câu chuyện
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            id="prev-slide"
+            class="hero-nav-btn hero-prev absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center transition-all hover:scale-110 z-20 group-hover:opacity-100 opacity-0 md:opacity-100"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button
+            id="next-slide"
+            class="hero-nav-btn hero-next absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center transition-all hover:scale-110 z-20 group-hover:opacity-100 opacity-0 md:opacity-100"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+          <div
+            id="slider-dots"
+            class="hero-dots-container absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20"
+          ></div>
+        </section>
+
+        <section
+          class="px-4 sm:px-6 lg:px-8 py-12 bg-white relative"
+          id="pet-section"
+        >
+          <div class="max-w-[1280px] mx-auto">
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
+            >
+              <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-1">
+                  Các bé đang chờ
+                </h2>
+                <p class="text-gray-500 text-sm">
+                  Trượt để xem thêm các bé khác 🐾
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <button
+                  onclick="filterAndRender('all')"
+                  data-id="all"
+                  class="filter-btn px-6 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md transition-transform active:scale-95"
+                >
+                  Tất cả
+                </button>
+                <button
+                  onclick="filterAndRender('dog')"
+                  data-id="dog"
+                  class="filter-btn px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95"
+                >
+                  Chó
+                </button>
+                <button
+                  onclick="filterAndRender('cat')"
+                  data-id="cat"
+                  class="filter-btn px-6 py-2 rounded-full bg-white border border-gray-200 text-gray-600 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95"
+                >
+                  Mèo
+                </button>
+              </div>
+            </div>
+            <section
+              class="py-16 bg-yellow-50 relative overflow-hidden"
+              id="top-pets-section"
+            >
+              <div
+                class="absolute top-0 right-0 w-64 h-64 bg-yellow-200 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2"
+              ></div>
+
+              <div
+                class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+              >
+                <div class="text-center mb-10">
+                  <span
+                    class="text-secondary font-bold text-sm uppercase tracking-wider"
+                    >Hall of Fame</span
+                  >
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+                    🏆 Những Bé Ngoan Nhất Tuần
+                  </h2>
+                </div>
+
+                <div
+                  id="top-pets-container"
+                  class="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
+                  <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+                  <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+                  <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+                </div>
+              </div>
+            </section>
+            <div class="relative group">
+              <button
+                onclick="scrollPets('left')"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <div
+                id="pet-grid-container"
+                class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar py-4 px-1"
+              ></div>
+              <button
+                onclick="scrollPets('right')"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+
+            <div class="flex justify-center mt-8">
+              <button
+                class="flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 hover:border-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white text-gray-600 font-medium transition-all"
+              >
+                Xem toàn bộ danh sách
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-white via-pink-50/30 to-yellow-50/30 relative overflow-hidden"
+        >
+          <div class="floating-dots-container">
+            <div
+              class="dot w-4 h-4 left-[10%] top-[20%] animate-float-1 bg-primary"
+            ></div>
+            <div
+              class="dot w-6 h-6 left-[80%] top-[15%] animate-float-2 bg-secondary"
+            ></div>
+            <div
+              class="dot w-3 h-3 left-[40%] top-[60%] animate-float-3 bg-primary"
+            ></div>
+            <div
+              class="dot w-5 h-5 left-[90%] top-[80%] animate-float-1 bg-secondary"
+            ></div>
+            <div
+              class="dot w-2 h-2 left-[20%] top-[90%] animate-float-2 bg-primary"
+            ></div>
+            <div
+              class="dot w-8 h-8 left-[50%] top-[10%] opacity-20 animate-float-3 bg-yellow-100"
+            ></div>
+          </div>
+          <div class="max-w-[1280px] mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+              <div class="w-full md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  Quy trình nhận nuôi <br /><span class="text-primary-hover"
+                    >Đơn giản & Minh bạch</span
+                  >
+                </h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                  Chúng tôi cố gắng làm cho quá trình nhận nuôi trở nên dễ dàng
+                  nhất có thể.
+                </p>
+                <div class="space-y-6"></div>
+              </div>
+              <div class="w-full md:w-1/2 relative">
+                <div
+                  class="aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 hover:scale-105"
+                >
+                  <div
+                    class="w-full h-full bg-cover bg-center"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXE852oLEKo6ysxhR-uj672d2j0WayBFcZHhDQF4uioDrYfS14d1uE6Kv9VTIaORw7GASXf_K9GLqVO4_BXo0deODoRJxEWrOOpSIVyrhJ6nkC2YZy79MXzumLpyZIR5qujjDYHfSCOISpQdLR7OHA7ShkhB0uWr_agrQP90s8stKPsbDCa5uOUSXDPTFDV6e-bJgcEydqPHvFgLiOk-Qt4vCajrMJ4zMYhEExEytysmueeaRqcVlqa7k_YcegGzEKMrOK4Xs-msc');
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden bg-white mouse-trail-area"
+          id="about-us"
+          onmousemove="handleMouseMove(event)"
+        >
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-primary to-secondary blur-[100px] opacity-20 rounded-full pointer-events-none"
+          ></div>
+
+          <div class="max-w-[1280px] mx-auto relative z-10 cursor-none">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+              <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Về FOURPAWS
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                  >Family</span
+                >
+              </h2>
+              <p class="text-gray-600 text-lg leading-relaxed">
+                Chúng tôi không chỉ là một trạm cứu hộ, mà là ngôi nhà tạm thời
+                tràn đầy tình thương. Sứ mệnh của FOURPAWS là chữa lành những
+                vết thương và kết nối những trái tim cô đơn lại với nhau.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div
+                class="group bg-white border border-gray-100 rounded-3xl p-8 shadow-lg shadow-pink-50 hover:border-primary transition-all duration-300 hover:-translate-y-2"
+              >
+                <div
+                  class="size-16 rounded-2xl bg-pink-50 text-primary-hover flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[32px]"
+                    >flag</span
+                  >
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Mục tiêu</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  Xây dựng cộng đồng nhận nuôi văn minh, nơi mỗi thú cưng đều
+                  được định danh và chăm sóc.
+                </p>
+              </div>
+              <div
+                class="group bg-white border border-gray-100 rounded-3xl p-8 shadow-lg shadow-pink-50 hover:border-primary transition-all duration-300 hover:-translate-y-2"
+              >
+                <div
+                  class="size-16 rounded-2xl bg-pink-50 text-primary-hover flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[32px]"
+                    >rocket_launch</span
+                  >
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Tầm nhìn</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  Trở thành hệ sinh thái bảo trợ động vật hàng đầu, lan tỏa
+                  thông điệp "Nhận nuôi thay vì mua bán".
+                </p>
+              </div>
+              <div
+                class="group bg-white border border-gray-100 rounded-3xl p-8 shadow-lg shadow-pink-50 hover:border-primary transition-all duration-300 hover:-translate-y-2"
+              >
+                <div
+                  class="size-16 rounded-2xl bg-pink-50 text-primary-hover flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[32px]"
+                    >diversity_1</span
+                  >
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Đội ngũ</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  Đội ngũ bác sĩ thú y giàu kinh nghiệm và mạng lưới tình nguyện
+                  viên tận tâm 24/7.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 bg-gradient-to-r from-pink-50 to-yellow-50 border border-pink-100 rounded-3xl p-8 md:p-12"
+            >
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                  Gặp gỡ những người hùng thầm lặng
+                </h3>
+                <p class="text-gray-600">
+                  Đội ngũ của chúng tôi làm việc không ngừng nghỉ vì nụ cười của
+                  các bé.
+                </p>
+              </div>
+              <div class="flex items-center -space-x-4">
+                <div
+                  class="size-12 rounded-full border-2 border-white bg-blue-400 flex items-center justify-center text-white font-bold text-xs"
+                >
+                  AN
+                </div>
+                <div
+                  class="size-12 rounded-full border-2 border-white bg-purple-400 flex items-center justify-center text-white font-bold text-xs"
+                >
+                  BK
+                </div>
+                <div
+                  class="size-12 rounded-full border-2 border-white bg-yellow-600 flex items-center justify-center text-white font-bold text-xs"
+                >
+                  CL
+                </div>
+                <div
+                  class="size-12 rounded-full border-2 border-white bg-white flex items-center justify-center text-xs text-primary font-bold shadow-sm cursor-pointer"
+                >
+                  +20
+                </div>
+              </div>
+              <button
+                class="h-12 px-8 rounded-full border border-primary text-primary-hover font-bold hover:bg-primary hover:text-white transition-colors"
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="px-4 sm:px-6 lg:px-8 py-20">
+          <div
+            class="max-w-[960px] mx-auto bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-2xl shadow-pink-200 group clip-fix"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/paw-prints.png')] animate-pulse"
+            ></div>
+            <div class="relative z-10">
+              <span
+                class="material-symbols-outlined text-4xl text-white mb-4 drop-shadow-sm group-hover:scale-110 transition-transform"
+                >mail</span
+              >
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                Đừng bỏ lỡ tin tức từ trạm
+              </h2>
+              <p class="text-gray-800/80 mb-8 max-w-lg mx-auto font-medium">
+                Đăng ký nhận tin để cập nhật về các bé mới, sự kiện gây quỹ và
+                những câu chuyện cảm động.
+              </p>
+              <form
+                class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                onsubmit="event.preventDefault()"
+              >
+                <input
+                  class="flex-1 h-12 px-4 rounded-full bg-white/40 border-2 border-white/20 placeholder-gray-700 text-gray-900 focus:outline-none focus:border-white focus:bg-white/70 transition-colors"
+                  placeholder="Email của bạn..."
+                  type="email"
+                />
+                <button
+                  class="h-12 px-8 rounded-full bg-gray-900 text-white font-bold hover:bg-black transition-colors shadow-lg hover:shadow-xl hover:scale-105 transform duration-200"
+                >
+                  Đăng ký
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <div id="follower-dog"></div>
+
+    <div
+      id="pet-appeal-popup"
+      class="fixed bottom-5 left-5 z-[90] hidden max-w-[380px] w-[90%] md:w-auto cursor-default group"
+    >
+      <div
+        class="bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-2 border-pink-100 p-4 relative overflow-hidden flex items-center gap-5 transition-transform duration-300 hover:scale-[1.02]"
+      >
+        <button
+          onclick="closeAppealPopup()"
+          class="absolute top-2 right-2 text-gray-300 hover:text-red-500 transition-all z-10 p-1 bg-white/80 rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100"
+        >
+          <span class="material-symbols-outlined text-base">close</span>
+        </button>
+        <div
+          class="flex-shrink-0 relative size-24 rounded-xl overflow-hidden border-2 border-pink-200 shadow-sm pet-avatar-wobble"
+        >
+          <img
+            src="assets/picture/vang-hover.png"
+            class="w-full h-full object-cover"
+            alt="Pet waiting for adoption"
+          />
+        </div>
+        <div class="flex-1 pr-2">
+          <h4
+            class="text-sm font-bold text-primary mb-2 flex items-center gap-1"
+          >
+            <span
+              class="material-symbols-outlined text-sm animate-pulse fill-current"
+              >favorite</span
+            >
+            Một lời nhắn nhỏ
+          </h4>
+          <div class="relative">
+            <span
+              class="text-pink-200 text-3xl absolute -top-3 -left-2 font-serif leading-none"
+              >“</span
+            >
+            <p
+              class="text-[13px] text-gray-700 leading-relaxed italic relative z-10 pl-3"
+            >
+              Anh/chị ơi, có thể cho em xin một cái ôm không? Em hứa sẽ ngoan...
+            </p>
+            <span
+              class="text-pink-200 text-3xl absolute -bottom-4 right-0 font-serif leading-none"
+              >”</span
+            >
+          </div>
+          <a
+            href="#pet-section"
+            onclick="closeAppealPopup()"
+            class="mt-3 inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-primary to-secondary rounded-full text-white text-[11px] font-bold shadow-sm hover:shadow-md transition-all hover:scale-105"
+            >Đến gặp các bé ngay
+            <span class="material-symbols-outlined text-[12px]"
+              >arrow_forward</span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="popup-video-modal"
+      class="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center hidden opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl scale-95 transition-transform duration-300"
+      >
+        <button
+          onclick="closePopupVideo()"
+          class="absolute top-4 right-4 text-white hover:text-red-500 z-10"
+        >
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <iframe
+          id="popup-video-frame"
+          class="w-full h-full"
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <script>
+      // 1. HÀM LOAD COMPONENT (HEADER/FOOTER)
+      async function loadComponent(id, file) {
+        try {
+          const response = await fetch(file);
+          if (!response.ok) throw new Error(`Không tìm thấy file: ${file}`);
+          const html = await response.text();
+          const element = document.getElementById(id);
+          if (element) {
+            element.innerHTML = html;
+            if (id === "header-placeholder") {
+              initHeaderLogic(); // Chỉ gọi logic sau khi header đã hiện diện
+            }
+          }
+        } catch (err) {
+          console.error("Lỗi tải component:", err);
+        }
+      }
+
+      // 2. TẤT CẢ LOGIC CỦA HEADER (Gộp chung vào đây)
+      function initHeaderLogic() {
+        const header = document.getElementById("main-header");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navLinks = document.querySelectorAll("#nav-links a");
+        const icons = document.querySelectorAll(".header-icon");
+        const logoText = document.getElementById("logo-text");
+
+        if (!header) return;
+
+        // --- A. Kiểm tra trạng thái đăng nhập ---
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (currentUser) {
+          const loginButtons = Array.from(
+            document.querySelectorAll("button, a")
+          ).filter((el) => el.textContent.trim() === "Đăng nhập");
+
+          loginButtons.forEach((btn) => {
+            // --- Tìm và thay thế đoạn tạo userUI trong initHeaderLogic ---
+            const userUI = document.createElement("div");
+            // Thêm pb-2 để mở rộng vùng hover xuống dưới
+            userUI.className =
+              "flex items-center gap-3 group relative cursor-pointer ml-2 pb-2";
+            userUI.innerHTML = `
+    <div class="size-9 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-sm ring-2 ring-white">
+        ${currentUser.ten.charAt(0).toUpperCase()}
+    </div>
+    <span class="hidden lg:block font-bold text-sm transition-colors duration-300 user-name-text">
+        Hi, ${currentUser.ten}
+    </span>
+    
+    <div class="absolute top-full right-0 pt-2 w-40 hidden group-hover:block z-[100] animate-fade-in">
+        <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-1">
+            <a href="profile.html" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg transition-colors">
+                <span class="material-symbols-outlined text-[18px]">person</span> Hồ sơ
+            </a>
+            <hr class="my-1 border-gray-50">
+            <button onclick="logout()" class="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg font-bold transition-colors">
+                <span class="material-symbols-outlined text-[18px]">logout</span> Đăng xuất
+            </button>
+        </div>
+    </div>`;
+            btn.parentNode.replaceChild(userUI, btn);
+          });
+        }
+
+        // --- B. Hàm đổi màu Header khi scroll ---
+        function setHeaderStyle() {
+          const isWhite = window.scrollY > 50;
+          if (isWhite) {
+            header.classList.add("bg-white", "text-gray-900", "shadow-md");
+            header.classList.remove("bg-transparent", "text-white");
+            navLinks.forEach((l) => {
+              l.classList.add("text-gray-600");
+              l.classList.remove("text-white");
+            });
+            icons.forEach((i) => i.classList.add("text-gray-600"));
+            document
+              .querySelectorAll(".user-name-text")
+              .forEach((t) => (t.style.color = "#111827"));
+          } else {
+            header.classList.remove("bg-white", "text-gray-900", "shadow-md");
+            header.classList.add("bg-transparent", "text-white");
+            navLinks.forEach((l) => {
+              l.classList.remove("text-gray-600");
+              l.classList.add("text-white");
+            });
+            icons.forEach((i) => i.classList.remove("text-gray-600"));
+            document
+              .querySelectorAll(".user-name-text")
+              .forEach((t) => (t.style.color = "#ffffff"));
+          }
+        }
+
+        window.addEventListener("scroll", setHeaderStyle);
+        setHeaderStyle();
+
+        // --- C. Logic Mobile Menu ---
+        window.toggleMobileMenu = function () {
+          if (!mobileMenu) return;
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.remove("hidden");
+            mobileMenu.classList.add("flex");
+            header.classList.add("bg-white", "text-gray-900"); // Luôn trắng khi mở menu
+          } else {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+            setHeaderStyle();
+          }
+        };
+      }
+
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.reload();
+      }
+
+      // 3. LOGIC PET DATA & TOP PETS
+      let fullPetData = null;
+      async function initPetData() {
+        try {
+          const response = await fetch("assets/data/pets.json");
+          fullPetData = await response.json();
+          filterAndRender("all");
+          initTopPets();
+        } catch (error) {
+          console.error("Lỗi data:", error);
+        }
+      }
+
+      function initTopPets() {
+        const container = document.getElementById("top-pets-container");
+        if (!container || !fullPetData) return;
+
+        // Sử dụng logic random và lưu SessionStorage như của bạn
+        const achievements = [
+          "Không cắn dép 3 ngày",
+          "Biết đi vệ sinh đúng chỗ",
+          "Ngủ nướng giỏi nhất",
+          "Biết bắt tay xin ăn",
+        ];
+        let topPets = JSON.parse(sessionStorage.getItem("myTopPets_v1"));
+
+        if (!topPets) {
+          let allPets = [];
+          fullPetData.categories.forEach(
+            (cat) => (allPets = [...allPets, ...cat.products])
+          );
+          topPets = allPets
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 3)
+            .map((pet, i) => ({
+              ...pet,
+              achievement:
+                achievements[Math.floor(Math.random() * achievements.length)],
+              rankClass:
+                i === 1
+                  ? "transform md:-translate-y-6 shadow-2xl border-primary/30"
+                  : "shadow-xl border-yellow-100",
+            }));
+          sessionStorage.setItem("myTopPets_v1", JSON.stringify(topPets));
+        }
+
+        container.innerHTML = topPets
+          .map(
+            (pet) => `
+      <div class="bg-white rounded-3xl p-4 transition-transform duration-300 relative border-2 ${pet.rankClass}">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+          <img src="${pet.defaultImage}" class="w-full h-full object-cover">
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-bold text-gray-900">${pet.name}</h3>
+          <p class="text-sm text-yellow-600 font-bold mb-2">🏆 ${pet.achievement}</p>
+          <button onclick="location.href='#pet-section'" class="text-primary underline font-bold text-sm">Xem chi tiết</button>
+        </div>
+      </div>`
+          )
+          .join("");
+      }
+
+      // 4. RENDER GRID & FILTER (Giữ nguyên các hàm bổ trợ)
+      function filterAndRender(categoryId) {
+        if (!fullPetData) return;
+        let pets =
+          categoryId === "all"
+            ? fullPetData.categories.flatMap((c) => c.products)
+            : fullPetData.categories.find((c) => c.id === categoryId).products;
+        renderGrid(pets);
+      }
+
+      function renderGrid(products) {
+        const container = document.getElementById("pet-grid-container");
+        container.innerHTML = products
+          .map(
+            (pet) => `
+      <div class="pet-card reveal-card flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[19%] relative">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:-translate-y-1 transition-all">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="${pet.defaultImage}" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900">${pet.name}</h3>
+            <p class="text-sm text-gray-500">${pet.specs["Thông tin"]["Giống"]}</p>
+          </div>
+        </div>
+      </div>`
+          )
+          .join("");
+      }
+
+      function scrollPets(dir) {
+        const c = document.getElementById("pet-grid-container");
+        c.scrollBy({
+          left: dir === "left" ? -c.clientWidth : c.clientWidth,
+          behavior: "smooth",
+        });
+      }
+
+      // 5. HERO SLIDER & EXTRAS (Video, Follower...)
+      function initHeroSlider() {
+        const track = document.getElementById("hero-track");
+        if (!track) return;
+        let index = 0;
+        const slides = track.children.length;
+        setInterval(() => {
+          index = (index + 1) % slides;
+          track.style.transform = `translateX(-${index * 100}%)`;
+        }, 6000);
+      }
+
+      function initFollowerDog() {
+        const dog = document.getElementById("follower-dog");
+        if (dog)
+          document.addEventListener("mousemove", (e) => {
+            dog.style.transform = `translate(${e.clientX - 32}px, ${
+              e.clientY - 50
+            }px)`;
+          });
+      }
+
+      // 6. KHỞI CHẠY CHƯƠNG TRÌNH
+      document.addEventListener("DOMContentLoaded", async () => {
+        // Load components trước
+        await Promise.all([
+          loadComponent("header-placeholder", "assets/component/header.html"),
+          loadComponent("footer-placeholder", "assets/component/footer.html"),
+        ]);
+
+        // Sau đó mới chạy các init khác
+        initPetData();
+        initHeroSlider();
+        initFollowerDog();
+
+        // Tắt loader
+        setTimeout(() => {
+          document.getElementById("page-loader").style.display = "none";
+        }, 800);
+      });
+
+      function openPopupVideo() {
+        /* Logic video cũ */
+      }
+      function closePopupVideo() {
+        /* Logic video cũ */
+      }
+      function closeAppealPopup() {
+        document.getElementById("pet-appeal-popup").style.display = "none";
+      }
+    </script>
+
+    <style>
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <div
+      class="fixed right-5 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4"
+    >
+      <a
+        href="https://m.me/61585477106241"
+        target="_blank"
+        class="group relative flex items-center justify-center w-12 h-12 bg-[#1877F2] rounded-full shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce-slow"
+      >
+        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+          <path
+            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+          />
+        </svg>
+        <span
+          class="absolute right-14 bg-gray-900 text-white text-xs font-bold py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none"
+        >
+          Theo dõi Facebook
+        </span>
+      </a>
+    </div>
+  </body>
+</html>
