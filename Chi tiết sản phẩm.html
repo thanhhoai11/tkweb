@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium Puppy Kibble</title>
+  <link rel="stylesheet" href="Chi tiết sản phẩm.css">
+</head>
+<body>
+
+<div class="product-page">
+
+  <!-- LEFT -->
+  <div class="product-images">
+    <img id="mainImg" class="main-img" src="https://picsum.photos/id/11/800/800">
+
+    <div class="thumbs">
+      <img src="https://picsum.photos/id/11/200/200" class="active">
+      <img src="https://picsum.photos/id/12/200/200">
+      <img src="https://picsum.photos/id/13/200/200">
+      <img src="https://picsum.photos/id/14/200/200">
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="product-info">
+    <span class="category">DOG • FOOD</span>
+    <h1>Premium Puppy Kibble</h1>
+
+    <div class="price-row">
+      <span class="price">$45.99</span>
+      <span class="stars">★★★★★</span>
+      <span class="rating">(4.8 / 5.0)</span>
+    </div>
+
+    <p class="desc">
+      High-protein formula for growing puppies. Contains real chicken and essential minerals.
+      We use only the finest ingredients to ensure your pet stays happy and healthy.
+    </p>
+
+    <div class="actions">
+      <div class="qty">
+        <button id="minus">-</button>
+        <span id="qty">1</span>
+        <button id="plus">+</button>
+      </div>
+      <button class="btn-cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="features">
+      <div>✔<br>QUALITY GUARANTEED</div>
+      <div>🚚<br>EXPRESS DELIVERY</div>
+      <div>↩<br>EASY RETURNS</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active">Info</button>
+      <button class="tab">Reviews</button>
+      <button class="tab">Care</button>
+    </div>
+
+    <div class="tab-content">
+      <p><i>"My cat absolutely loves this! Worth every penny."</i> – Sarah M. ★★★★★</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script>
+  // thumbnails
+  const mainImg = document.getElementById("mainImg");
+  const thumbs = document.querySelectorAll(".thumbs img");
+
+  thumbs.forEach(img => {
+    img.onclick = () => {
+      thumbs.forEach(t => t.classList.remove("active"));
+      img.classList.add("active");
+      mainImg.src = img.src.replace("200/200", "800/800");
+    };
+  });
+
+  // quantity
+  let qty = 1;
+  const qtyEl = document.getElementById("qty");
+
+  document.getElementById("plus").onclick = () => {
+    qty++;
+    qtyEl.textContent = qty;
+  };
+
+  document.getElementById("minus").onclick = () => {
+    if (qty > 1) qty--;
+    qtyEl.textContent = qty;
+  };
+</script>
+
+</body>
+</html>

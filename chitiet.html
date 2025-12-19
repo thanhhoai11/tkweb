@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Chi tiết thú cưng</title>
+  <link rel="stylesheet" href="danhmuc.css">
+</head>
+<body>
+
+<h2 class="block-title reveal">Chi tiết thú cưng</h2>
+
+<div class="container reveal">
+
+  <div style="display:flex; gap:40px; flex-wrap:wrap">
+
+    <!-- ẢNH -->
+    <div style="flex:1; min-width:300px">
+      <img id="mainImage"
+           src=""
+           style="width:100%; border-radius:16px">
+    </div>
+
+    <!-- THÔNG TIN -->
+    <div style="flex:1; min-width:300px">
+      <h2 id="petName"></h2>
+
+      <p><b>Giới tính:</b> <span id="gender"></span></p>
+      <p><b>Tuổi:</b> <span id="age"></span></p>
+      <p><b>Triệt sản:</b> <span id="sterilized"></span></p>
+      <p><b>Tiêm phòng:</b> <span id="vaccinated"></span></p>
+      <p><b>Màu sắc:</b> <span id="color"></span></p>
+
+      <div style="margin-top:20px; display:flex; gap:15px">
+        <button class="btn-search">🐾 Nhận nuôi</button>
+        <button class="btn-search" style="background:#555">
+          ❓ Bạn có gì thắc mắc?
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JSON giữ nguyên -->
+<script id="pets-data" type="application/json">
+<!-- copy JSON từ trang danh mục -->
+</script>
+
+<script src="detail.js"></script>
+</body>
+</html>
