@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Spa & Grooming - Paws & Whiskers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gioithieu.css">
+</head>
+<body>
+<section class="banner-slider">
+    <!-- Nút mũi tên -->
+    <button class="arrow left" id="prevBtn">❮</button>
+    <button class="arrow right" id="nextBtn">❯</button>
+
+    <div class="banner-track" id="bannerTrack">
+        <!-- SLIDE 1 -->
+        <div class="banner slide slide-pink">
+            <div class="banner-inner">
+                <div class="banner-content">
+                    <span class="badge">Dịch vụ đặc biệt</span>
+                    <h1>Dịch Vụ Spa Đẳng Cấp</h1>
+                    <p>Chăm sóc vẻ đẹp toàn diện cho thú cưng của bạn bằng tất cả sự tận tâm và chuyên nghiệp nhất.</p>
+                    <button class="btn-yellow">Khám phá ngay</button>
+                </div>
+
+                <div class="comparison-slider">
+                    <div class="image-after"></div>
+                    <div class="image-before" id="beforeImg">
+                        <span class="label-before">Lấm bẩn</span>
+                    </div>
+                    <span class="label-after">Tỏa sáng</span>
+                    <input type="range" min="0" max="100" value="50" class="slider-handle" id="sliderInput">
+                    <div class="slider-button" id="sliderBtn"></div>
+                </div>
+            </div>
+        </div> 
+        <!-- SLIDE 2 -->
+        <div class="banner slide image-slide">
+            <div class="image-slide-bg" style="background-image:url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1000')"></div>
+            <div class="image-slide-overlay"></div>
+            <div class="image-slide-content">
+                <h1>Mái nhà cho<br>động vật nhỏ</h1>
+                <p>Nơi yêu thương, chăm sóc và bảo vệ các bé mỗi ngày</p>
+                <button class="btn-yellow">Tìm hiểu thêm</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1000" alt="Pet care">
+    </div>
+    <div class="about-content">
+        <span class="tag-yellow">Câu chuyện của chúng tôi</span>
+        <h2>Vì Thú Cưng Xứng Đáng Với Những <span class="pink-text">Điều Tốt Nhất</span></h2>
+        <p>Chúng tôi cung cấp giải pháp chăm sóc sức khỏe và làm đẹp toàn diện, giúp bé yêu của bạn luôn tự tin và hạnh phúc.</p>
+        
+        <div class="features">
+            <div class="feature-item"><div class="feature-icon">⭐</div> Chuẩn 5 Sao</div>
+            <div class="feature-item"><div class="feature-icon">❤️</div> Tận Tâm & Yêu Thương</div>
+            <div class="feature-item"><div class="feature-icon">🛡️</div> An Toàn Tuyệt Đối</div>
+            <div class="feature-item"><div class="feature-icon">🌿</div> Sản Phẩm Hữu Cơ</div>
+        </div>
+
+        <button class="btn-dark">Liên hệ ngay <span>→</span></button>
+    </div>
+</section>
+
+<section class="services">
+    <p style="color: var(--primary-pink); font-weight: 700; font-size: 13px;">CHÚNG TÔI CÓ GÌ?</p>
+    <h2 style="font-size: 2.5rem;">Dịch Vụ Tận Tâm</h2>
+    <div class="service-grid">
+        <div class="service-card">
+            <span class="service-icon">✂️</span>
+            <h3>Spa & Grooming</h3>
+            <p>Tắm, sấy, cắt tỉa lông chuyên nghiệp bởi các chuyên gia giàu kinh nghiệm.</p>
+            <a href="#">Xem thêm →</a>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🏠</span>
+            <h3>Khách Sạn Thú Cưng</h3>
+            <p>Không gian sống thoải mái, sạch sẽ và an toàn tuyệt đối cho bé khi bạn vắng nhà.</p>
+            <a href="#">Xem thêm →</a>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">💉</span>
+            <h3>Y Tế & Tiêm Chủng</h3>
+            <p>Kiểm tra sức khỏe định kỳ và tư vấn dinh dưỡng cho mọi lứa tuổi.</p>
+            <a href="#">Xem thêm →</a>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🎾</span>
+            <h3>Huấn Luyện Viên</h3>
+            <p>Giúp bé ngoan ngoãn hơn với các bài tập kỹ năng cơ bản đến nâng cao.</p>
+            <a href="#">Xem thêm →</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Xử lý kéo thanh trượt Before/After
+    const sliderInput = document.getElementById('sliderInput');
+    const beforeImg = document.getElementById('beforeImg');
+    const sliderBtn = document.getElementById('sliderBtn');
+
+    sliderInput.addEventListener('input', (e) => {
+        let value = e.target.value;
+        beforeImg.style.width = value + "%";
+        sliderBtn.style.left = value + "%";
+    });
+</script>
+
+<script>
+    const track = document.getElementById('bannerTrack');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let index = 0;
+
+    function updateSlide() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        updateSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateSlide();
+    });
+</script>
+</body>
+</html>
