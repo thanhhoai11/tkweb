@@ -1,0 +1,497 @@
+.banner{
+    position: relative;  /* tạo môi trường để đặt chữ */
+    display: inline-block;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-on-image {
+    position: absolute;
+    top: 50%;       /* đặt chữ giữa ảnh */
+    left: 15%;
+    transform: translate(-50%, -120%);
+    color: white;   /* màu chữ */
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.block-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.block-title:hover {
+    color: #e91e63;
+    transform: translateX(4px);
+}
+
+.quytrinh {
+    flex: 1;  
+}
+
+.quytrinh h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+.quytrinh ol li{
+    font-size: 25px;
+    line-height: 1.7;
+}
+
+.quytrinh p {
+    font-size: 23px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.dieukien {
+    flex: 0 0 320px;;
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+
+.dieukien h3 {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.dieukien ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.dieukien ul li {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 8px 14px 8px 35px; /* trái rộng để chứa sticker */
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 20px;
+}
+
+.dieukien ul li::before {
+    content: "🐾";
+    position: absolute;
+    left: 5px;            
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;      
+}
+
+.luuy {
+    max-width: 1200px;
+    margin: 30px auto 60px;
+}
+
+.luuy ul {
+    padding-left: 20px;
+}
+
+.luuy ul li {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+
+.bannerbottom {
+    position: relative;
+    margin-top: 60px;
+}
+.banner img,
+.bannerbottom img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0 !important;
+     transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.banner:hover img,
+.bannerbottom:hover img {
+    transform: scale(1.03);
+    filter: brightness(0.85);
+}
+
+.find-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-section {
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.filter-type {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.filter-type button {
+    border: none;
+    padding: 12px 30px;
+    border-radius: 999px;
+    font-size: 18px;
+    background: #ffcc00;   /* MẶC ĐỊNH VÀNG */
+    color: #000;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-type button:hover {
+    background: #e91e63;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+.filter-type button.active {
+    background: #e91e63;
+    color: #fff;
+}
+
+.filter-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: end;
+}
+
+.filter-item label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.filter-item select,
+.filter-item input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 2px solid #e91e63;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.filter-item input:hover,
+.filter-item select:hover {
+    border-color: #ffcc00;
+    background-color:  #f0f8ff;
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.25);
+    background-color: #fff;
+}
+
+.btn-search {
+    grid-column: 3;
+    justify-self: center;   /* CĂN GIỮA TRONG CỘT 3 */
+    padding: 10px 40px;     /* vừa chữ */
+    border: none;
+    border-radius: 999px;
+    background: #e91e63;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;            /* QUAN TRỌNG */
+}
+
+.btn-search:hover {
+    background: #ffcc00;
+    color: #000;
+}
+
+.btn-search:active {
+    background: #f5b800;
+    transform: scale(0.96);
+}
+
+.result {
+    max-width: 1200px;
+    margin: 40px auto;
+    font-size: 18px;
+}
+
+.pet-list {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.pet-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+
+.pet-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.pet-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.pet-card p {
+    font-size: 16px;
+    margin: 6px 0;
+}
+
+.pet-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;             
+    margin: 50px 0 80px;
+}
+
+.page-btn,
+.page-numbers button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;  
+    border: none;
+    background: #e0e3e6;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.page-numbers {
+    display: flex;
+    gap: 5px;  
+}
+
+
+/* TRANG ĐANG CHỌN */
+.page-numbers button.active {
+    background: #1e88e5;
+    color: #fff;
+    border: none; 
+}
+
+.page-btn:hover,
+.page-numbers button:hover {
+    background: #1e88e5;
+    color: #fff;
+}
+
+
+/* TRẠNG THÁI BAN ĐẦU */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+/* KHI ĐƯỢC HIỆN */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.pet-detail {
+    max-width: 1000px;
+    margin: 60px auto;
+    display: flex;
+    gap: 40px;
+}
+
+.pet-detail img {
+    width: 420px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.pet-info h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.pet-info p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+/* =========================
+   RESPONSIVE TOÀN BỘ TRANG
+   ========================= */
+
+/* ---------- TABLET (≤1024px) ---------- */
+@media (max-width: 1024px) {
+
+    .container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .dieukien {
+        width: 100%;
+    }
+
+    .pet-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filter-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn-search {
+        grid-column: span 2;
+    }
+
+    .text-on-image {
+        font-size: 26px;
+        left: 20%;
+        transform: translate(-50%, -100%);
+    }
+}
+
+
+/* ---------- MOBILE (≤768px) ---------- */
+@media (max-width: 768px) {
+
+    /* Banner */
+    .text-on-image {
+        font-size: 22px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* Quy trình + điều kiện */
+    .container {
+        padding: 0 15px;
+    }
+
+    .quytrinh h2,
+    .dieukien h3,
+    .luuy h2 {
+        font-size: 26px;
+    }
+
+    .quytrinh p,
+    .quytrinh ol li,
+    .dieukien ul li,
+    .luuy ul li {
+        font-size: 18px;
+    }
+
+    /* Bộ lọc */
+    .filter-type {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-search {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    /* Danh sách thú cưng */
+    .pet-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .pet-card img {
+        height: 180px;
+    }
+
+    /* Pagination */
+    .pagination {
+        gap: 10px;
+    }
+}
+
+
+/* ---------- MOBILE NHỎ (≤480px) ---------- */
+@media (max-width: 480px) {
+
+    /* Banner chữ */
+    .text-on-image {
+        font-size: 18px;
+    }
+
+    /* Tiêu đề */
+    .find-title {
+        font-size: 24px;
+    }
+
+    /* Pet list 1 cột */
+    .pet-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-card img {
+        height: 200px;
+    }
+
+    /* Nút phân trang */
+    .page-btn,
+    .page-numbers button {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+}
+
+
+
+
