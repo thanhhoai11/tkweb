@@ -1,0 +1,613 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nhận nuôi</title>
+    <link rel="stylesheet" href="danhmuc.css">
+</head>
+<body>
+    <div class="banner reveal">
+        <img src="images/banner.png" alt="Banner nhận nuôi">
+        <h2 class="text-on-image">Nhận nuôi</h2>
+    </div>
+    <!-- NỘI DUNG -->
+    <div class="container reveal">
+    <div class="quytrinh reveal">
+        <h2 class="block-title ">Quy Trình Nhận Nuôi</h2>
+        <p>
+            Trước khi quyết định nhận nuôi bé chó hay mèo nào, bạn hãy tự hỏi bản thân 
+            rằng mình đã sẵn sàng để chịu trách nhiệm cả đời cho bé chưa, cả về tài chính, nơi ở cũng như tinh thần.
+            Việc nhận nuôi cần được sự đồng thuận lớn từ bản thân bạn cũng như gia đình và những người liên quan. 
+            Xin cân nhắc kỹ trước khi nhận nuôi.
+            Nếu bạn đã sẵn sàng thì mình cùng đọc quy trinhg sau để nhận nuôi bé nhé!
+        </p>
+
+        <ol>
+            <li>Tìm hiểu về thú cưng bạn muốn nhận nuôi.</li>
+            <li>Nhấn chọn nút nhận nuôi tại bé muốn nhận.</li>
+            <li>Điền form để cung cấp thông tin và đợi kết quả</li>
+        </ol>
+    </div>
+
+    <div class="dieukien reveal">
+        <h3 class="block-title">Điều Kiện Nhận Nuôi</h3>
+        <ul>
+            <li>Tài chính tự chủ và ổn định</li>
+            <li>Chỗ ở cố định, ưu tiên tại Hà Nội</li>
+            <li>Cam kết tiêm phòng và triệt sản</li>
+        </ul>
+    </div>
+    </div>
+    <div class="luuy reveal">
+    <h2 class="block-title ">Một Số Lưu Ý Khi Nhận Nuôi</h2>
+    <ul>
+        <li>Thú cưng cần thời gian để thích nghi với môi trường và chủ mới.</li>
+        <li>Không nhận nuôi theo cảm xúc nhất thời hoặc vì trào lưu.</li>
+        <li>Cần đảm bảo tiêm phòng, tẩy giun và chăm sóc y tế định kỳ.</li>
+        <li>Cam kết không bỏ rơi, không chuyển nhượng khi gặp khó khăn.</li>
+    </ul>
+    </div>
+    <div class="bannerbottom reveal">
+    <img src="images/bannerbottom.jpg" alt="Banner dưới">
+    </div>
+</div>
+    <h2 class="find-title block-title reveal">Tìm thú cưng</h2>
+<div class="filter-section reveal">
+    <!-- NÚT LOẠI -->
+    <div class="filter-type ">
+        <button class="active" data-type="all">Tất cả</button>
+        <button data-type="cho">Chó</button>
+        <button data-type="meo">Mèo</button>
+    </div>
+
+    <!-- BỘ LỌC -->
+    <div class="filter-form reveal">
+        <div class="filter-item">
+            <label>Giới tính</label>
+            <select id="gender">
+                <option value="all">Tất cả</option>
+                <option value="duc">Đực</option>
+                <option value="cai">Cái</option>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label>Độ tuổi</label>
+            <select id="age">
+                <option value="all">Tất cả</option>
+                <option value="tre">Trẻ</option>
+                <option value="truongthanh">Trưởng thành</option>
+                <option value="lon">Lớn tuổi</option>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label>Triệt sản</label>
+            <select id="sterilized">
+                <option value="all">Tất cả</option>
+                <option value="yes">Đã triệt sản</option>
+                <option value="no">Chưa triệt sản</option>
+                <option value="unknown">Chưa rõ</option>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label>Màu</label>
+            <select id="color">
+                <option value="all">Tất cả</option>
+                <option value="vang">Vàng</option>
+                <option value="den">Đen</option>
+                <option value="trang">Trắng</option>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label>Tên</label>
+            <input type="text" id="keyword" placeholder="Nhập từ khóa">
+
+        </div>
+
+        <button class="btn-search  " id="searchBtn">TÌM KIẾM</button>
+    </div>
+</div>
+
+<!-- DANH SÁCH THÚ CƯNG -->
+<div class="result reveal" id="result"></div>
+
+<div class="pet-list" id="petList"></div>
+
+<div class="pagination">
+    <button class="page-btn prev">&lt;</button>
+    <div class="page-numbers"></div>
+    <button class="page-btn next">&gt;</button>
+</div>
+
+<!-- JSON DỮ LIỆU -->
+<script id="pets-data" type="application/json">
+[
+  {
+    "id": 1,
+    "name": "Bon",
+    "type": "cho",
+    "gender": "duc",
+    "age": "tre",
+    "sterilized": "no",
+    "vaccinated": "yes",
+    "color": "vang",
+    "image": "images/Bon.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Bông",
+    "type": "meo",
+    "gender": "cai",
+    "age": "truongthanh",
+    "sterilized": "yes",
+    "vaccinated": "yes",
+    "color": "vang",
+    "image": "images/Bong.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bư",
+    "type": "cho",
+    "gender": "duc",
+    "age": "lon",
+    "sterilized": "unknown",
+    "vaccinated": "no",
+    "color": "vang",
+    "image": "images/Bu.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Chíp",
+    "type": "meo",
+    "gender": "cai",
+    "age": "tre",
+    "sterilized": "yes",
+    "vaccinated": "unknown",
+    "color": "vang",
+    "image": "images/Chip.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Kem",
+    "type": "cho",
+    "gender": "duc",
+    "age": "truongthanh",
+    "sterilized": "no",
+    "vaccinated": "unknown",
+    "color": "trang",
+    "image": "images/Kem.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Khoai",
+    "type": "meo",
+    "gender": "duc",
+    "age": "lon",
+    "sterilized": "unknown",
+    "vaccinated": "no",
+    "color": "vang",
+    "image": "images/Khoai.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Leo",
+    "type": "meo",
+    "gender": "duc",
+    "age": "lon",
+    "sterilized": "yes",
+    "vaccinated": "unknown",
+    "color": "vang",
+    "image": "images/Leo.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Milo",
+    "type": "cho",
+    "gender": "cai",
+    "age": "truongthanh",
+    "sterilized": "yes",
+    "vaccinated": "yes",
+    "color": "den",
+    "image": "images/Milo.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Mun",
+    "type": "cho",
+    "gender": "duc",
+    "age": "lon",
+    "sterilized": "unknown",
+    "vaccinated": "no",
+    "color": "den",
+    "image": "images/Mun.jpg"
+  },
+    {
+    "id": 10,
+    "name": "Mướp",
+    "type": "meo",
+    "gender": "cai",
+    "age": "truongthanh",
+    "sterilized": "yes",
+    "vaccinated": "no",
+    "color": "den",
+    "image": "images/Muop.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Su",
+    "type": "meo",
+    "gender": "duc",
+    "age": "lon",
+    "sterilized": "unknown",
+    "vaccinated": "yes",
+    "color": "trang",
+    "image": "images/Su.jpeg"
+  },
+  {
+    "id": 12,
+    "name": "Tun",
+    "type": "cho",
+    "gender": "duc",
+    "age": "truongthanh",
+    "sterilized": "unknown",
+    "vaccinated": "no",
+    "color": "vang",
+    "image": "images/Tun.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Lu",
+    "type": "meo",
+    "gender": "duc",
+    "age": "lon",
+    "sterilized": "yes",
+    "vaccinated": "unknown",
+    "color": "trang",
+    "image": "images/Lu.jpeg"
+  },
+{
+  "id": 14,
+  "name": "Béo",
+  "type": "cho",
+  "gender": "duc",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "yes",
+  "color": "trang",
+  "image": "images/Beo.jpg"
+},
+{
+  "id": 15,
+  "name": "Cà Phê",
+  "type": "meo",
+  "gender": "cai",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "vang",
+  "image": "images/CaPhe.jpg"
+},
+{
+  "id": 16,
+  "name": "Đốm",
+  "type": "meo",
+  "gender": "duc",
+  "age": "lon",
+  "sterilized": "unknown",
+  "vaccinated": "no",
+  "color": "vang",
+  "image": "images/Dom.jpg"
+},
+{
+  "id": 17,
+  "name": "Mây",
+  "type": "meo",
+  "gender": "cai",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "unknown",
+  "color": "trang",
+  "image": "images/May.jpeg"
+},
+{
+  "id": 18,
+  "name": "Socola",
+  "type": "cho",
+  "gender": "duc",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "vang",
+  "image": "images/Socola.jpg"
+},
+{
+  "id": 19,
+  "name": "Nắng",
+  "type": "meo",
+  "gender": "cai",
+  "age": "lon",
+  "sterilized": "yes",
+  "vaccinated": "unknown",
+  "color": "trang",
+  "image": "images/Nang.jpg"
+},
+{
+  "id": 20,
+  "name": "Gấu",
+  "type": "cho",
+  "gender": "duc",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "yes",
+  "color": "den",
+  "image": "images/Gau.jpg"
+},
+{
+  "id": 21,
+  "name": "Bông Tuyết",
+  "type": "meo",
+  "gender": "cai",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "trang",
+  "image": "images/Bongtuyet.jpg"
+},
+{
+  "id": 22,
+  "name": "Vàng",
+  "type": "cho",
+  "gender": "duc",
+  "age": "lon",
+  "sterilized": "unknown",
+  "vaccinated": "no",
+  "color": "vang",
+  "image": "images/Vang.jpeg"
+},
+{
+  "id": 23,
+  "name": "Mít",
+  "type": "meo",
+  "gender": "duc",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "unknown",
+  "color": "den",
+  "image": "images/Mit.jpeg"
+},
+{
+  "id": 24,
+  "name": "Đen",
+  "type": "cho",
+  "gender": "cai",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "den",
+  "image": "images/Den.jpg"
+},
+{
+  "id": 25,
+  "name": "Sữa",
+  "type": "meo",
+  "gender": "cai",
+  "age": "lon",
+  "sterilized": "yes",
+  "vaccinated": "no",
+  "color": "trang",
+  "image": "images/Sua.jpg"
+},
+{
+  "id": 26,
+  "name": "Tít",
+  "type": "cho",
+  "gender": "duc",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "yes",
+  "color": "vang",
+  "image": "images/Tit.jpg"
+},
+{
+  "id": 27,
+  "name": "Lúa",
+  "type": "meo",
+  "gender": "cai",
+  "age": "truongthanh",
+  "sterilized": "unknown",
+  "vaccinated": "unknown",
+  "color": "trang",
+  "image": "images/Lua.jpg"
+},
+{
+  "id": 28,
+  "name": "Râu",
+  "type": "meo",
+  "gender": "duc",
+  "age": "lon",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "den",
+  "image": "images/Rau.jpg"
+},
+{
+  "id": 29,
+  "name": "Cún",
+  "type": "cho",
+  "gender": "duc",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "unknown",
+  "color": "trang",
+  "image": "images/Cun.png"
+},
+{
+  "id": 30,
+  "name": "Mỡ",
+  "type": "meo",
+  "gender": "cai",
+  "age": "lon",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "trang",
+  "image": "images/Mo.jpeg"
+},
+{
+  "id": 31,
+  "name": "Lạc",
+  "type": "cho",
+  "gender": "duc",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "no",
+  "color": "vang",
+  "image": "images/Lac.jpeg"
+},
+{
+  "id": 32,
+  "name": "Bơ",
+  "type": "meo",
+  "gender": "cai",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "unknown",
+  "color": "vang",
+  "image": "images/Bo.jpeg"
+},
+{
+  "id": 33,
+  "name": "Bắp",
+  "type": "cho",
+  "gender": "duc",
+  "age": "lon",
+  "sterilized": "unknown",
+  "vaccinated": "yes",
+  "color": "vang",
+  "image": "images/Bap.jpeg"
+},
+{
+  "id": 34,
+  "name": "Khói",
+  "type": "meo",
+  "gender": "duc",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "den",
+  "image": "images/Khoi.jpeg"
+},
+{
+  "id": 35,
+  "name": "Ốc",
+  "type": "meo",
+  "gender": "cai",
+  "age": "lon",
+  "sterilized": "unknown",
+  "vaccinated": "no",
+  "color": "vang",
+  "image": "images/Oc.jpg"
+},
+{
+  "id": 36,
+  "name": "Na",
+  "type": "cho",
+  "gender": "cai",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "yes",
+  "color": "trang",
+  "image": "images/Na.jpg"
+},
+{
+  "id": 37,
+  "name": "Dừa",
+  "type": "meo",
+  "gender": "duc",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "unknown",
+  "color": "vang",
+  "image": "images/Dua.jpeg"
+},
+{
+  "id": 38,
+  "name": "Bánh",
+  "type": "cho",
+  "gender": "duc",
+  "age": "lon",
+  "sterilized": "unknown",
+  "vaccinated": "no",
+  "color": "den",
+  "image": "images/Banh.jpeg"
+},
+{
+  "id": 39,
+  "name": "Muối",
+  "type": "meo",
+  "gender": "cai",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "yes",
+  "color": "trang",
+  "image": "images/Muoi.jpg"
+},
+{
+  "id": 40,
+  "name": "Cam",
+  "type": "cho",
+  "gender": "duc",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "vang",
+  "image": "images/Cam.jpeg"
+},
+{
+  "id": 41,
+  "name": "Mướt",
+  "type": "meo",
+  "gender": "duc",
+  "age": "lon",
+  "sterilized": "unknown",
+  "vaccinated": "unknown",
+  "color": "den",
+  "image": "images/Muot.jpeg"
+},
+{
+  "id": 42,
+  "name": "Gạo",
+  "type": "cho",
+  "gender": "cai",
+  "age": "tre",
+  "sterilized": "no",
+  "vaccinated": "yes",
+  "color": "trang",
+  "image": "images/Gao.jpeg"
+},
+{
+  "id": 43,
+  "name": "Hạt",
+  "type": "meo",
+  "gender": "cai",
+  "age": "truongthanh",
+  "sterilized": "yes",
+  "vaccinated": "yes",
+  "color": "vang",
+  "image": "images/Hat.jpeg"
+}
+
+
+]
+
+</script>
+
+
+<script src="filter.js"></script>
+</body>
+</html>
