@@ -37,11 +37,20 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #FFD966 0%, #FFB6C1 100%);
-    padding: 80px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                url('../images/anhdautrang.jpg'); /* Thay đường dẫn ảnh của bạn */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Hiệu ứng parallax nhẹ khi lướt */
+    margin-bottom: 60px;
+    padding: 120px 20px; /* Tăng padding để ảnh hiện ra nhiều hơn */
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    z-index: 1;
 }
 
 .hero::before {
@@ -70,10 +79,11 @@ body {
 }
 
 .hero h1 {
-    font-size: 2.5em;
-    color: #fff;
+    font-size: 3rem;
+    color: #FFF;
+    font-weight: 900;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
@@ -139,6 +149,8 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     animation: slideUp 0.6s ease-out forwards;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes slideUp {
@@ -193,6 +205,7 @@ body {
 .card-body {
     background-color: #FFFBF0;
     padding: 25px;
+    flex-grow: 1;
 }
 
 .card-description {
@@ -329,7 +342,9 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    z-index: 10;
+    z-index: 100;
+    pointer-events: auto;
+    position: relative;
 }
 
 .slider-btn span {
@@ -455,35 +470,30 @@ body {
     padding: 30px;
     border-radius: 15px;
     border: 2px solid #FFB6C1;
-    transition: all 0.3s ease;
+    
 }
 
-.contact-info:hover {
-    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
-    transform: translateY(-5px);
-}
 
 .contact-item {
     margin: 20px 0;
     display: flex;
     align-items: center;
     gap: 15px;
-    transition: transform 0.3s ease;
+    
 }
 
-.contact-item:hover {
-    transform: translateX(10px);
-}
 
 .contact-icon {
     font-size: 1.8em;
-    transition: transform 0.3s ease;
+    
 }
 
-.contact-item:hover .contact-icon {
-    transform: scale(1.2) rotate(10deg);
-}
 
+.contact-instruction {
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: 600;
+}
 .faq {
     background: #fff;
     padding: 30px;
@@ -492,19 +502,12 @@ body {
     transition: all 0.3s ease;
 }
 
-.faq:hover {
-    box-shadow: 0 10px 30px rgba(255, 217, 102, 0.3);
-    transform: translateY(-5px);
-}
 
 .faq-item {
     margin: 20px 0;
     transition: all 0.3s ease;
 }
 
-.faq-item:hover {
-    padding-left: 10px;
-}
 
 .faq-question {
     font-weight: bold;
@@ -515,9 +518,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.faq-question:hover {
-    color: #FF69B4;
-}
 
 .faq-answer {
     color: #555;
@@ -573,3 +573,93 @@ body {
 .section.visible {
     animation: fadeIn 0.8s ease-out forwards;
 }
+
+
+/* Ready to Help Section */
+.ready-to-help {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../images/bannerbottom.jpg'); /* Thay đường dẫn ảnh của bạn vào đây */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Tạo hiệu ứng lướt nhẹ */
+    text-align: center;
+    color: white;
+}
+
+.help-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Khoảng cách giữa chữ và nút */
+    flex-wrap: wrap;
+}
+
+.help-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.help-button {
+    background-color: #008be2; /* Màu xanh giống trong ảnh */
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.help-button:hover {
+    background-color: #0076c0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .help-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .help-title {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* Container chứa ảnh hoạt động */
+.activity-image-container {
+    width: 100%;
+    height: 180px; /* Độ cao cố định cho ảnh hoạt động */
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #FFE5EC;
+}
+
+.activity-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng khi hover vào card thì ảnh phóng to nhẹ */
+.testimonial-card:hover .activity-image {
+    transform: scale(1.1);
+}
+
+/* Tùy chỉnh lại quote icon cho cân đối */
+.quote-icon {
+    font-size: 2.5em;
+    color: #FFB6C1;
+    margin-top: 5px;
+}
+

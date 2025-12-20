@@ -6,9 +6,13 @@
     <title>
       Tình nguyện viên – Cùng chúng tôi thay đổi cuộc đời các bé thú cưng
     </title>
-    <link rel="stylesheet" href="assets/css/volunteer.css" />
-    <link rel="stylesheet" href="assets/css/weather.css" />
+    <link rel="stylesheet" href="css/volunteer.css" />
     <link rel="stylesheet" href="assets/css/pet-effects.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
     <section class="hero">
@@ -23,19 +27,7 @@
           chó, mèo bị bỏ rơi. Dù bạn yêu thích chụp ảnh, chăm sóc, hay giúp cập
           nhật thông tin online — chúng tôi có vị trí dành cho bạn!
         </p>
-        <p class="website fade-in-delay-2">hanoipetadoption.com</p>
-      </div>
-    </section>
-
-    <!-- WEATHER COMPONENT -->
-    <section class="weather-section">
-      <div class="weather-container">
-        <div id="weatherComponent">
-          <div class="loading">
-            <div class="spinner"></div>
-            <p>Đang tải thông tin thời tiết...</p>
-          </div>
-        </div>
+        <p class="website fade-in-delay-2">fourpaws.com</p>
       </div>
     </section>
 
@@ -189,32 +181,42 @@
 
           <div class="card">
             <div class="card-header">
-              <div class="card-icon">💬</div>
-              <h3 class="card-title">TNV Phỏng vấn tìm chủ nhân nhận nuôi</h3>
+              <div class="card-icon">🥰</div>
+              <h3 class="card-title">TNV Tương tác và "xoa dịu" tâm lý</h3>
             </div>
             <div class="card-body">
               <p class="card-description">
-                Phỏng vấn người muốn nhận nuôi và giúp các bé tìm được gia đình
-                phù hợp nhất. Vai trò quan trọng để đảm bảo các bé có tương lai
-                tốt đẹp!
+                Giúp những con vật từng bị bỏ rơi hoặc ngược đãi vượt qua nỗi sợ
+                hãi, giúp chúng làm quen lại với hơi ấm con người để tăng khả
+                năng được nhận nuôi thành công.
               </p>
               <div class="card-section">
-                <div class="card-section-title">Trách nhiệm:</div>
+                <div class="card-section-title">Nhiệm vụ:</div>
                 <ul class="card-list">
-                  <li>Liên hệ và phỏng vấn người có nhu cầu nhận nuôi</li>
-                  <li>Đánh giá điều kiện và khả năng chăm sóc</li>
-                  <li>Tư vấn về cách chăm sóc phù hợp</li>
-                  <li>Ghép cặp giữa người nhận nuôi và các bé</li>
-                  <li>Theo dõi sau nhận nuôi</li>
+                  <li>
+                    Ngồi cùng, vuốt ve và trò chuyện để các bé quen hơi người
+                  </li>
+                  <li>
+                    Sử dụng đồ chơi để giải tỏa căng thẳng và tăng sự năng động
+                  </li>
+                  <li>
+                    Dùng bánh thưởng để dạy các hành vi tốt và lệnh cơ bản
+                  </li>
+                  <li>Theo dõi biểu hiện để phân loại bé nhát hay dạn dĩ</li>
+                  <li>
+                    Giúp các bé làm quen với tiếng động và môi trường xung quanh
+                  </li>
                 </ul>
               </div>
               <div class="card-section">
                 <div class="card-section-title">Yêu cầu:</div>
                 <ul class="card-list">
-                  <li>Kỹ năng giao tiếp tốt</li>
-                  <li>Thái độ ôn hòa, thân thiện</li>
-                  <li>Có kinh nghiệm chăm sóc thú cưng</li>
-                  <li>Khả năng đánh giá và ra quyết định khách quan</li>
+                  <li>Tuyệt đối không nóng nảy hay ép buộc vật nuôi</li>
+                  <li>Hiểu ngôn ngữ thú cưng</li>
+                  <li>
+                    Tuân thủ lịch trình để tạo thói quen ổn định cho vật nuôi
+                  </li>
+                  <li>Đã tiêm phòng dại và không dị ứng lông chó mèo</li>
                 </ul>
               </div>
             </div>
@@ -262,9 +264,7 @@
         <p style="color: #fff; font-size: 1.2em; margin-bottom: 30px">
           Hãy gia nhập đội ngũ tình nguyện viên của chúng tôi ngay hôm nay!
         </p>
-        <a href="mailto:contact@hanoipetadoption.com" class="cta-button"
-          >Tham gia ngay!</a
-        >
+        <a href="#contact-section" class="cta-button">Cách thức tham gia</a>
       </div>
     </section>
 
@@ -273,102 +273,47 @@
         <h2 class="section-title">Tình nguyện viên nói gì?</h2>
 
         <div class="testimonial-slider">
-            <button class="slider-btn prev-btn" onclick="slideTestimonials(-1)">
-                <span>‹</span>
-            </button>
-            
-            <div class="testimonial-container">
-                <div class="testimonial-track">
-                    <div class="testimonial-card">
-                        <div class="activity-image-container">
-                            <img src="assets/picture/images/tinhnguyenvien1.jpg" alt="Chăm sóc cún 1" class="activity-image">
-                        </div>
-                        <div class="quote-icon">❝</div>
-                        <p class="testimonial-text">
-                            "Làm việc với đội ngũ này thật tuyệt! Mọi người đều thân thiện, nhiệt tình và thực sự yêu động vật. Môi trường làm việc rất tích cực!"
-                        </p>
-                        <div class="testimonial-footer">
-                            <img src="https://i.pravatar.cc/150?img=12" alt="Nguyễn Văn A" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <p class="testimonial-name">Nguyễn Văn A</p>
-                                <p class="testimonial-role">Chủ doanh nghiệp</p>
-                            </div>
-                        </div>
-                    </div>
+          <button class="slider-btn prev-btn" onclick="slideTestimonials(-1)">
+            <span>‹</span>
+          </button>
 
-                    <div class="testimonial-card">
-                        <div class="activity-image-container">
-                            <img src="assets/picture/images/tinhnguyenvien2.jpg" alt="Chăm sóc cún 2" class="activity-image">
-                        </div>
-                        <div class="quote-icon">❝</div>
-                        <p class="testimonial-text">
-                            "Tôi bắt đầu là tình nguyện viên chụp ảnh cách đây 6 tháng. Thật tuyệt vời khi thấy những bức ảnh của mình giúp các bé tìm được gia đình mới!"
-                        </p>
-                        <div class="testimonial-footer">
-                            <img src="https://i.pravatar.cc/150?img=45" alt="Minh Anh" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <p class="testimonial-name">Minh Anh</p>
-                                <p class="testimonial-role">TNV Chụp ảnh</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="activity-image-container">
-                            <img src="assets/picture/images/tinhnguyenvien3.webp" alt="Chăm sóc cún 3" class="activity-image">
-                        </div>
-                        <div class="quote-icon">❝</div>
-                        <p class="testimonial-text">
-                            "Ban đầu tôi lo lắng về chi phí nhưng hoàn toàn không bắt buộc đóng góp gì cả. Nếu muốn hỗ trợ thêm thì được chào đón, nhưng không áp lực chút nào!"
-                        </p>
-                        <div class="testimonial-footer">
-                            <img src="https://i.pravatar.cc/150?img=32" alt="Lê Thị B" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <p class="testimonial-name">Lê Thị B</p>
-                                <p class="testimonial-role">Thiết kế đồ họa</p>
-                            </div>
-                        </div>
-                    </div>
-
-                     <div class="testimonial-card">
-                        <div class="activity-image-container">
-                            <img src="assets/picture/images/tinhnguyenvien4.jpg" alt="Chăm sóc cún 4" class="activity-image">
-                        </div>
-                        <div class="quote-icon">❝</div>
-                        <p class="testimonial-text">
-                            "Quy trình đăng ký rất đơn giản! Chỉ cần gửi email và họ phản hồi trong 2 ngày. Mọi thứ được giải thích rất rõ ràng và chi tiết."
-                        </p>
-                        <div class="testimonial-footer">
-                            <img src="https://i.pravatar.cc/150?img=32" alt="Lê Thị B" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <p class="testimonial-name">Lê Thị B</p>
-                                <p class="testimonial-role">Thiết kế đồ họa</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="testimonial-card">
-                        <div class="activity-image-container">
-                            <img src="assets/picture/images/tinhnguyenvien5.png" alt="Chăm sóc cún 5" class="activity-image">
-                        </div>
-                        <div class="quote-icon">❝</div>
-                        <p class="testimonial-text">
-                            "Foster một bé mèo con là trải nghiệm tuyệt vời nhất của tôi. Ban đầu bé rất sợ người, nhưng sau 2 tháng, bé đã trở nên thân thiện và vui vẻ!"
-                        </p>
-                        <div class="testimonial-footer">
-                            <img src="https://i.pravatar.cc/150?img=28" alt="Thu Hà" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <p class="testimonial-name">Thu Hà</p>
-                                <p class="testimonial-role">TNV Foster</p>
-                            </div>
-                        </div>
-                    </div>
+          <div class="testimonial-container">
+            <div class="testimonial-track">
+              <div class="testimonial-card">
+                <div class="activity-image-container">
+                  <img
+                    src="images/tinhnguyenvien1.jpg"
+                    alt="Chăm sóc cún 1"
+                    class="activity-image"
+                  />
+                </div>
+                <div class="quote-icon">❝</div>
+                <p class="testimonial-text">
+                  "Làm việc với đội ngũ này thật tuyệt! Mọi người đều thân
+                  thiện, nhiệt tình và thực sự yêu động vật. Môi trường làm việc
+                  rất tích cực!"
+                </p>
+                <div class="testimonial-footer">
+                  <img
+                    src="https://i.pravatar.cc/150?img=12"
+                    alt="Nguyễn Văn A"
+                    class="testimonial-avatar"
+                  />
+                  <div class="testimonial-info">
+                    <p class="testimonial-name">Nguyễn Văn A</p>
+                    <p class="testimonial-role">Chủ doanh nghiệp</p>
+                  </div>
                 </div>
               </div>
 
               <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="activity-image-container">
+                  <img
+                    src="images/tinhnguyenvien2.jpg"
+                    alt="Chăm sóc cún 2"
+                    class="activity-image"
+                  />
+                </div>
                 <div class="quote-icon">❝</div>
                 <p class="testimonial-text">
                   "Tôi bắt đầu là tình nguyện viên chụp ảnh cách đây 6 tháng.
@@ -389,7 +334,13 @@
               </div>
 
               <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="activity-image-container">
+                  <img
+                    src="images/tinhnguyenvien3.webp"
+                    alt="Chăm sóc cún 3"
+                    class="activity-image"
+                  />
+                </div>
                 <div class="quote-icon">❝</div>
                 <p class="testimonial-text">
                   "Ban đầu tôi lo lắng về chi phí nhưng hoàn toàn không bắt buộc
@@ -410,7 +361,13 @@
               </div>
 
               <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="activity-image-container">
+                  <img
+                    src="images/tinhnguyenvien4.jpg"
+                    alt="Chăm sóc cún 4"
+                    class="activity-image"
+                  />
+                </div>
                 <div class="quote-icon">❝</div>
                 <p class="testimonial-text">
                   "Quy trình đăng ký rất đơn giản! Chỉ cần gửi email và họ phản
@@ -431,7 +388,13 @@
               </div>
 
               <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="activity-image-container">
+                  <img
+                    src="images/tinhnguyenvien5.png"
+                    alt="Chăm sóc cún 5"
+                    class="activity-image"
+                  />
+                </div>
                 <div class="quote-icon">❝</div>
                 <p class="testimonial-text">
                   "Foster một bé mèo con là trải nghiệm tuyệt vời nhất của tôi.
@@ -460,20 +423,26 @@
       </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" id="contact-section">
       <div class="container">
-        <h2 class="section-title">📞 Thông tin liên hệ & FAQ 📞</h2>
+        <h2 class="section-title">
+          📞 Liên hệ để trở thành Tình nguyện viên 📞
+        </h2>
 
         <div class="contact-grid">
           <div class="contact-info">
             <h3 style="color: #ffb6c1; margin-bottom: 20px; font-size: 1.5em">
               Liên hệ với chúng tôi
             </h3>
+            <p class="contact-instruction">
+              Nếu bạn muốn trở thành <b>Tình nguyện viên của FourPaws</b> hãy
+              liên hệ với chúng tôi để trao đổi thêm:
+            </p>
             <div class="contact-item">
               <span class="contact-icon">📧</span>
               <div>
                 <strong>Email:</strong><br />
-                contact@hanoipetadoption.com
+                contact@fourpaws.com
               </div>
             </div>
             <div class="contact-item">
@@ -494,7 +463,7 @@
               <span class="contact-icon">🌐</span>
               <div>
                 <strong>Website:</strong><br />
-                hanoipetadoption.com
+                fourpaws.com
               </div>
             </div>
           </div>
@@ -538,13 +507,166 @@
     </section>
     <!--Link den ủng hộ-->
     <section class="ready-to-help">
-        <div class="container">
-            <div class="help-content">
-                <h2 class="help-title">Bạn Đã Sẵn Sàng Giúp Đỡ?</h2>
-                <a href="donate.html" class="help-button">ỦNG HỘ NGAY</a>
-            </div>
+      <div class="container">
+        <div class="help-content">
+          <h2 class="help-title">Bạn Đã Sẵn Sàng Giúp Đỡ?</h2>
+          <a href="donate.html" class="help-button">ỦNG HỘ NGAY</a>
         </div>
+      </div>
     </section>
+
+    <section
+      class="py-16 bg-yellow-50 relative overflow-hidden"
+      id="top-pets-section"
+    >
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-yellow-200 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2"
+      ></div>
+
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-10">
+          <span
+            class="text-secondary font-bold text-sm uppercase tracking-wider"
+            >Hall of Fame</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+            🏆 Những Bé Ngoan Nhất Tuần
+          </h2>
+        </div>
+
+        <div
+          id="top-pets-container"
+          class="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+          <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+          <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let fullPetData = null;
+      async function initPetData() {
+        try {
+          const response = await fetch("assets/data/pets.json");
+          if (!response.ok) throw new Error("Không tải được file pets.json");
+          fullPetData = await response.json();
+          filterAndRender("all");
+          initTopPets();
+        } catch (error) {
+          console.error("Lỗi dữ liệu:", error);
+          document.getElementById(
+            "pet-grid-container"
+          ).innerHTML = `<p class="text-center col-span-full">Lỗi tải dữ liệu thú cưng.</p>`;
+        }
+      }
+
+      function filterAndRender(categoryId) {
+        if (!fullPetData) return;
+        let petsToRender = [];
+        if (categoryId === "all") {
+          fullPetData.categories.forEach(
+            (cat) => (petsToRender = [...petsToRender, ...cat.products])
+          );
+        } else {
+          const category = fullPetData.categories.find(
+            (cat) => cat.id === categoryId
+          );
+          if (category) petsToRender = category.products;
+        }
+        renderGrid(petsToRender);
+        updateActiveButton(categoryId);
+      }
+
+      function renderGrid(products) {
+        const container = document.getElementById("pet-grid-container");
+        if (!container) return;
+        container.innerHTML = products
+          .map(
+            (pet, index) => `
+            <div class="pet-card flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[19%] relative" style="animation: fade-in 0.5s ease-out ${
+              index * 0.1
+            }s forwards; opacity: 0;">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-1 transition-all duration-300">
+                    <div class="aspect-square relative overflow-hidden">
+                        <img src="${
+                          pet.defaultImage
+                        }" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-gray-900 truncate">${
+                          pet.name
+                        }</h3>
+                        <p class="text-sm text-gray-500">${
+                          pet.specs["Thông tin"]["Giống"]
+                        }</p>
+                    </div>
+                </div>
+            </div>`
+          )
+          .join("");
+      }
+
+      function initTopPets() {
+        const container = document.getElementById("top-pets-container");
+        if (!container || !fullPetData) return;
+
+        let topPets = JSON.parse(sessionStorage.getItem("myTopPets_v1"));
+        if (!topPets) {
+          let allPets = [];
+          fullPetData.categories.forEach(
+            (cat) => (allPets = [...allPets, ...cat.products])
+          );
+          const achievements = [
+            "Không cắn dép 3 ngày",
+            "Biết bắt tay xin ăn",
+            "Ngủ nướng giỏi nhất",
+            "Bắt được chuột",
+          ];
+          topPets = allPets
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 3)
+            .map((pet, i) => ({
+              ...pet,
+              achievement:
+                achievements[Math.floor(Math.random() * achievements.length)],
+              rankClass:
+                i === 1
+                  ? "transform md:-translate-y-6 shadow-2xl border-primary/30"
+                  : "shadow-xl border-yellow-100",
+            }));
+          sessionStorage.setItem("myTopPets_v1", JSON.stringify(topPets));
+        }
+
+        container.innerHTML = topPets
+          .map((pet, index) => {
+            const floatDelay = -(Math.random() * 5).toFixed(2);
+            const badgeHTML = pet.badge
+              ? `<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg z-20">${pet.badge}</div>`
+              : `<div class="absolute -top-4 -right-4 size-12 bg-yellow-400 rounded-full flex items-center justify-center text-white shadow-md z-20"><span class="material-symbols-outlined text-2xl animate-bounce">emoji_events</span></div>`;
+
+            return `
+    <div class="bg-white rounded-3xl p-4 transition-transform duration-300 relative border-2 ${pet.rankClass}" 
+         style="animation: floating 4s ease-in-out infinite ${floatDelay}s;">
+        ${badgeHTML}
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+            <img src="${pet.defaultImage}" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+        </div>
+        <div class="text-center">
+            <h3 class="text-xl font-bold text-gray-900">${pet.name}</h3>
+            <p class="text-sm text-yellow-600 font-bold mb-2">🏆 ${pet.achievement}</p>
+            <button onclick="location.href='#pet-section'" class="text-primary underline font-bold text-sm">Xem chi tiết</button>
+        </div>
+    </div>`;
+          })
+          .join("");
+      }
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initPetData();
+      });
+    </script>
+
     <!-- Pet Effects Elements -->
     <div class="floating-pets">
       <div class="floating-pet" style="left: 10%; animation-delay: 0s">🐕</div>
@@ -555,7 +677,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="scripts/volunteer.js"></script>
-    <script src="scripts/pet-effects.js"></script>
+    <script src="assets/scripts/volunteer.js"></script>
+    <script src="assets/scripts/pet-effects.js"></script>
+    <script src="assets/scripts/donate.js"></script>
   </body>
 </html>
