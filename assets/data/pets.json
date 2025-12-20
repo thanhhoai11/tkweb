@@ -1,0 +1,250 @@
+{
+  "categories": [
+    {
+      "id": "dog",
+      "name": "Chó Cưng",
+      "products": [
+        {
+          "id": "dog-vang-01",
+          "name": "Vàng (Golden)",
+          "defaultImage": "assets/picture/vang-1.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": {
+            "paragraphs": ["Vàng có nụ cười tỏa nắng, rất thân thiện."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Golden",
+              "Tuổi": "5 tháng",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [
+            { "text": "Thân thiện", "class": "bg-yellow-100 text-yellow-800" }
+          ]
+        },
+        {
+          "id": "dog-muc-01",
+          "name": "Mực (Chó Ta)",
+          "defaultImage": "assets/picture/dog-muc-1.jpg",
+          "hoverImage": "assets/picture/muc-hover.jpg",
+          "description": {
+            "paragraphs": ["Mực thông minh, đen tuyền, giữ nhà giỏi."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Mực",
+              "Tuổi": "4 tháng",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [
+            { "text": "Giữ nhà", "class": "bg-stone-100 text-stone-800" }
+          ]
+        },
+        {
+          "id": "dog-ven-01",
+          "name": "Vện Chiến",
+          "defaultImage": "assets/picture/ven-1.jpg",
+          "hoverImage": "assets/picture/ven-3.jpg",
+          "description": { "paragraphs": ["Vện có màu lông rằn ri cực ngầu."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Vện",
+              "Tuổi": "1 tuổi",
+              "Giới tính": "Cái"
+            }
+          },
+          "tags": [
+            { "text": "Độc lạ", "class": "bg-orange-100 text-orange-800" }
+          ]
+        },
+        {
+          "id": "dog-dom-01",
+          "name": "Đốm",
+          "defaultImage": "assets/picture/dom-1.jpg",
+          "hoverImage": "assets/picture/dog-muc-6.jpg",
+          "description": {
+            "paragraphs": ["Đốm trắng đen, nhìn rất thư sinh."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Đốm",
+              "Tuổi": "2 tháng",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [{ "text": "Cute", "class": "bg-gray-100 text-gray-800" }]
+        },
+        {
+          "id": "dog-beo-01",
+          "name": "Lu Béo",
+          "defaultImage": "assets/picture/beo-1.jpg",
+          "hoverImage": "assets/picture/lu.jpg",
+          "description": {
+            "paragraphs": ["Béo tròn vo, chỉ thích ăn và ngủ."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "2 tuổi",
+              "Giới tính": "Cái"
+            }
+          },
+          "tags": [{ "text": "Ham ăn", "class": "bg-red-100 text-red-800" }]
+        },
+        {
+          "id": "dog-bacha-01",
+          "name": "Bắc Hà",
+          "defaultImage": "assets/picture/bacha-1.jpg",
+          "hoverImage": "assets/picture/bacha.jpg",
+          "description": { "paragraphs": ["Chó xù Bắc Hà, lông trắng muốt."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Bắc Hà",
+              "Tuổi": "3 tháng",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [
+            { "text": "Lông xù", "class": "bg-stone-100 text-stone-800" }
+          ]
+        },
+        {
+          "id": "dog-vang-02",
+          "name": "Vàng Nhỏ",
+          "defaultImage": "assets/picture/vang-3.jpg",
+          "hoverImage": "assets/picture/vang-4.jpg",
+          "description": { "paragraphs": ["Bé Vàng nhỏ nhắn, hay làm nũng."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Vàng",
+              "Tuổi": "2 tháng",
+              "Giới tính": "Cái"
+            }
+          },
+          "tags": [
+            { "text": "Nhỏ nhắn", "class": "bg-yellow-50 text-yellow-600" }
+          ]
+        },
+        {
+          "id": "dog-muc-02",
+          "name": "Than",
+          "defaultImage": "assets/picture/dog-muc-4.jpg",
+          "hoverImage": "assets/picture/dog-muc-5.jpg",
+          "description": { "paragraphs": ["Than đen bóng, rất nhanh nhẹn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Mực",
+              "Tuổi": "1.5 tuổi",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [
+            { "text": "Nhanh nhẹn", "class": "bg-blue-100 text-blue-800" }
+          ]
+        },
+        {
+          "id": "dog-vang-03",
+          "name": "Cậu Vàng",
+          "defaultImage": "assets/picture/vang-2.jpg",
+          "hoverImage": "assets/picture/vang-5.jpg",
+          "description": { "paragraphs": ["Cậu Vàng già dặn, điềm tĩnh."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Ta",
+              "Tuổi": "3 tuổi",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [
+            { "text": "Trưởng thành", "class": "bg-orange-100 text-orange-800" }
+          ]
+        },
+        {
+          "id": "dog-muc-03",
+          "name": "Mực Nhí",
+          "defaultImage": "assets/picture/dog-muc-2.jpg",
+          "hoverImage": "assets/picture/dog-muc-3.jpg",
+          "description": { "paragraphs": ["Mực nhí rất quấn chủ."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Mực",
+              "Tuổi": "2 tháng",
+              "Giới tính": "Cái"
+            }
+          },
+          "tags": [{ "text": "Baby", "class": "bg-pink-100 text-pink-800" }]
+        }
+      ]
+    },
+    {
+      "id": "cat",
+      "name": "Mèo Cưng",
+      "products": [
+        {
+          "id": "cat-xiem-01",
+          "name": "Xiêm La",
+          "defaultImage": "assets/picture/meo-xiem-1.jpg",
+          "hoverImage": "assets/picture/meo-xiem.png",
+          "description": { "paragraphs": ["Mèo Xiêm mắt xanh, quý tộc."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Xiêm",
+              "Tuổi": "1 tuổi",
+              "Giới tính": "Cái"
+            }
+          },
+          "tags": [{ "text": "Quý tộc", "class": "bg-teal-100 text-teal-800" }]
+        },
+        {
+          "id": "cat-muop-01",
+          "name": "Mướp",
+          "defaultImage": "assets/picture/muop-1.jpg",
+          "hoverImage": "assets/picture/muop-hover.png",
+          "description": {
+            "paragraphs": ["Mướp đại ca, bắt chuột siêu đỉnh."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Mướp",
+              "Tuổi": "2 tuổi",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [{ "text": "Đại ca", "class": "bg-green-100 text-green-800" }]
+        },
+        {
+          "id": "cat-tamthe-01",
+          "name": "Tam Thể",
+          "defaultImage": "assets/picture/meo-tam-the-1.jpg",
+          "hoverImage": "assets/picture/tam-the-hover.png",
+          "description": { "paragraphs": ["Tam thể mang lại may mắn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Tam Thể",
+              "Tuổi": "1.5 tuổi",
+              "Giới tính": "Cái"
+            }
+          },
+          "tags": [{ "text": "May mắn", "class": "bg-red-100 text-red-800" }]
+        },
+        {
+          "id": "cat-cam-01",
+          "name": "Cam",
+          "defaultImage": "assets/picture/meo-cam-2.jpg",
+          "hoverImage": "assets/picture/meo-cam.jpg",
+          "description": { "paragraphs": ["Mèo cam lười biếng."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Vàng",
+              "Tuổi": "3 tuổi",
+              "Giới tính": "Đực"
+            }
+          },
+          "tags": [{ "text": "Lười", "class": "bg-orange-100 text-orange-800" }]
+        }
+      ]
+    }
+  ]
+}

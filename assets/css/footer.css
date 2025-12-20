@@ -1,0 +1,35 @@
+.custom-footer {
+  background-color: #f9fafb; /* Gray-50 */
+}
+
+.footer-title {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dấu chấm trang trí dưới tiêu đề footer */
+.footer-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background-color: var(--c-secondary);
+  border-radius: 2px;
+}
+
+.footer-links a {
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--c-primary-hover);
+  transform: translateX(4px); /* Hiệu ứng trượt nhẹ sang phải */
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}

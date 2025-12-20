@@ -1,0 +1,88 @@
+/* --- FILE: assets/css/pet-card.css --- */
+
+/* Khung chứa ảnh */
+.pet-image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+/* Ảnh chung */
+.pet-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+/* Trạng thái mặc định */
+.img-default {
+  opacity: 1;
+  z-index: 10;
+}
+
+.img-hover {
+  opacity: 0;
+  z-index: 20;
+}
+
+/* --- QUAN TRỌNG: CHỈ KHI HOVER VÀO ĐÚNG THẺ .pet-card MỚI ĐỔI ẢNH --- */
+
+/* 1. Ẩn ảnh cũ */
+.pet-card:hover .img-default {
+  opacity: 0;
+}
+
+/* 2. Hiện ảnh mới & Zoom nhẹ */
+.pet-card:hover .img-hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+/* --- 1. ĐỊNH NGHĨA DAO ĐỘNG (FLOATING) --- */
+@keyframes floatContainer {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  } /* Bay lên 10px */
+}
+
+/* --- 2. ÁP DỤNG VÀO KHUNG TRẮNG (VISUAL CARD) --- */
+/* Logic: Tìm vào Container -> Vào thẻ Layout -> Vào thẻ Khung trắng (thẻ con đầu tiên) */
+#pet-grid-container > div > div {
+  /* Chạy animation dao động */
+  animation: floatContainer 3.5s ease-in-out infinite !important;
+  /* Tối ưu hiệu năng */
+  will-change: transform;
+  /* Đảm bảo transform hoạt động tốt */
+  transform-origin: center center;
+}
+
+/* --- 3. DỪNG KHI DI CHUỘT VÀO (để dễ bấm nút tim) --- */
+#pet-grid-container > div > div:hover {
+  animation-play-state: paused !important;
+}
+
+/* --- 4. TẠO ĐỘ LỆCH PHA (ĐỂ KHÔNG BỊ ĐỀU TĂM TẮP) --- */
+
+/* Các thẻ chẵn (2, 4, 6...) trễ 0.5s */
+#pet-grid-container > div:nth-child(2n) > div {
+  animation-delay: 0.5s !important;
+}
+
+/* Các thẻ chia hết cho 3 (3, 6, 9...) trễ 1.2s */
+#pet-grid-container > div:nth-child(3n) > div {
+  animation-delay: 1.2s !important;
+}
+
+/* Các thẻ chia hết cho 5 (5, 10...) trễ 0.8s */
+#pet-grid-container > div:nth-child(5n) > div {
+  animation-delay: 2s !important;
+}

@@ -1,0 +1,155 @@
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent text-white"
+>
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div
+            class="size-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary rounded-full text-white shadow-sm group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-[28px]">pets</span>
+          </div>
+          <span
+            id="logo-text"
+            class="text-xl font-bold tracking-tight group-hover:text-primary-hover transition-colors"
+            >FOURPAWS</span
+          >
+        </a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-5" id="nav-links">
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="index.html"
+          >Trang chủ</a
+        >
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="#pet-section"
+          >Thú cưng</a
+        >
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="#about-section"
+          >Giới thiệu</a
+        >
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="#contact-section"
+          >Liên hệ</a
+        >
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="#"
+          >Ủng hộ</a
+        >
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="../../volunteer.html"
+          >Tình nguyện</a
+        >
+        <a
+          class="text-sm font-medium hover:text-primary-hover transition-colors"
+          href="#"
+          >Bán hàng</a
+        >
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button
+          class="relative p-2 c-red-500 hover:text-primary-hover transition-colors group text-white md:text-white header-icon"
+        >
+          <span class="material-symbols-outlined text-2xl cart"
+            >shopping_cart</span
+          >
+          <span
+            class="absolute top-0 right-0 size-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center font-bold text-white cart"
+            >0</span
+          >
+        </button>
+
+        <a href="../../login.html"
+          ><button
+            class="hidden sm:flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white text-sm font-bold transition-transform hover:scale-105 shadow-md"
+          >
+            Đăng nhập
+          </button>
+        </a>
+        <button
+          onclick="toggleMobileMenu()"
+          class="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors text-white header-icon"
+        >
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden absolute top-20 left-0 w-full bg-white text-gray-900 border-t border-gray-100 shadow-xl py-4 px-6 flex-col gap-0 animate-fade-in-down"
+  >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="index.html"
+      >Trang chủ</a
+    >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="#pet-section"
+      >Danh sách thú cưng</a
+    >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="#about-section"
+      >Giới thiệu</a
+    >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="#contact-section"
+      >Liên hệ</a
+    >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="#"
+      >Ủng hộ</a
+    >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="../../volunteer.html"
+      >Tình nguyện viên</a
+    >
+    <a
+      class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
+      href="#"
+      >Bán hàng</a
+    >
+    <div class="py-3 mt-2">
+      <a href="../../login.html">
+        <button
+          class="w-full h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold shadow-md"
+        >
+          Đăng nhập
+        </button></a
+      >
+    </div>
+  </div>
+</header>
+<script>
+  // load header
+  fetch("header.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("header").innerHTML = data));
+
+  // load footer
+  fetch("footer.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("footer").innerHTML = data));
+</script>
+<style>
+  .md\:text-white {
+    color: pink !important;
+  }
+</style>
