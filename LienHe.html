@@ -1,155 +1,243 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Liên hệ - Minh P&T</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>Liên hệ - FOURPAWS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/header1.css" />
     <style>
-        * {
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        margin: 0;
+        background: #fffdf6;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(255, 193, 7, 0.1);
+        border: 1px solid #fdf2d0;
+      }
 
-        body {
-            margin: 0;
-            background: #f6f7fb;
-        }
+      /* Đảm bảo chia 2 cột chuẩn */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: stretch;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 12px;
-            padding: 32px;
-        }
+      .shop-info {
+        background: #fff9e6;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 32px;
+        border-left: 5px solid #ffc107;
+      }
+      .shop-info h1 {
+        margin: 0 0 16px;
+        font-size: 26px;
+        color: #444;
+        font-weight: 800;
+      }
+      .shop-info p {
+        margin: 10px 0;
+        color: #666;
+        font-size: 16px;
+      }
 
+      h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+        position: relative;
+        display: inline-block;
+      }
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: #f04593;
+        border-radius: 2px;
+      }
+
+      .form-group {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 16px;
+        margin-top: 20px;
+      }
+      .form-group input,
+      textarea {
+        width: 100%;
+        padding: 14px;
+        border-radius: 10px;
+        border: 2px solid #eee;
+        outline: none;
+        transition: all 0.3s ease;
+        background: #fafafa;
+      }
+      .form-group input:focus,
+      textarea:focus {
+        border-color: #ffc107;
+        background: #fff;
+        box-shadow: 0 0 8px rgba(255, 193, 7, 0.2);
+      }
+      textarea {
+        height: 160px;
+        resize: none;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 14px 40px;
+        background: #ffc107;
+        color: #000;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.4s ease;
+      }
+      button:hover {
+        background: #f04593;
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(240, 69, 147, 0.3);
+      }
+
+      .map {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .map iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 500px;
+        border-radius: 15px;
+        border: 4px solid #fff;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        display: block;
+      }
+      .map::before {
+        content: "♥";
+        position: absolute;
+        top: -15px;
+        right: 10px;
+        color: #f04593;
+        font-size: 30px;
+        z-index: 1;
+      }
+
+      @media (max-width: 900px) {
         .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
+          grid-template-columns: 1fr;
         }
-
-        /* ===== Thông tin cửa hàng ===== */
-        .shop-info {
-            background: #f8f9fc;
-            padding: 24px;
-            border-radius: 12px;
-            margin-bottom: 32px;
+        .container {
+          margin: 20px;
+          padding: 20px;
         }
-
-        .shop-info h1 {
-            margin: 0 0 16px;
-            font-size: 28px;
-        }
-
-        .shop-info p {
-            margin: 8px 0;
-            color: #555;
-            font-size: 15px;
-        }
-
-        /* ===== Form liên hệ ===== */
-        h2 {
-            margin-bottom: 16px;
-            font-size: 24px;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            outline: none;
-        }
-
-        textarea {
-            width: 100%;
-            height: 140px;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            resize: none;
-            outline: none;
-        }
-
-        button {
-            margin-top: 16px;
-            padding: 12px 24px;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 24px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        button:hover {
-            opacity: 0.85;
-        }
-
-        /* ===== Map ===== */
         .map iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 520px;
-            border-radius: 12px;
-            border: none;
+          min-height: 350px;
         }
-
-        /* ===== Responsive ===== */
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .map iframe {
-                min-height: 400px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="container">
+      <div class="grid">
+        <div class="contact-side">
+          <div class="shop-info">
+            <h1>TRẠM CỨU HỘ ĐỘNG VẬT FOURPAWS</h1>
+            <p>📍 Địa chỉ: 12 Chùa Bộc, Đống Đa, Hà Nội</p>
+            <p>📞 Hotline: 0899993882</p>
+          </div>
 
-<div class="container">
-    <div class="grid">
-
-        <!-- CỘT TRÁI -->
-        <div>
-            <div class="shop-info">
-                <h1>CỬA HÀNG ĐIỆN THOẠI THÔNG MINH P&T</h1>
-                <p>📍 Địa chỉ: 114 Thái Hà, Đống Đa, Hà Nội</p>
-                <p>📞 Hotline: 0393592005</p>
+          <h2>Liên hệ</h2>
+          <form
+            action="https://formspree.io/f/mrezenzb"
+            method="POST"
+            id="contactForm"
+          >
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Tên" required />
+              <input type="email" name="email" placeholder="Email" required />
             </div>
-
-            <h2>Liên hệ</h2>
-
-            <form>
-                <div class="form-group">
-                    <input type="text" placeholder="Tên">
-                    <input type="email" placeholder="Email">
-                </div>
-
-                <textarea placeholder="Nội dung"></textarea>
-
-                <button type="submit">GỬI LIÊN HỆ</button>
-            </form>
+            <textarea name="message" placeholder="Nội dung" required></textarea>
+            <button type="submit" id="submitBtn">GỬI LIÊN HỆ</button>
+          </form>
         </div>
 
-        <!-- CỘT PHẢI -->
         <div class="map">
-           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1107.3355433448444!2d105.82718509337815!3d21.00794617739194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac806cfc0845%3A0x3848505bd3b9490f!2zMTIgUC4gQ2jDuWEgQuG7mWMsIFF1YW5nIFRydW5nLCDEkOG7kW5nIMSQYSwgSMOgIE7hu5lpIDEwMDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1765991542194!5m2!1svi!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5884918485234!2d105.82601947596856!3d21.009126388451842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac80829d6387%3A0x633519391054612!2zMTIgQ2jDuWEgQuG7mWMsIFRydW5nIExp4buHdCwgxJDhu5FuZyDEkGEsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-
+      </div>
     </div>
-</div>
 
-</body>
+    <script>
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const btn = document.getElementById("submitBtn");
+        const originalText = btn.innerText;
+        btn.innerText = "ĐANG GỬI...";
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" },
+          });
+
+          if (response.ok) {
+            alert("Cảm ơn bạn! Thông tin liên hệ đã được gửi thành công. ♥");
+            form.reset();
+          } else {
+            alert(
+              "Bạn cần thay 'YOUR_ID_HERE' trong code bằng mã ID từ Formspree thì mới gửi được nhé!"
+            );
+          }
+        } catch (error) {
+          alert("Lỗi kết nối mạng, vui lòng thử lại.");
+        } finally {
+          btn.innerText = originalText;
+          btn.disabled = false;
+        }
+      });
+    </script>
+  </body>
 </html>
+<script>
+  // load header
+  fetch("assets/Component/header1.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("header").innerHTML = data));
+
+  // load footer
+  fetch("assets/Component/footer.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("footer").innerHTML = data));
+</script>

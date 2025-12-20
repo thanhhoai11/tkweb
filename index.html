@@ -20,6 +20,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>FOURPAWS - Trang chủ nhận nuôi chó mèo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -542,20 +546,30 @@
                 những câu chuyện cảm động.
               </p>
               <form
+                id="newsletter-form"
                 class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-                onsubmit="event.preventDefault()"
               >
                 <input
+                  id="newsletter-email"
                   class="flex-1 h-12 px-4 rounded-full bg-white/40 border-2 border-white/20 placeholder-gray-700 text-gray-900 focus:outline-none focus:border-white focus:bg-white/70 transition-colors"
                   placeholder="Email của bạn..."
                   type="email"
+                  required
                 />
                 <button
-                  class="h-12 px-8 rounded-full bg-gray-900 text-white font-bold hover:bg-black transition-colors shadow-lg hover:shadow-xl hover:scale-105 transform duration-200"
+                  type="submit"
+                  class="h-12 px-8 rounded-full bg-gray-900 text-white font-bold hover:bg-black transition-all hover:scale-105"
                 >
                   Đăng ký
                 </button>
               </form>
+
+              <div
+                id="newsletter-success"
+                class="hidden mt-4 p-3 bg-white/30 backdrop-blur-md border border-white/40 text-gray-900 font-bold rounded-xl animate-fade-in"
+              >
+                🎉 Cảm ơn bạn! Chúng tôi đã nhận được thông tin đăng ký.
+              </div>
             </div>
           </div>
         </section>
@@ -662,7 +676,8 @@
       }
     </style>
     <div
-      class="fixed right-5 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4"
+      class="fixed right-5 -translate-y-1/2 z-50 flex flex-col gap-4"
+      style="bottom: 10px"
     >
       <a
         href="https://m.me/61585477106241"
@@ -849,30 +864,69 @@
       function renderGrid(products) {
         const container = document.getElementById("pet-grid-container");
         if (!container) return;
+
+        container.innerHTML = "";
+
+        if (products.length === 0) {
+          container.innerHTML =
+            '<p class="w-full text-center py-10 text-gray-500">Chưa có dữ liệu.</p>';
+          return;
+        }
+
         container.innerHTML = products
-          .map(
-            (pet, index) => `
-            <div class="pet-card flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[19%] relative" style="animation: fade-in 0.5s ease-out ${
-              index * 0.1
-            }s forwards; opacity: 0;">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-1 transition-all duration-300">
-                    <div class="aspect-square relative overflow-hidden">
-                        <img src="${
-                          pet.defaultImage
-                        }" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-4 bg-white">
-                        <h3 class="font-bold text-gray-900 truncate">${
-                          pet.name
-                        }</h3>
-                        <p class="text-sm text-gray-500">${
-                          pet.specs["Thông tin"]["Giống"]
-                        }</p>
-                    </div>
-                </div>
-            </div>`
-          )
+          .map((pet, index) => {
+            const info = pet.specs["Thông tin"] || {};
+            const genderIcon = info["Giới tính"] === "Cái" ? "female" : "male";
+
+            // 1. Logic hiệu ứng bay vào (Reveal)
+            const staggerDelay = (index % 5) * 0.1;
+
+            // 2. Logic hiệu ứng dao động (Floating) - QUAN TRỌNG
+            // Tạo delay âm ngẫu nhiên để các card không dao động cùng lúc
+            const floatDelay = -(Math.random() * 5).toFixed(2);
+
+            return `
+      <div class="pet-card reveal-card flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[19%] relative" 
+           style="transition-delay: ${staggerDelay}s;">
+        
+        <a href="profile_pet.html?id=${pet.id}" class="block group">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:-translate-y-2 transition-all duration-300"
+               style="animation: floating 4s ease-in-out infinite ${floatDelay}s;">
+            
+            <div class="aspect-square relative overflow-hidden bg-gray-50">
+              <img src="${
+                pet.defaultImage
+              }" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              
+              <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm z-10">
+                <p class="text-primary-hover text-xs font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">${genderIcon}</span> 
+                  ${info["Tuổi"] || "N/A"}
+                </p>
+              </div>
+            </div>
+            
+            <div class="p-4 bg-white">
+              <h3 class="font-bold text-gray-900 truncate group-hover:text-primary transition-colors">${
+                pet.name
+              }</h3>
+              <p class="text-sm text-gray-500">${info["Giống"] || ""}</p>
+              
+              <div class="mt-3 flex items-center text-primary font-semibold text-xs">
+                Xem hồ sơ <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+              </div>
+            </div>
+
+          </div>
+        </a>
+      </div>`;
+          })
           .join("");
+
+        // Gọi lại Observer để kích hoạt hiệu ứng bay vào cho các phần tử mới
+        if (typeof observePets === "function") {
+          observePets();
+        }
       }
 
       function initTopPets() {
@@ -880,6 +934,7 @@
         if (!container || !fullPetData) return;
 
         let topPets = JSON.parse(sessionStorage.getItem("myTopPets_v1"));
+
         if (!topPets) {
           let allPets = [];
           fullPetData.categories.forEach(
@@ -891,6 +946,7 @@
             "Ngủ nướng giỏi nhất",
             "Bắt được chuột",
           ];
+
           topPets = allPets
             .sort(() => 0.5 - Math.random())
             .slice(0, 3)
@@ -898,6 +954,8 @@
               ...pet,
               achievement:
                 achievements[Math.floor(Math.random() * achievements.length)],
+              // Bé ở giữa (index 1) sẽ là Quán quân
+              badge: i === 1 ? "Quán Quân 👑" : null,
               rankClass:
                 i === 1
                   ? "transform md:-translate-y-6 shadow-2xl border-primary/30"
@@ -907,25 +965,30 @@
         }
 
         container.innerHTML = topPets
-          .map((pet, index) => {
+          .map((pet) => {
             const floatDelay = -(Math.random() * 5).toFixed(2);
             const badgeHTML = pet.badge
               ? `<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg z-20">${pet.badge}</div>`
               : `<div class="absolute -top-4 -right-4 size-12 bg-yellow-400 rounded-full flex items-center justify-center text-white shadow-md z-20"><span class="material-symbols-outlined text-2xl animate-bounce">emoji_events</span></div>`;
 
             return `
-    <div class="bg-white rounded-3xl p-4 transition-transform duration-300 relative border-2 ${pet.rankClass}" 
-         style="animation: floating 4s ease-in-out infinite ${floatDelay}s;">
-        ${badgeHTML}
-        <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-            <img src="${pet.defaultImage}" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-        </div>
-        <div class="text-center">
-            <h3 class="text-xl font-bold text-gray-900">${pet.name}</h3>
-            <p class="text-sm text-yellow-600 font-bold mb-2">🏆 ${pet.achievement}</p>
-            <button onclick="location.href='#pet-section'" class="text-primary underline font-bold text-sm">Xem chi tiết</button>
-        </div>
-    </div>`;
+      <div class="relative group" style="animation: floating 4s ease-in-out infinite ${floatDelay}s;">
+        <a href="profile_pet.html?id=${pet.id}" class="block">
+            <div class="bg-white rounded-3xl p-4 transition-all duration-300 relative border-2 hover:border-primary/50 hover:shadow-2xl ${pet.rankClass}">
+                ${badgeHTML}
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-gray-50">
+                    <img src="${pet.defaultImage}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="${pet.name}">
+                </div>
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">${pet.name}</h3>
+                    <p class="text-sm text-yellow-600 font-bold mb-2">🏆 ${pet.achievement}</p>
+                    <div class="mt-3 flex items-center justify-center text-primary font-semibold text-xs">
+                        Xem hồ sơ bé ngoan <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+      </div>`;
           })
           .join("");
       }
@@ -938,12 +1001,106 @@
       function initHeroSlider() {
         const track = document.getElementById("hero-track");
         if (!track) return;
-        const slides = track.children.length;
-        let index = 0;
-        setInterval(() => {
-          index = (index + 1) % slides;
+        const slides = Array.from(track.children);
+        let index = 0,
+          interval;
+        const dotsContainer = document.getElementById("slider-dots");
+
+        // Hàm cập nhật vị trí
+        function update() {
           track.style.transform = `translateX(-${index * 100}%)`;
-        }, 6000);
+          if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            slides.forEach((_, i) => {
+              const dot = document.createElement("button");
+              dot.className = `h-2 rounded-full transition-all duration-300 ${
+                i === index ? "bg-white w-8" : "bg-white/50 w-2"
+              }`;
+              dot.onclick = () => {
+                index = i;
+                update();
+                resetTimer();
+              };
+              dotsContainer.appendChild(dot);
+            });
+          }
+        }
+
+        function startTimer() {
+          interval = setInterval(() => {
+            index = (index + 1) % slides.length;
+            update();
+          }, 6000);
+        }
+        function resetTimer() {
+          clearInterval(interval);
+          startTimer();
+        }
+
+        // --- LOGIC KÉO CHUỘT (DRAG) MỚI ---
+        let startX = 0;
+        let isDragging = false;
+
+        track.addEventListener("mousedown", (e) => {
+          startX = e.pageX;
+          isDragging = true;
+          clearInterval(interval); // Dừng tự động chạy khi đang giữ chuột
+          track.style.cursor = "grabbing";
+        });
+
+        track.addEventListener("mousemove", (e) => {
+          if (!isDragging) return;
+          e.preventDefault(); // Ngăn chọn văn bản khi kéo
+        });
+
+        track.addEventListener("mouseup", (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          track.style.cursor = "grab";
+          const diff = e.pageX - startX;
+
+          if (diff < -50) {
+            // Kéo sang trái ít nhất 50px -> Next
+            index = (index + 1) % slides.length;
+          } else if (diff > 50) {
+            // Kéo sang phải ít nhất 50px -> Prev
+            index = (index - 1 + slides.length) % slides.length;
+          }
+          update();
+          startTimer(); // Chạy lại timer sau khi thả chuột
+        });
+
+        track.addEventListener("mouseleave", () => {
+          if (isDragging) {
+            isDragging = false;
+            update();
+            startTimer();
+            track.style.cursor = "grab";
+          }
+        });
+
+        // Nút bấm Next/Prev
+        const next = document.getElementById("next-slide");
+        const prev = document.getElementById("prev-slide");
+        if (next)
+          next.onclick = () => {
+            index = (index + 1) % slides.length;
+            update();
+            resetTimer();
+          };
+        if (prev)
+          prev.onclick = () => {
+            index = (index - 1 + slides.length) % slides.length;
+            update();
+            resetTimer();
+          };
+
+        window.stopSlider = () => clearInterval(interval);
+        window.startSlider = () => startTimer();
+
+        track.style.cursor = "grab"; // Hiển thị hình bàn tay khi di vào banner
+        update();
+        startTimer();
       }
 
       function scrollPets(direction) {
@@ -1007,7 +1164,42 @@
       function closeAppealPopup() {
         document.getElementById("pet-appeal-popup").style.display = "none";
       }
+      // Thêm đoạn này vào phần JS của bạn
+      document.addEventListener("DOMContentLoaded", () => {
+        const newsletterForm = document.getElementById("newsletter-form");
+        const newsletterSuccess = document.getElementById("newsletter-success");
+        const newsletterEmail = document.getElementById("newsletter-email");
 
+        if (newsletterForm) {
+          newsletterForm.addEventListener("submit", (e) => {
+            e.preventDefault(); // Ngăn trang web load lại
+
+            // Hiệu ứng giả lập đang gửi dữ liệu
+            const submitBtn = newsletterForm.querySelector("button");
+            submitBtn.innerText = "Đang gửi...";
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+              // 1. Ẩn form đi
+              newsletterForm.classList.add("hidden");
+
+              // 2. Hiện thông báo thành công
+              newsletterSuccess.classList.remove("hidden");
+
+              // 3. Reset email
+              newsletterEmail.value = "";
+
+              // (Tùy chọn) 4. Sau 5 giây hiện lại form để người khác đăng ký
+              setTimeout(() => {
+                newsletterSuccess.classList.add("hidden");
+                newsletterForm.classList.remove("hidden");
+                submitBtn.innerText = "Đăng ký";
+                submitBtn.disabled = false;
+              }, 5000);
+            }, 1000); // Đợi 1 giây để tạo cảm giác hệ thống đang xử lý
+          });
+        }
+      });
       /**
        * ======================================================
        * 6. KHỞI CHẠY HỆ THỐNG

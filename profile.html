@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PetHome - Hồ sơ cá nhân</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      // Giữ nguyên tailwind.config của bạn...
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9EAA",
+              "primary-hover": "#F472B6",
+              secondary: "#FCD34D",
+              "secondary-hover": "#F59E0B",
+              "background-light": "#FFFFFF",
+              "background-dark": "#FFF0F5",
+            },
+            fontFamily: {
+              display: ["Spline Sans", "sans-serif"],
+              body: ["Noto Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .active-tab {
+        background: linear-gradient(
+          to right,
+          rgba(255, 158, 170, 0.1),
+          rgba(252, 211, 77, 0.1)
+        );
+        color: #f472b6;
+        font-weight: bold;
+        border: 1px solid rgba(255, 158, 170, 0.2);
+      }
+      #follower-dog {
+        position: fixed;
+        width: 64px;
+        height: 64px;
+        pointer-events: none;
+        z-index: 9990;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light text-gray-800 font-display overflow-x-hidden antialiased"
+  >
+    <div id="header"></div>
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 pt-28 pb-12 bg-background-dark min-h-screen">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
+            Chào mừng, <span id="user-display-name">Khách</span>! 🐾
+          </h1>
+          <p class="text-gray-500 mt-2 text-lg">
+            Quản lý hành trình yêu thương của bạn.
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+          <aside class="w-full lg:w-1/4">
+            <div
+              class="bg-white rounded-3xl p-6 shadow-xl shadow-pink-100 border border-pink-50 text-center relative overflow-hidden group"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-28 bg-gradient-to-r from-primary to-secondary opacity-20"
+              ></div>
+              <div class="relative z-10 mt-12">
+                <div
+                  class="w-28 h-28 mx-auto rounded-full p-1 bg-gradient-to-r from-primary to-secondary mb-4 shadow-lg"
+                >
+                  <div
+                    class="w-full h-full rounded-full border-4 border-white overflow-hidden bg-white"
+                  >
+                    <img
+                      id="user-avatar"
+                      alt="Avatar"
+                      class="w-full h-full object-cover"
+                      src="https://api.dicebear.com/7.x/adventurer/svg?seed=Linh"
+                    />
+                  </div>
+                </div>
+                <h2 id="user-full-name" class="text-xl font-bold text-gray-900">
+                  N/A
+                </h2>
+                <p
+                  id="user-role"
+                  class="text-secondary-hover font-bold text-xs uppercase mt-1"
+                >
+                  Thành viên PetHome
+                </p>
+              </div>
+
+              <nav class="mt-8 space-y-2 text-left">
+                <button
+                  onclick="showTab('info')"
+                  id="btn-info"
+                  class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-all"
+                >
+                  <span class="material-symbols-outlined">person</span> Thông
+                  tin chung
+                </button>
+                <button
+                  onclick="showTab('adopt')"
+                  id="btn-adopt"
+                  class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-all"
+                >
+                  <span class="material-symbols-outlined">pets</span> Lịch sử
+                  nhận nuôi
+                </button>
+                <button
+                  onclick="showTab('donate')"
+                  id="btn-donate"
+                  class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-all"
+                >
+                  <span class="material-symbols-outlined"
+                    >volunteer_activism</span
+                  >
+                  Quyên góp
+                </button>
+                <button
+                  onclick="showTab('orders')"
+                  id="btn-orders"
+                  class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 transition-all"
+                >
+                  <span class="material-symbols-outlined">shopping_bag</span>
+                  Lịch sử đặt hàng
+                </button>
+                <button
+                  onclick="logout()"
+                  class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-50 transition-all mt-4 border-t border-gray-50"
+                >
+                  <span class="material-symbols-outlined">logout</span> Đăng
+                  xuất
+                </button>
+              </nav>
+            </div>
+          </aside>
+
+          <div class="w-full lg:w-3/4">
+            <div id="tab-info" class="tab-content space-y-8 animate-fade-in-up">
+              <section
+                class="bg-white rounded-3xl p-8 shadow-lg border border-pink-50 relative overflow-hidden"
+              >
+                <h3
+                  class="text-xl font-bold text-gray-900 mb-8 flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-primary"
+                    >id_card</span
+                  >
+                  Thông tin liên hệ
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <label
+                      class="block text-xs font-bold text-gray-400 uppercase mb-1"
+                      >Họ và tên</label
+                    >
+                    <div
+                      id="display-ho-ten"
+                      class="text-gray-900 font-medium text-lg border-b pb-2"
+                    >
+                      ...
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-xs font-bold text-gray-400 uppercase mb-1"
+                      >Email</label
+                    >
+                    <div
+                      id="display-email"
+                      class="text-gray-900 font-medium text-lg border-b pb-2"
+                    >
+                      ...
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-xs font-bold text-gray-400 uppercase mb-1"
+                      >Số điện thoại</label
+                    >
+                    <div
+                      id="display-phone"
+                      class="text-gray-900 font-medium text-lg border-b pb-2"
+                    >
+                      ...
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block text-xs font-bold text-gray-400 uppercase mb-1"
+                      >Địa chỉ</label
+                    >
+                    <div
+                      class="text-gray-900 font-medium text-lg border-b pb-2 text-gray-400 italic text-sm"
+                    >
+                      Chưa cập nhật
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div id="tab-adopt" class="tab-content hidden space-y-6">
+              <div class="bg-white rounded-3xl p-8 shadow-lg text-center">
+                <span class="material-symbols-outlined text-6xl text-pink-100"
+                  >pets</span
+                >
+                <p class="mt-4 text-gray-500">
+                  Bạn chưa nhận nuôi bé nào. Hãy ghé thăm các bé nhé!
+                </p>
+                <a
+                  href="index.html#pet-section"
+                  class="mt-4 inline-block px-6 py-2 bg-primary text-white rounded-full font-bold"
+                  >Tìm bạn bốn chân</a
+                >
+              </div>
+            </div>
+
+            <div id="tab-donate" class="tab-content hidden space-y-6">
+              <div class="bg-white rounded-3xl p-8 shadow-lg">
+                <h3 class="font-bold text-xl mb-4">Lịch sử quyên góp</h3>
+                <p class="text-gray-400 italic">
+                  Dữ liệu quyên góp của bạn sẽ hiển thị ở đây...
+                </p>
+              </div>
+            </div>
+
+            <div id="tab-orders" class="tab-content hidden space-y-6">
+              <div class="bg-white rounded-3xl p-8 shadow-lg">
+                <h3 class="font-bold text-xl mb-4">Đơn hàng của tôi</h3>
+                <p class="text-gray-400 italic">
+                  Bạn chưa có đơn đặt hàng nào.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="follower-dog"></div>
+
+    <script>
+      // --- 1. Xử lý dữ liệu người dùng ---
+      function loadUserData() {
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (!currentUser) {
+          // Nếu chưa đăng nhập, chuyển về trang chủ hoặc login
+          window.location.href = "index.html";
+          return;
+        }
+
+        // Đổ dữ liệu vào giao diện
+        const fullName = `${currentUser.ho} ${currentUser.ten}`;
+        document.getElementById("user-display-name").innerText =
+          currentUser.ten;
+        document.getElementById("user-full-name").innerText = fullName;
+        document.getElementById("display-ho-ten").innerText = fullName;
+        document.getElementById("display-email").innerText = currentUser.email;
+        document.getElementById("display-phone").innerText =
+          currentUser.phone || "Chưa cập nhật";
+
+        // Thay đổi ảnh đại diện dựa trên tên cho sinh động
+        document.getElementById(
+          "user-avatar"
+        ).src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${currentUser.ten}`;
+      }
+
+      // --- 2. Xử lý chuyển Tab ---
+      function showTab(tabId) {
+        // Ẩn tất cả nội dung tab
+        document
+          .querySelectorAll(".tab-content")
+          .forEach((el) => el.classList.add("hidden"));
+        // Hiện tab được chọn
+        document.getElementById("tab-" + tabId).classList.remove("hidden");
+
+        // Cập nhật Style cho Menu Button
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active-tab"));
+        document.getElementById("btn-" + tabId).classList.add("active-tab");
+      }
+
+      // --- 3. Đăng xuất ---
+      function logout() {
+        if (confirm("Bạn có muốn đăng xuất khỏi PetHome?")) {
+          localStorage.removeItem("currentUser");
+          window.location.href = "index.html";
+        }
+      }
+
+      // --- Khởi tạo ---
+      document.addEventListener("DOMContentLoaded", () => {
+        loadUserData();
+        showTab("info"); // Mặc định hiện Tab thông tin
+      });
+    </script>
+    <div id="footer"></div>
+  </body>
+</html>
+<script>
+  // load header
+  fetch("assets/Component/header1.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("header").innerHTML = data));
+
+  // load footer
+  fetch("assets/Component/footer.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("footer").innerHTML = data));
+</script>

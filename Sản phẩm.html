@@ -1,134 +1,120 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Products – Pet Shop</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Products – Pet Shop</title>
 
+    <link rel="stylesheet" href="assets/css/Sản phẩm.css" />
+  </head>
+  <body>
+    <!-- TOP BANNER -->
+    <section class="top-banner">
+      <div class="banner-content">
+        <span class="banner-tag">SUMMER COLLECTION</span>
+        <h1 class="banner-title">SẢN <span>PHẨM</span></h1>
+        <p class="banner-desc">
+          Khám phá các sản phẩm tốt nhất dành cho thú cưng – an toàn, chất lượng
+          và đầy yêu thương.
+        </p>
+        <div class="banner-actions">
+          <button class="btn-primary">Xem sản phẩm</button>
+          <button class="btn-outline">Dịch vụ grooming</button>
+        </div>
+      </div>
 
-  <link rel="stylesheet" href="Sản phẩm.css">
-</head>
-<body>
+      <div class="banner-image">
+        <img src="https://picsum.photos/700/900?random=9" />
+      </div>
+    </section>
 
+    <div class="page">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <h3 class="sidebar-title"></h3>
+        <ul class="category-list">
+          <li class="active">🐾 Danh mục sản phẩm</li>
+          <li>🎁Quà lưu niệm</li>
+          <li>🐕Đồ cho thú cưng</li>
+        </ul>
 
-<!-- TOP BANNER -->
-<section class="top-banner">
-  <div class="banner-content">
-    <span class="banner-tag">SUMMER COLLECTION</span>
-    <h1 class="banner-title">SẢN <span>PHẨM</span></h1>
-    <p class="banner-desc">
-      Khám phá các sản phẩm tốt nhất dành cho thú cưng – an toàn, chất lượng và đầy yêu thương.
-    </p>
-    <div class="banner-actions">
-      <button class="btn-primary">Xem sản phẩm</button>
-      <button class="btn-outline">Dịch vụ grooming</button>
+        <div class="member-box">
+          <h4>Mã khuyến mãi mới</h4>
+          <p>FRSS1234</p>
+          <button>Nhận ngay</button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="content">
+        <h1>Tất cả sản phẩm</h1>
+        <div class="product-grid"></div>
+      </main>
     </div>
-  </div>
 
+    <!-- ===== DỮ LIỆU JSON ===== -->
+    <script id="product-data" type="application/json">
+      [
+        {
+          "name": "Premium Puppy Kibble",
+          "category": "DOG",
+          "price": 45.99,
+          "rating": 4.8,
+          "isNew": true,
+          "image": "https://picsum.photos/400/300?1"
+        },
+        {
+          "name": "Cat Salmon Food",
+          "category": "CAT",
+          "price": 2.99,
+          "rating": 4.9,
+          "isNew": false,
+          "image": "https://picsum.photos/400/300?2"
+        },
+        {
+          "name": "Organic Dog Beef Meal",
+          "category": "DOG",
+          "price": 39.99,
+          "rating": 4.7,
+          "isNew": false,
+          "image": "https://picsum.photos/400/300?3"
+        },
+        {
+          "name": "Kitten Chicken Delight",
+          "category": "CAT",
+          "price": 29.99,
+          "rating": 4.8,
+          "isNew": true,
+          "image": "https://picsum.photos/400/300?4"
+        },
+        {
+          "name": "Senior Dog Health Formula",
+          "category": "DOG",
+          "price": 49.99,
+          "rating": 4.6,
+          "isNew": false,
+          "image": "https://picsum.photos/400/300?5"
+        },
+        {
+          "name": "Cat Tuna Gourmet",
+          "category": "CAT",
+          "price": 24.99,
+          "rating": 4.9,
+          "isNew": true,
+          "image": "https://picsum.photos/400/300?6"
+        }
+      ]
+    </script>
 
-  <div class="banner-image">
-    <img src="https://picsum.photos/700/900?random=9">
-  </div>
-</section>
+    <!-- ===== JS RENDER ===== -->
+    <script>
+      const data = document.getElementById("product-data").textContent;
+      const products = JSON.parse(data);
 
+      const grid = document.querySelector(".product-grid");
 
-<div class="page">
-
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h3 class="sidebar-title"></h3>
-    <ul class="category-list">
-      <li class="active">🐾 Danh mục sản phẩm</li>
-      <li>🎁Quà lưu niệm</li>
-      <li>🐕Đồ cho thú cưng</li>
-    </ul>
-
-
-    <div class="member-box">
-      <h4>Mã khuyến mãi mới</h4>
-      <p>FRSS1234</p>
-      <button>Nhận ngay</button>
-    </div>
-  </aside>
-
-
-  <!-- MAIN -->
-  <main class="content">
-    <h1>Tất cả sản phẩm</h1>
-    <div class="product-grid"></div>
-  </main>
-
-
-</div>
-
-
-<!-- ===== DỮ LIỆU JSON ===== -->
-<script id="product-data" type="application/json">
-  [
-  {
-    "name": "Premium Puppy Kibble",
-    "category": "DOG",
-    "price": 45.99,
-    "rating": 4.8,
-    "isNew": true,
-    "image": "https://picsum.photos/400/300?1"
-  },
-  {
-    "name": "Cat Salmon Food",
-    "category": "CAT",
-    "price": 2.99,
-    "rating": 4.9,
-    "isNew": false,
-    "image": "https://picsum.photos/400/300?2"
-  },
-  {
-    "name": "Organic Dog Beef Meal",
-    "category": "DOG",
-    "price": 39.99,
-    "rating": 4.7,
-    "isNew": false,
-    "image": "https://picsum.photos/400/300?3"
-  },
-  {
-    "name": "Kitten Chicken Delight",
-    "category": "CAT",
-    "price": 29.99,
-    "rating": 4.8,
-    "isNew": true,
-    "image": "https://picsum.photos/400/300?4"
-  },
-  {
-    "name": "Senior Dog Health Formula",
-    "category": "DOG",
-    "price": 49.99,
-    "rating": 4.6,
-    "isNew": false,
-    "image": "https://picsum.photos/400/300?5"
-  },
-  {
-    "name": "Cat Tuna Gourmet",
-    "category": "CAT",
-    "price": 24.99,
-    "rating": 4.9,
-    "isNew": true,
-    "image": "https://picsum.photos/400/300?6"
-  }
-]
-</script>
-
-
-<!-- ===== JS RENDER ===== -->
-<script>
-const data = document.getElementById("product-data").textContent;
-const products = JSON.parse(data);
-
-
-const grid = document.querySelector(".product-grid");
-
-
-products.forEach(p => {
-  const html = `
+      products.forEach((p) => {
+        const html = `
     <div class="product">
       ${p.isNew ? `<span class="badge">NEW</span>` : ""}
       <img src="${p.image}" alt="${p.name}">
@@ -139,10 +125,8 @@ products.forEach(p => {
       <button class="cart">🛒</button>
     </div>
   `;
-  grid.insertAdjacentHTML("beforeend", html);
-});
-</script>
-
-
-</body>
+        grid.insertAdjacentHTML("beforeend", html);
+      });
+    </script>
+  </body>
 </html>
