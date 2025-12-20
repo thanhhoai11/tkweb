@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<html lang="vi">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng – Pet Shop</title>
+    <link rel="stylesheet" href="assets/css/cart.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="main-header" class="site-header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html" class="logo-link">
+            <div class="logo-icon-box">
+              <span class="material-symbols-outlined">pets</span>
+            </div>
+            <span id="logo-text" class="logo-text">FOURPAWS</span>
+          </a>
+        </div>
+
+        <nav class="nav-desktop">
+          <ul class="nav-list">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="category.html">Nhận nuôi</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="donate.html">Ủng hộ</a></li>
+            <li><a href="volunteer.html">Tình nguyện</a></li>
+            <li><a href="sanpham.html">Bán hàng</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="cart-btn">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="cart-badge">0</span>
+          </button>
+
+          <a href="login.html" class="login-btn">Đăng nhập</a>
+
+          <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- <div id="mobile-menu" class="mobile-menu-overlay">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="category.html">Danh sách nhận nuôi</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="volunteer.html">Tình nguyện viên</a></li>
+            <li><a href="login.html" class="mobile-login-btn">Đăng nhập</a></li>
+        </ul>
+    </div> -->
+    </header>
+
+    <div class="cart-container">
+      <header class="cart-header">
+        <h1>Giỏ hàng của bạn (<span id="cart-count">0</span> sản phẩm)</h1>
+        <p class="free-shipping-notice">
+          Miễn phí vận chuyển cho đơn hàng trên 500.000 đ!
+        </p>
+      </header>
+
+      <div class="cart-layout">
+        <main class="cart-items" id="cart-items-list"></main>
+
+        <aside class="order-summary">
+          <h2>Tóm tắt đơn hàng</h2>
+          <div class="summary-row">
+            <span>Tạm tính</span>
+            <span id="subtotal">0 đ</span>
+          </div>
+          <div class="summary-row">
+            <span>Phí vận chuyển</span>
+            <span id="shipping">Miễn phí</span>
+          </div>
+          <hr />
+          <div class="summary-row total">
+            <span>Tổng cộng</span>
+            <span id="grand-total">0 đ</span>
+          </div>
+
+          <button
+            class="btn-checkout"
+            onclick="window.location.href='pay.html'"
+          >
+            Tiến hành thanh toán
+          </button>
+
+          <a href="Sản phẩm.html" class="continue-shopping"
+            >← Tiếp tục mua sắm</a
+          >
+        </aside>
+      </div>
+    </div>
+
+    <script>
+      let discountValue = 0;
+
+      function renderCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const listContainer = document.getElementById("cart-items-list");
+        const countEl = document.getElementById("cart-count");
+        const subtotalEl = document.getElementById("subtotal");
+        const totalEl = document.getElementById("grand-total");
+
+        countEl.innerText = cart.length;
+
+        if (cart.length === 0) {
+          listContainer.innerHTML = `<div class="empty-cart">Giỏ hàng trống. <a href="Sản phẩm.html">Mua ngay!</a></div>`;
+          subtotalEl.innerText = "0 đ";
+          totalEl.innerText = "0 đ";
+          return;
+        }
+
+        let subtotal = 0;
+        listContainer.innerHTML = cart
+          .map((item, index) => {
+            const itemPrice = item.price * 1000;
+            subtotal += itemPrice * item.quantity;
+
+            // --- LOGIC XỬ LÝ ẢNH THÔNG MINH ---
+            // Nếu item.image đã chứa 'assets/', lấy luôn. Nếu không, nối thêm đường dẫn webp.
+            let imageSrc = item.image.includes("assets/")
+              ? item.image
+              : `assets/picture/webp/${item.image}`;
+
+            return `
+            <div class="cart-item-card">
+                <img src="${imageSrc}" alt="${
+              item.name
+            }" class="item-img" onerror="this.src='assets/picture/${
+              item.image
+            }'">
+                <div class="item-details">
+                    <div class="item-info">
+                        <h3>${item.name}</h3>
+                        <p class="item-category">Phân loại: Cửa hàng thú cưng</p>
+                        <span class="stock-status">Còn hàng</span>
+                    </div>
+                    <div class="item-controls">
+                        <div class="qty-selector">
+                            <button onclick="changeQty(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                        <div class="price-remove">
+                            <span class="item-price">${(
+                              itemPrice * item.quantity
+                            ).toLocaleString("vi-VN")} đ</span>
+                            <button class="btn-remove" onclick="removeItem(${index})">Xóa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+          })
+          .join("");
+
+        const finalTotal = subtotal - discountValue;
+        subtotalEl.innerText = subtotal.toLocaleString("vi-VN") + " đ";
+        totalEl.innerText =
+          (finalTotal > 0 ? finalTotal : 0).toLocaleString("vi-VN") + " đ";
+      }
+
+      // Các hàm phụ trợ giữ nguyên
+      function changeQty(index, delta) {
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        cart[index].quantity += delta;
+        if (cart[index].quantity < 1) cart[index].quantity = 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+
+      function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem("cart"));
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+
+      renderCart();
+    </script>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-column brand-column">
+            <div class="footer-logo">
+              <div class="logo-icon-small">
+                <span class="material-symbols-outlined">pets</span>
+              </div>
+              <span class="footer-brand-name">FOURPAWS</span>
+            </div>
+            <p class="brand-desc">
+              Kết nối trái tim, chia sẻ yêu thương. Chúng tôi là cầu nối giữa
+              những thú cưng bị bỏ rơi và những gia đình mới.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Về chúng tôi</h4>
+            <ul>
+              <li><a href="introduction.html">Giới thiệu</a></li>
+              <li><a href="#">Mạng xã hội</a></li>
+              <li><a href="donate.html">Đối tác</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Hỗ trợ</h4>
+            <ul>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Quy định nhận nuôi</a></li>
+              <li><a href="volunteer.html">Tình nguyện viên</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column contact-column">
+            <h4>Liên hệ</h4>
+            <ul class="contact-list">
+              <li>
+                <span class="material-symbols-outlined icon-pink"
+                  >location_on</span
+                >
+                123 Đường ABC, Quận 1, TP.HCM
+              </li>
+              <li>
+                <span class="material-symbols-outlined icon-pink">call</span>
+                090 123 4567
+              </li>
+              <li>
+                <span class="material-symbols-outlined icon-pink">mail</span>
+                contact@fourpaws.vn
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">© 2023 FOURPAWS. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#">FB</a>
+            <a href="#">IG</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    if (window.scrollY > 50) {
+      header.classList.add("bg-scrolled");
+      header.classList.remove("bg-transparent");
+    } else {
+      header.classList.add("bg-transparent");
+      header.classList.remove("bg-scrolled");
+    }
+  });
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+      menu.style.flexDirection = "column";
+    }
+  }
+
+  // Khởi tạo mặc định lúc load trang
+  document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("main-header");
+    if (window.scrollY <= 50) {
+      header.classList.add("bg-transparent");
+    }
+  });
+</script>
+
+<style>
+  :root {
+    --primary: #ff9eaa;
+    --primary-hover: #f472b6;
+    --secondary: #fcd34d;
+    --secondary-hover: #f59e0b;
+    --text-dark: #111827;
+    --text-gray: #6b7280;
+    --white: #ffffff;
+    --header-height: 80px;
+  }
+
+  /* BASE STYLES */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+  }
+
+  /* HEADER STYLES */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Header state when transparent (At top) */
+  .site-header.bg-transparent {
+    background-color: transparent;
+    color: white;
+  }
+
+  /* Header state when scrolled down */
+  .site-header.bg-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+  }
+
+  .header-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Logo */
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-icon-box {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  /* Nav Desktop */
+  .nav-desktop .nav-list {
+    display: flex;
+    gap: 20px;
+  }
+  .nav-list a {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nav-list a:hover {
+    color: var(--primary-hover);
+  }
+
+  /* Header Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cart-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    padding: 8px;
+  }
+  .cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ef4444;
+    color: white;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    padding: 10px 24px;
+    border-radius: 999px;
+    color: white !important;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .login-btn:hover {
+    transform: scale(1.05);
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .mobile-menu-overlay {
+    display: none; /* Controlled by JS */
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* FOOTER STYLES */
+  .site-footer {
+    background-color: #f9fafb;
+    border-top: 1px solid #f3f4f6;
+    padding: 64px 0 32px;
+  }
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-column h4 {
+    margin-bottom: 24px;
+    color: var(--text-dark);
+  }
+  .footer-column ul li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--text-gray);
+  }
+  .footer-column ul li a:hover {
+    color: var(--primary-hover);
+  }
+  body {
+    padding-top: 80px; /* = chiều cao header */
+  }
+  .logo-icon-small {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-right: 8px;
+  }
+  .footer-brand-name {
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+  .brand-desc {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .icon-pink {
+    color: var(--primary);
+    vertical-align: middle;
+    margin-right: 8px;
+    font-size: 18px !important;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .copyright {
+    font-size: 12px;
+    color: var(--text-gray);
+  }
+  .social-links {
+    display: flex;
+    gap: 24px;
+    color: var(--text-gray);
+    font-weight: bold;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-desktop {
+      display: none;
+    }
+    .mobile-menu-toggle {
+      display: block;
+      color: var(--text-dark);
+    }
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  }
+</style>

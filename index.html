@@ -24,6 +24,11 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -130,11 +135,14 @@
                   class="flex gap-4 animate-fade-in-up"
                   style="animation-delay: 0.4s"
                 >
-                  <button
-                    class="h-14 px-10 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg shadow-pink-500/30 transition-transform hover:scale-105"
+                  <a
+                    href="https://laodong.vn/xa-hoi/hanh-trinh-hoi-sinh-cua-hon-1200-cho-meo-bi-bo-roi-o-ngoai-thanh-ha-noi-1575430.ldo "
+                    ><button
+                      class="h-14 px-10 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg shadow-pink-500/30 transition-transform hover:scale-105"
+                    >
+                      Tìm hiểu ngay
+                    </button></a
                   >
-                    Tìm hiểu ngay
-                  </button>
                 </div>
               </div>
             </div>
@@ -160,11 +168,13 @@
                   <br />Open Day 2025
                 </h1>
                 <div class="flex gap-4">
-                  <button
-                    class="h-14 px-10 rounded-full bg-white text-gray-900 hover:bg-gray-100 font-bold shadow-lg transition-transform hover:scale-105"
+                  <<a href="volunteer.html"
+                    ><button
+                      class="h-14 px-10 rounded-full bg-white text-gray-900 hover:bg-gray-100 font-bold shadow-lg transition-transform hover:scale-105"
+                    >
+                      Đăng ký tham gia
+                    </button></a
                   >
-                    Đăng ký tham gia
-                  </button>
                 </div>
               </div>
             </div>
@@ -210,11 +220,14 @@
                       >play_arrow</span
                     >
                   </button>
-                  <button
-                    class="h-14 px-8 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg transition-transform hover:scale-105"
+                  <a
+                    href="https://blogradio.vn/truyen-thieu-nhi/chu-cho-vang-dung-cam/5347"
+                    ><button
+                      class="h-14 px-8 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white font-bold shadow-lg transition-transform hover:scale-105"
+                    >
+                      Đọc câu chuyện
+                    </button></a
                   >
-                    Đọc câu chuyện
-                  </button>
                 </div>
               </div>
             </div>
@@ -277,6 +290,25 @@
                 </button>
               </div>
             </div>
+
+            <div class="relative group">
+              <button
+                onclick="scrollPets('left')"
+                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <div
+                id="pet-grid-container"
+                class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar py-4 px-1"
+              ></div>
+              <button
+                onclick="scrollPets('right')"
+                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
             <section
               class="py-16 bg-yellow-50 relative overflow-hidden"
               id="top-pets-section"
@@ -308,32 +340,15 @@
                 </div>
               </div>
             </section>
-            <div class="relative group">
-              <button
-                onclick="scrollPets('left')"
-                class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
-              >
-                <span class="material-symbols-outlined">chevron_left</span>
-              </button>
-              <div
-                id="pet-grid-container"
-                class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar py-4 px-1"
-              ></div>
-              <button
-                onclick="scrollPets('right')"
-                class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-40 w-12 h-12 bg-white border border-gray-100 shadow-xl rounded-full flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all opacity-0 group-hover:opacity-100 hidden md:flex active:scale-90"
-              >
-                <span class="material-symbols-outlined">chevron_right</span>
-              </button>
-            </div>
-
             <div class="flex justify-center mt-8">
-              <button
-                class="flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 hover:border-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white text-gray-600 font-medium transition-all"
+              <a href="category.html"
+                ><button
+                  class="flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 hover:border-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white text-gray-600 font-medium transition-all"
+                >
+                  Xem toàn bộ danh sách
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button></a
               >
-                Xem toàn bộ danh sách
-                <span class="material-symbols-outlined">arrow_forward</span>
-              </button>
             </div>
           </div>
         </section>
@@ -369,10 +384,6 @@
                     >Đơn giản & Minh bạch</span
                   >
                 </h2>
-                <p class="text-gray-600 mb-8 leading-relaxed">
-                  Chúng tôi cố gắng làm cho quá trình nhận nuôi trở nên dễ dàng
-                  nhất có thể.
-                </p>
                 <div class="space-y-6"></div>
               </div>
               <div class="w-full md:w-1/2 relative">
@@ -717,9 +728,10 @@
           const element = document.getElementById(id);
           if (element) {
             element.innerHTML = html;
-            if (id === "header-placeholder") {
-              initHeaderLogic(); // Kích hoạt logic ngay khi Header vừa hiện diện
-            }
+
+            // Xử lý riêng cho từng loại component sau khi load xong
+            if (id === "header-placeholder") initHeaderLogic();
+            if (id === "top-pets-placeholder" && fullPetData) initTopPets(); // Render ngay nếu data đã có
           }
         } catch (err) {
           console.error("Lỗi tải component:", err);
@@ -834,8 +846,8 @@
           const response = await fetch("assets/data/pets.json");
           if (!response.ok) throw new Error("Không tải được file pets.json");
           fullPetData = await response.json();
-          filterAndRender("all");
           initTopPets();
+          filterAndRender("all");
         } catch (error) {
           console.error("Lỗi dữ liệu:", error);
           document.getElementById(
@@ -1210,6 +1222,10 @@
         await Promise.all([
           loadComponent("header-placeholder", "assets/component/header.html"),
           loadComponent("footer-placeholder", "assets/component/footer.html"),
+          loadComponent(
+            "top-pets-placeholder",
+            "assets/component/top-pets.html"
+          ),
         ]);
 
         // Khởi tạo các module

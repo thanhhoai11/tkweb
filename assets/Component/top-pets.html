@@ -1,0 +1,40 @@
+<section
+  class="py-16 bg-yellow-50 relative overflow-hidden"
+  id="top-pets-section"
+>
+  <div
+    class="absolute top-0 right-0 w-64 h-64 bg-yellow-200 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/2"
+  ></div>
+
+  <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-10">
+      <span class="text-secondary font-bold text-sm uppercase tracking-wider"
+        >Hall of Fame</span
+      >
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+        🏆 Những Bé Ngoan Nhất Tuần
+      </h2>
+    </div>
+
+    <div id="top-pets-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+      <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+      <div class="bg-white rounded-3xl h-80 animate-pulse"></div>
+    </div>
+  </div>
+</section>
+<head>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<style>
+  /* Đảm bảo hiệu ứng bay bổng vẫn hoạt động khi tách file */
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+</style>

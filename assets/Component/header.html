@@ -28,11 +28,11 @@
         <a
           class="text-sm font-medium hover:text-primary-hover transition-colors"
           href="../../category.html"
-          >Thú cưng</a
+          >Nhận nuôi</a
         >
         <a
           class="text-sm font-medium hover:text-primary-hover transition-colors"
-          href="../../gioithieu.html"
+          href="../../introduction.html"
           >Giới thiệu</a
         >
         <a
@@ -42,7 +42,7 @@
         >
         <a
           class="text-sm font-medium hover:text-primary-hover transition-colors"
-          href="../.."
+          href="../../donate.html"
           >Ủng hộ</a
         >
         <a
@@ -56,19 +56,18 @@
           >Bán hàng</a
         >
       </div>
-
       <div class="flex items-center gap-3">
-        <button
-          class="relative p-2 c-red-500 hover:text-primary-hover transition-colors group text-white md:text-white header-icon"
+        <a href="pay.html" class="cart-btn-link">
+          <button class="cart-btn" onclick="window.location.href='pay.html'">
+            <span class="material-symbols-outlined text-2xl cart"
+              >shopping_cart</span
+            >
+            <span
+              class="absolute top-0 right-0 size-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center font-bold text-white cart"
+              >0</span
+            >
+          </button></a
         >
-          <span class="material-symbols-outlined text-2xl cart"
-            >shopping_cart</span
-          >
-          <span
-            class="absolute top-0 right-0 size-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center font-bold text-white cart"
-            >0</span
-          >
-        </button>
 
         <a href="../../login.html"
           ><button
@@ -99,11 +98,11 @@
     <a
       class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
       href="../../category.html"
-      >Danh sách thú cưng</a
+      >Danh sách Nhận nuôi</a
     >
     <a
       class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
-      href="../../"
+      href="../../introduction.html"
       >Giới thiệu</a
     >
     <a
@@ -113,7 +112,7 @@
     >
     <a
       class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
-      href="#"
+      href="../../donate.html"
       >Ủng hộ</a
     >
     <a
@@ -137,7 +136,29 @@
     </div>
   </div>
 </header>
+<head>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 <script>
+  // Sửa trong file header0.js
+  window.toggleMobileMenu = function () {
+    const menu = document.getElementById("mobile-menu");
+
+    if (!menu) {
+      console.error(
+        "Không tìm thấy menu! Kiểm tra xem ID 'mobile-menu' có trong header0.html chưa."
+      );
+      return;
+    }
+
+    // Kiểm tra trạng thái hiển thị
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+      menu.style.flexDirection = "column";
+    }
+  };
   // load header
   fetch("header.html")
     .then((res) => res.text())
@@ -147,9 +168,54 @@
   fetch("footer.html")
     .then((res) => res.text())
     .then((data) => (document.getElementById("footer").innerHTML = data));
+  function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const badge = document.querySelector(".cart-badge");
+    if (badge) {
+      // Tính tổng số lượng tất cả sản phẩm trong giỏ
+      const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+      badge.innerText = totalQty;
+    }
+  }
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+
+    if (!menu) {
+      console.error("Không tìm thấy element có id='mobile-menu'");
+      return;
+    }
+
+    // Cách 1: Sử dụng class để điều khiển (Khuyên dùng)
+    menu.classList.toggle("is-active");
+
+    // Cách 2: Nếu bạn muốn dùng style trực tiếp
+    /*
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+    */
+  }
+
+  // Đóng menu khi nhấn vào một đường dẫn bất kỳ
+  document.querySelectorAll(".mobile-nav-list a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const menu = document.getElementById("mobile-menu");
+      if (menu) menu.classList.remove("is-active");
+    });
+  });
+  // Chạy hàm ngay khi load header
+  document.addEventListener("DOMContentLoaded", updateCartBadge);
+  // Hoặc chạy sau khi fetch header thành công
 </script>
 <style>
   .md\:text-white {
     color: pink !important;
+  }
+  .cart-btn-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
   }
 </style>

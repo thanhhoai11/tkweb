@@ -3,9 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Chi tiết sản phẩm</title>
-    <link rel="stylesheet" href="Chi tiết sản phẩm.css" />
+    <link rel="stylesheet" href="assets/css/Chi tiết sản phẩm.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <head>
+      <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div id="header-box"></div>
     <div id="page" class="product-page">
       <!-- LEFT -->
       <div class="product-images">
@@ -66,13 +79,8 @@
           categoryText: "Quà lưu niệm",
           rating: 4.8,
           isNew: true,
-          mainImage: "assets/picture/webp/lich1.webp",
-          thumbs: [
-            "assets/picture/webp/lich1.webp",
-            "assets/picture/webp/lich2.webp",
-            "assets/picture/webp/lich3.webp",
-            "assets/picture/webp/lich4.webp",
-          ],
+          mainImage: "lich1.webp",
+          thumbs: ["lich1.webp", "lich2.webp", "lich3.webp", "lich4.webp"],
           desc: "Bộ lịch có hình mèo con đáng yêu cùng với 12 tháng trong năm phù hợp để trang trí bàn học, kệ sách.",
           longDesc:
             "Bộ lịch được làm từ giấy bìa cứng, hình thức chỉn chu, đường in rõ nét, có bệ đỡ bằng gỗ mỏng, mặt sau của tờ lịch cũng là một tờ ghi chú.",
@@ -102,16 +110,11 @@
           categoryText: "Quà lưu niệm",
           rating: 4.9,
           isNew: false,
-          mainImage: "assets/picture/webp/moc4.webp",
-          thumbs: [
-            "assets/picture/webp/moc4.webp",
-            "assets/picture/webp/moc1.webp",
-            "assets/picture/webp/moc2.webp",
-            "assets/picture/webp/moc3.webp",
-          ],
+          mainImage: "moc4.webp",
+          thumbs: ["moc4.webp", "moc1.webp", "moc2.webp", "moc3.webp"],
           desc: "Móc khóa acrylic in hình các meme chó mèo nổi tiếng trên mạng xã hội.",
           longDesc:
-            "Chất liệu nhựa cứng cassets/picture/webp/ao cấp, in 2 mặt rõ nét, có màng bảo vệ chống trầy xước. Phù hợp treo chìa khóa, balo.",
+            "Chất liệu nhựa cứng cao cấp, in 2 mặt rõ nét, có màng bảo vệ chống trầy xước. Phù hợp treo chìa khóa, balo.",
           features: [
             { icon: "✨", text: "Sắc nét", className: "feature-good" },
             { icon: "🎨", text: "Màu bền", className: "feature-fast" },
@@ -133,20 +136,15 @@
 
         {
           id: 3,
-          name: "assets/picture/webp/ghim cài áo bằng bông hình mèo đen chó đen",
+          name: "Ghim cài áo bằng bông hình mèo đen chó đen",
           category: "Quà lưu niệm",
           price: 23,
           categoryText: "Quà lưu niệm",
           rating: 4.7,
           isNew: false,
-          mainImage: "assets/picture/webp/ghim1.webp",
-          thumbs: [
-            "assets/picture/webp/ghim1.webp",
-            "assets/picture/webp/ghim2.webp",
-            "assets/picture/webp/ghim 2.webp",
-            "assets/picture/webp/ghim 3.webp",
-          ],
-          desc: "assets/picture/webp/ghim cài áo (pin) nhồi bông mềm mại, tạo hình thú cưng phong cách tối giản.",
+          mainImage: "ghim1.webp",
+          thumbs: ["ghim1.webp", "ghim2.webp", "ghim 2.webp", "ghim 3.webp"],
+          desc: "Ghim cài áo (pin) nhồi bông mềm mại, tạo hình thú cưng phong cách tối giản.",
           longDesc:
             "Sản phẩm được khâu tay tỉ mỉ, mặt sau có kim cài chắc chắn. Phù hợp cài lên áo khoác, mũ hoặc túi vải.",
           features: [
@@ -154,10 +152,9 @@
             { icon: "🧵", text: "Thủ công", className: "feature-fast" },
             { icon: "🧸", text: "Đáng yêu", className: "feature-return" },
           ],
-          tabInfo:
-            "Kích thước khoảng 5x5cm, vải nhung bông cassets/picture/webp/ao cấp.",
+          tabInfo: "Kích thước khoảng 5x5cm, vải nhung bông cao cấp.",
           tabReviews:
-            '"assets/picture/webp/ghim cài lên túi vải nhìn xinh cực kỳ luôn." – Ngọc A. ★★★★☆',
+            '"Ghim cài lên túi vải nhìn xinh cực kỳ luôn." – Ngọc A. ★★★★☆',
           tabCare: "Nếu bẩn hãy giặt nhẹ bằng tay, tránh dùng bàn chải cứng.",
           classes: {
             page: "product-page dog-theme",
@@ -175,13 +172,8 @@
           categoryText: "Đồ cho thú cưng",
           rating: 4.8,
           isNew: true,
-          mainImage: "assets/picture/webp/cc1.webp",
-          thumbs: [
-            "assets/picture/webp/cc1.webp",
-            "assets/picture/webp/cc2.webp",
-            "assets/picture/webp/cc3.webp",
-            "assets/picture/webp/cc4.webp",
-          ],
+          mainImage: "cc1.webp",
+          thumbs: ["cc1.webp", "cc2.webp", "cc3.webp", "cc4.webp"],
           desc: "Đồ chơi tương tác giúp mèo vận động, giảm căng thẳng.",
           longDesc:
             "Cần bằng nhựa dẻo chịu lực tốt, phần lông vũ tự nhiên đính kèm chuông nhỏ tạo âm thanh thu hút sự chú ý của mèo.",
@@ -211,23 +203,14 @@
           categoryText: "Đồ cho thú cưng",
           rating: 4.6,
           isNew: false,
-          mainImage: "assets/picture/webp/can1.webp",
-          thumbs: [
-            "assets/picture/webp/can1.webp",
-            "assets/picture/webp/can2.webp",
-            "assets/picture/webp/can3.webp",
-            "assets/picture/webp/can4.webp",
-          ],
+          mainImage: "can1.webp",
+          thumbs: ["can1.webp", "can2.webp", "can3.webp", "can4.webp"],
           desc: "Đồ chơi dây thừng bện chắc chắn kết hợp bóng tennis ở hai đầu.",
           longDesc:
             "Dành cho các hoạt động giằng co (tug of war) hoặc ném bắt. Giúp làm sạch răng và rèn luyện cơ hàm cho chó.",
           features: [
             { icon: "💪", text: "Bền bỉ", className: "feature-good" },
-            {
-              icon: "🎾",
-              text: "Thể thassets/picture/webp/ao",
-              className: "feature-fast",
-            },
+            { icon: "🎾", text: "Thể thao", className: "feature-fast" },
             { icon: "🦷", text: "Sạch răng", className: "feature-return" },
           ],
           tabInfo:
@@ -251,13 +234,8 @@
           categoryText: "Đồ cho thú cưng",
           rating: 4.9,
           isNew: true,
-          mainImage: "assets/picture/webp/ao1.webp",
-          thumbs: [
-            "assets/picture/webp/ao1.webp",
-            "assets/picture/webp/ao2.webp",
-            "assets/picture/webp/ao3.webp",
-            "assets/picture/webp/ao4.webp",
-          ],
+          mainImage: "ao1.webp",
+          thumbs: ["ao1.webp", "ao2.webp", "ao3.webp", "ao4.webp"],
           desc: "Áo nỉ lót bông dày dặn, kiểu dáng thời trang cho chó mèo.",
           longDesc:
             "Chất liệu nỉ co giãn nhẹ, giữ nhiệt tốt, không gây kích ứng da. Có nhiều size phù hợp từ 2kg đến 10kg.",
@@ -309,7 +287,7 @@
         descEl.textContent = product.desc || "";
         longDescEl.textContent = product.longDesc || "";
 
-        // ----- Sassets/picture/webp/ao rating -----
+        // ----- Sao rating -----
         const fullStars = Math.floor(product.rating || 0);
         const starsStr = "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
         document.getElementById("stars").textContent = starsStr;
@@ -482,6 +460,23 @@
 
         alert("Đã thêm sản phẩm vào giỏ hàng thành công!");
       };
+    </script>
+    <div id="footer-box"></div>
+    <script src="assets/component/header0.js"></script>
+    <script>
+      // Load Header
+      fetch("assets/component/header0.html")
+        .then((res) => res.text())
+        .then(
+          (data) => (document.getElementById("header-box").innerHTML = data)
+        );
+
+      // Load Footer
+      fetch("assets/component/footer0.html")
+        .then((res) => res.text())
+        .then(
+          (data) => (document.getElementById("footer-box").innerHTML = data)
+        );
     </script>
   </body>
 </html>

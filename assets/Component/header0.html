@@ -1,0 +1,99 @@
+<header id="main-header" class="site-header">
+  <div class="header-container">
+    <div class="header-logo">
+      <a href="index.html" class="logo-link">
+        <div class="logo-icon-box">
+          <span class="material-symbols-outlined">pets</span>
+        </div>
+        <span id="logo-text" class="logo-text">FOURPAWS</span>
+      </a>
+    </div>
+
+    <nav class="nav-desktop">
+      <ul class="nav-list">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="category.html">Nhận nuôi</a></li>
+        <li><a href="introduction.html">Giới thiệu</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+        <li><a href="donate.html">Ủng hộ</a></li>
+        <li><a href="volunteer.html">Tình nguyện</a></li>
+        <li><a href="sanpham.html">Bán hàng</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="pay.html" class="cart-btn-link">
+        <button class="cart-btn">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span class="cart-badge">0</span>
+        </button>
+      </a>
+      <a href="login.html" class="login-btn">Đăng nhập</a>
+
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu-overlay">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="category.html">Danh sách nhận nuôi</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+      <li><a href="volunteer.html">Tình nguyện viên</a></li>
+      <li><a href="login.html" class="mobile-login-btn">Đăng nhập</a></li>
+    </ul>
+  </div>
+</header>
+<script>
+  window.toggleMobileMenu = function () {
+    const menu = document.getElementById("mobile-menu");
+
+    if (!menu) {
+      console.error(
+        "Không tìm thấy menu! Kiểm tra xem ID 'mobile-menu' có trong header0.html chưa."
+      );
+      return;
+    }
+
+    // Kiểm tra trạng thái hiển thị
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+      menu.style.flexDirection = "column";
+    }
+  };
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+
+    if (!menu) {
+      console.error("Không tìm thấy element có id='mobile-menu'");
+      return;
+    }
+
+    // Cách 1: Sử dụng class để điều khiển (Khuyên dùng)
+    menu.classList.toggle("is-active");
+
+    // Cách 2: Nếu bạn muốn dùng style trực tiếp
+    /*
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+    */
+  }
+
+  // Đóng menu khi nhấn vào một đường dẫn bất kỳ
+  document.querySelectorAll(".mobile-nav-list a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const menu = document.getElementById("mobile-menu");
+      if (menu) menu.classList.remove("is-active");
+    });
+  });
+</script>
+<head>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>

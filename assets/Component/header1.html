@@ -31,11 +31,11 @@
         <a
           class="text-sm font-medium hover:text-primary-hover transition-colors"
           href="../../category.html"
-          >Thú cưng</a
+          >Nhận nuôi</a
         >
         <a
           class="text-sm font-medium hover:text-primary-hover transition-colors"
-          href="../../gioithieu.html"
+          href="../../introduction.html"
           >Giới thiệu</a
         >
         <a
@@ -45,7 +45,7 @@
         >
         <a
           class="text-sm font-medium hover:text-primary-hover transition-colors"
-          href="../.."
+          href="../../donate.html"
           >Ủng hộ</a
         >
         <a
@@ -61,18 +61,19 @@
       </div>
 
       <div class="flex items-center gap-3">
-        <button
-          class="relative p-2 c-red-500 hover:text-primary-hover transition-colors group text-white md:text-white header-icon"
-        >
-          <span class="material-symbols-outlined text-2xl cart"
-            >shopping_cart</span
+        <a href="pay.html" class="cart-btn-link"
+          ><button
+            class="relative p-2 c-red-500 hover:text-primary-hover transition-colors group text-white md:text-white header-icon"
           >
-          <span
-            class="absolute top-0 right-0 size-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center font-bold text-white cart"
-            >0</span
-          >
-        </button>
-
+            <span class="material-symbols-outlined text-2xl cart"
+              >shopping_cart</span
+            >
+            <span
+              class="absolute top-0 right-0 size-4 bg-red-500 rounded-full text-[10px] flex items-center justify-center font-bold text-white cart"
+              >0</span
+            >
+          </button>
+        </a>
         <a href="../../login.html"
           ><button
             class="hidden sm:flex h-10 px-6 items-center justify-center rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover text-white text-sm font-bold transition-transform hover:scale-105 shadow-md"
@@ -102,11 +103,11 @@
     <a
       class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
       href="../../category.html"
-      >Danh sách thú cưng</a
+      >Danh sách Nhận nuôi</a
     >
     <a
       class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
-      href="../../"
+      href="../../introduction.html"
       >Giới thiệu</a
     >
     <a
@@ -116,7 +117,7 @@
     >
     <a
       class="text-base font-medium hover:text-primary py-3 border-b border-gray-50 block"
-      href="#"
+      href="../../donate.html"
       >Ủng hộ</a
     >
     <a
@@ -141,6 +142,51 @@
   </div>
 </header>
 <script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+
+    if (!menu) {
+      console.error("Không tìm thấy element có id='mobile-menu'");
+      return;
+    }
+
+    // Cách 1: Sử dụng class để điều khiển (Khuyên dùng)
+    menu.classList.toggle("is-active");
+
+    // Cách 2: Nếu bạn muốn dùng style trực tiếp
+    /*
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+    */
+  }
+  window.toggleMobileMenu = function () {
+    const menu = document.getElementById("mobile-menu");
+
+    if (!menu) {
+      console.error(
+        "Không tìm thấy menu! Kiểm tra xem ID 'mobile-menu' có trong header0.html chưa."
+      );
+      return;
+    }
+
+    // Kiểm tra trạng thái hiển thị
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+      menu.style.flexDirection = "column";
+    }
+  };
+  // Đóng menu khi nhấn vào một đường dẫn bất kỳ
+  document.querySelectorAll(".mobile-nav-list a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const menu = document.getElementById("mobile-menu");
+      if (menu) menu.classList.remove("is-active");
+    });
+  });
   // load header
   fetch("header.html")
     .then((res) => res.text())

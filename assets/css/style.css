@@ -482,3 +482,28 @@ h3 {
 body {
   font-family: "Be Vietnam Pro", sans-serif;
 }
+/* 1. Định nghĩa trạng thái mặc định cho icon */
+.material-symbols-outlined {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* 2. Hiệu ứng cho các nút bấm (Đăng ký, Tư vấn) */
+/* Khi hover vào thẻ <a> bọc ngoài, icon bên trong đổi sang trắng */
+.cta-button:hover .material-symbols-outlined,
+.btn-custom:hover .material-symbols-outlined {
+  color: #ffffff !important;
+}
+
+/* 3. Hiệu ứng cho các thẻ "Giá trị cốt lõi" (Cards) */
+/* Giả sử thẻ cha có class là 'card' hoặc 'group' */
+.card:hover .material-symbols-outlined,
+.group:hover .material-symbols-outlined {
+  color: #ffffff !important;
+}
+
+/* 4. Nếu bạn muốn cả cái vòng tròn chứa icon đổi màu nền luôn */
+.card:hover .card-icon,
+.group:hover .size-16 {
+  background-color: #f472b6 !important; /* Màu hồng đậm khi hover */
+  color: #ffffff !important;
+}

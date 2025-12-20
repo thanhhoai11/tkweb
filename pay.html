@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
+    <head>
+      <link rel="stylesheet" href="assets/css/header0.css" />
+    </head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thanh toán – FOURPAWS</title>
-    <link rel="stylesheet" href="pay.css" />
+    <link rel="stylesheet" href="assets/css/pay.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <div id="header-box"></div>
     <div class="checkout-container">
       <main class="checkout-main">
         <section class="checkout-section">
@@ -147,17 +156,37 @@
           .map((item) => {
             const price = item.price * 1000;
             subtotal += price * item.quantity;
+
+            /** * LOGIC XỬ LÝ ẢNH THÔNG MINH:
+             * 1. Kiểm tra xem chuỗi item.image đã có chữ 'assets/' chưa.
+             * 2. Nếu có rồi (ví dụ: assets/picture/...) -> Dùng luôn.
+             * 3. Nếu chưa có (ví dụ: lich1.webp) -> Nối thêm assets/picture/webp/
+             */
+            const imageSrc = item.image.includes("assets/")
+              ? item.image
+              : `assets/picture/webp/${item.image}`;
+
             return `
-                <div class="summary-item">
-                    <div class="img-badge">
-                        <img src="${item.image}" alt="${item.name}">
-                        <span class="badge">${item.quantity}</span>
-                    </div>
-                    <span class="item-name">${item.name}</span>
-                    <span class="item-price">${(
-                      price * item.quantity
-                    ).toLocaleString("vi-VN")}đ</span>
-                </div>`;
+            <div class="summary-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div class="img-badge" style="position: relative; width: 64px; height: 64px; flex-shrink: 0;">
+                    <img src="${imageSrc}" 
+                         alt="${item.name}" 
+                         class="item-img" 
+                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid #eee;"
+                         onerror="this.src='assets/picture/${item.image}'">
+                    <span class="badge" style="position: absolute; top: -8px; right: -8px; background: #999; color: white; size: 20px; width: 20px; height: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 12px;">
+                        ${item.quantity}
+                    </span>
+                </div>
+                <div style="flex-grow: 1;">
+                    <p class="item-name" style="margin: 0; font-weight: 600; font-size: 14px;">${
+                      item.name
+                    }</p>
+                </div>
+                <span class="item-price" style="font-weight: 600; white-space: nowrap;">
+                    ${(price * item.quantity).toLocaleString("vi-VN")}đ
+                </span>
+            </div>`;
           })
           .join("");
 
@@ -315,5 +344,23 @@
         window.location.href = "Sanpham.html"; // Thay đổi tên file trang chủ của bạn tại đây
       }
     </script>
+    <div id="footer-box"></div>
   </body>
+  <script src="assets/component/header0.js"></script>
+  <script>
+    // Load Header
+    fetch("assets/component/header0.html")
+      .then((res) => res.text())
+      .then((data) => (document.getElementById("header-box").innerHTML = data));
+
+    // Load Footer
+    fetch("assets/component/footer0.html")
+      .then((res) => res.text())
+      .then((data) => (document.getElementById("footer-box").innerHTML = data));
+  </script>
 </html>
+<style>
+  body {
+    padding-top: 120px; /* = chiều cao header */
+  }
+</style>
