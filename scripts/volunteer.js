@@ -83,13 +83,13 @@ document.querySelectorAll('.faq-question').forEach(question => {
 });
 
 // Parallax effect for hero section
-window.addEventListener('scroll', () => {
+/*window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     if (hero) {
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
-});
+});*/
 
 // Add loading animation
 window.addEventListener('load', () => {
@@ -146,3 +146,25 @@ const createScrollIndicator = () => {
 createScrollIndicator();
 
 console.log('🐾 Volunteer page loaded successfully!');
+
+
+let currentSlide = 0;
+
+function slideTestimonials(direction) {
+    const track = document.querySelector('.testimonial-track');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const totalSlides = cards.length;
+    
+    // Tính toán số card hiển thị dựa trên chiều rộng màn hình (mặc định là 3)
+    const cardsPerView = window.innerWidth <= 768 ? 1 : 3;
+    const maxSlide = totalSlides - cardsPerView;
+
+    currentSlide += direction;
+
+    // Vòng lặp slide
+    if (currentSlide < 0) currentSlide = maxSlide;
+    if (currentSlide > maxSlide) currentSlide = 0;
+
+    const slideWidth = cards[0].offsetWidth + 30; // 30 là gap giữa các card
+    track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}

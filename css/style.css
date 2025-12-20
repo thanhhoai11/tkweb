@@ -1,0 +1,231 @@
+/* =========================================
+   1. FONTS & IMPORTS
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* =========================================
+   2. VARIABLES & THEME SETUP
+   ========================================= */
+:root {
+    /* Color Palette */
+    --primary: #FF9EAA;          /* Pastel Pink */
+    --primary-hover: #F472B6;    /* Darker Pink */
+    --secondary: #FCD34D;        /* Pastel Yellow */
+    --secondary-hover: #F59E0B;  /* Darker Yellow */
+    --bg-light: #FFFFFF;
+    --bg-dark: #FFF0F5;
+    --surface-dark: #FFFBEB;
+    
+    /* Fonts */
+    --font-display: 'Spline Sans', sans-serif;
+    --font-body: 'Noto Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-display);
+}
+
+/* =========================================
+   3. CUSTOM UTILITIES (Replaces Tailwind Config Script)
+   ========================================= */
+/* Backgrounds */
+.bg-primary { background-color: var(--primary); }
+.bg-primary-hover { background-color: var(--primary-hover); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-background-light { background-color: var(--bg-light); }
+
+/* Text Colors */
+.text-primary { color: var(--primary); }
+.text-primary-hover { color: var(--primary-hover); }
+.text-secondary { color: var(--secondary); }
+
+/* Borders */
+.border-primary { border-color: var(--primary); }
+
+/* Hover States (Tailwind emulation for specific elements) */
+.hover\:bg-primary:hover { background-color: var(--primary); }
+.hover\:text-primary-hover:hover { color: var(--primary-hover); }
+.hover\:border-primary:hover { border-color: var(--primary); }
+.hover\:to-secondary-hover:hover { --tw-gradient-to: var(--secondary-hover); }
+.hover\:from-primary-hover:hover { --tw-gradient-from: var(--primary-hover); }
+
+/* Gradients helpers if needed explicitly without Tailwind logic */
+.from-primary { --tw-gradient-from: var(--primary); }
+.to-secondary { --tw-gradient-to: var(--secondary); }
+
+/* =========================================
+   4. ANIMATIONS & KEYFRAMES
+   ========================================= */
+@keyframes pawFlash {
+    0%, 100% { opacity: 0.2; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes loaderFade {
+    0% { opacity: 1; pointer-events: all; }
+    100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-20px) translateX(10px); }
+    50% { transform: translateY(10px) translateX(20px); }
+    75% { transform: translateY(20px) translateX(-10px); }
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+@keyframes popInOut {
+    0% { opacity: 0; transform: scale(0) translate(-50%, -50%); }
+    20% { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+    80% { opacity: 1; transform: scale(1) translate(-50%, -50%); }
+    100% { opacity: 0; transform: scale(0) translate(-50%, -50%); }
+}
+
+/* Animation Classes */
+.animate-paw-1 { animation: pawFlash 2s ease-in-out infinite; }
+.animate-paw-2 { animation: pawFlash 2s ease-in-out 0.3s infinite; }
+.animate-paw-3 { animation: pawFlash 2s ease-in-out 0.6s infinite; }
+.animate-paw-4 { animation: pawFlash 2s ease-in-out 0.9s infinite; }
+.animate-paw-main { animation: pawFlash 2s ease-in-out 1.2s infinite; }
+.animate-loader-fade { animation: loaderFade 1s ease-out 2.5s forwards; }
+.animate-float-1 { animation: float 10s ease-in-out infinite; }
+.animate-float-2 { animation: float 12s ease-in-out infinite reverse; }
+.animate-float-3 { animation: float 8s ease-in-out infinite 1s; }
+.animate-slide-in-left { animation: slideInLeft 1s ease-out forwards; }
+.animate-slide-in-right { animation: slideInRight 1s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.group:hover .group-hover\:animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
+.animate-pop-in-out { animation: popInOut 1s ease-in-out forwards; }
+
+/* =========================================
+   5. COMPONENT & PAGE STYLES
+   ========================================= */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hero-bg {
+    transition: transform 0.5s ease;
+}
+
+.parallax-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-card-hover .hover-info {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.image-card-hover:hover .hover-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.clip-fix {
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+    overflow: hidden;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+}
+
+/* Floating Dots Background */
+.floating-dots-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(252, 211, 77, 0.4);
+}
+
+/* Custom Cursor & Trails */
+.mouse-trail-area {
+    position: relative;
+    cursor: none;
+}
+
+.trail-pet {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    z-index: 50;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDcFAcEgkHUdPf4GNPztQL88ooPKEVHKJ9t-9-5GFwkZLCkZt2qGjLjh7tD3JlkH5FW7kH5cdOwzinWE_XLhxOKz7RgdjnO7Abg4PjyDJniIiUaKdjOFSpRZfwbPRTiXyzAN6R4Qw6dalNB2yOk5n1oG8ZTz5w146qPMcCosP3bO1DBVwDY9wlyelFwylFEyltZcyT8Rj8yrikEIb7gcYPtTqcSllBaGrIZ7DnDtlCd-3lyyQTM5-oyncD9YYJSkKd4fegS8vuEcmg);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    display: none;
+}
+
+.mouse-trail-area:hover ~ .custom-cursor, 
+.mouse-trail-area:hover .custom-cursor-inner {
+    display: block;
+}
+
+/* Follower Dog */
+#follower-dog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    pointer-events: none;
+    z-index: 9990;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    will-change: transform;
+    transition: background-image 0.2s ease;
+}
