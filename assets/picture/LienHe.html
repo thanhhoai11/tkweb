@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Liên hệ - Minh P&T</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f6f7fb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        /* ===== Thông tin cửa hàng ===== */
+        .shop-info {
+            background: #f8f9fc;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+
+        .shop-info h1 {
+            margin: 0 0 16px;
+            font-size: 28px;
+        }
+
+        .shop-info p {
+            margin: 8px 0;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* ===== Form liên hệ ===== */
+        h2 {
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            resize: none;
+            outline: none;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 12px 24px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== Map ===== */
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            border-radius: 12px;
+            border: none;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map iframe {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="grid">
+
+        <!-- CỘT TRÁI -->
+        <div>
+            <div class="shop-info">
+                <h1>CỬA HÀNG ĐIỆN THOẠI THÔNG MINH P&T</h1>
+                <p>📍 Địa chỉ: 114 Thái Hà, Đống Đa, Hà Nội</p>
+                <p>📞 Hotline: 0393592005</p>
+            </div>
+
+            <h2>Liên hệ</h2>
+
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Tên">
+                    <input type="email" placeholder="Email">
+                </div>
+
+                <textarea placeholder="Nội dung"></textarea>
+
+                <button type="submit">GỬI LIÊN HỆ</button>
+            </form>
+        </div>
+
+        <!-- CỘT PHẢI -->
+        <div class="map">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1107.3355433448444!2d105.82718509337815!3d21.00794617739194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac806cfc0845%3A0x3848505bd3b9490f!2zMTIgUC4gQ2jDuWEgQuG7mWMsIFF1YW5nIFRydW5nLCDEkOG7kW5nIMSQYSwgSMOgIE7hu5lpIDEwMDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1765991542194!5m2!1svi!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

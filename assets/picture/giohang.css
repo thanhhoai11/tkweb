@@ -1,0 +1,262 @@
+:root {
+    --primary-yellow: #ffd21f;
+    --detail-pink: #f04593;
+    --bg-white: #ffffff;
+    --light-gray: #f8f9fa;
+    --text-dark: #2d3436;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+}
+
+.cart-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cart-header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.free-shipping-notice {
+    color: #636e72;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* ITEM CARD */
+.cart-item-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.item-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f1f1f1;
+}
+
+.item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.item-category {
+    color: #b2bec3;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.stock-status {
+    color: #00b894;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qty-selector {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.qty-selector button {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 10px;
+    color: var(--detail-pink);
+}
+
+.price-remove {
+    text-align: right;
+}
+
+.item-price {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--detail-pink);
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+    margin-top: 5px;
+}
+
+/* SUMMARY ASIDE */
+.order-summary {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: 15px;
+    height: fit-content;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #636e72;
+}
+
+.summary-row.total {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+
+
+/* Hiệu ứng cho nút Áp dụng */
+.btn-apply {
+    background: var(--light-gray);
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-apply:hover {
+    background: var(--detail-pink); /* Đổi nền sang hồng khi di chuột */
+    color: white; /* Đổi chữ sang trắng */
+    transform: translateY(-2px); /* Nhấc nhẹ nút lên */
+}
+
+.btn-apply:active {
+    transform: translateY(0); /* Nhấn xuống khi click */
+}
+
+.promo-box input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+}
+
+.btn-apply {
+    background: var(--light-gray);
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-checkout {
+    width: 100%;
+    background: var(--primary-yellow);
+    color: var(--text-dark);
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-checkout:hover {
+    background: var(--text-dark);
+    color: var(--primary-yellow);
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--detail-pink);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .cart-layout { grid-template-columns: 1fr; }
+}
+/* Container bao quanh: Ép nút và chữ về bên trái */
+.radio-container {
+    display: flex;
+    align-items: center; /* Căn giữa nút radio và chữ theo chiều dọc */
+    justify-content: flex-start; /* Ép tất cả về sát lề trái */
+    padding: 16px 20px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
+    box-sizing: border-box; /* Đảm bảo padding không làm tràn khung */
+}
+
+/* Nút radio: Nằm trước và cách chữ 12px */
+.radio-container input[type="radio"] {
+    margin: 0 12px 0 0; /* Chỉ để margin bên phải để đẩy chữ ra */
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--detail-pink); /* Màu hồng điểm nhấn của bạn */
+    flex-shrink: 0; /* Ngăn nút bị bóp méo khi chữ quá dài */
+}
+
+.radio-container span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* Nền xám cho trạng thái không hoạt động */
+.radio-container.inactive {
+    background-color: #fafafa;
+    color: #999;
+}
+
+/* Hiệu ứng khi được chọn */
+.radio-container:has(input:checked) {
+    background-color: #fffdf5; /* Nền vàng cực nhạt */
+}

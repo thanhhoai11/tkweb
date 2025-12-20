@@ -1,0 +1,343 @@
+:root {
+    --primary-yellow: #ffd21f; /* Vàng chủ đạo */
+    --detail-pink: #f04593;   /* Hồng chi tiết */
+    --text-main: #333;
+    --text-muted: #666;
+    --border-color: #e0e0e0;
+    --bg-light-yellow: #fffdf5;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    background-color: #fff;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    min-height: 100vh;
+}
+
+/* --- CỘT TRÁI (THÔNG TIN) --- */
+.checkout-main {
+    padding: 40px 60px 40px 10%;
+}
+
+.brand-name { 
+    font-size: 28px; 
+    margin: 0; 
+    color: var(--text-main); 
+    font-weight: 700;
+}
+
+.breadcrumb { font-size: 13px; color: #999; margin: 10px 0 30px; }
+.breadcrumb a { 
+    color: var(--detail-pink); /* Link chuyển sang màu hồng */
+    text-decoration: none; 
+}
+
+.checkout-section { margin-bottom: 40px; }
+.section-header { display: flex; justify-content: space-between; align-items: baseline; }
+.section-header h2 { font-size: 18px; font-weight: 600; }
+.section-header a { color: var(--detail-pink); text-decoration: none; font-size: 14px; }
+
+.input-group, .input-row { margin-bottom: 12px; display: flex; gap: 12px; }
+input, select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--primary-yellow);
+    box-shadow: 0 0 5px rgba(255, 210, 31, 0.2);
+}
+
+/* SHIPPING BOX */
+/* Khung bao quanh chữ và nút chọn */
+.radio-container {
+    display: flex;
+    align-items: left;
+    padding: 15px 20px; /* Tạo khoảng trống xung quanh chữ */
+    background-color: #fff; /* Nền trắng mặc định */
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: left;
+}
+
+/* Nền xám nhạt cho lựa chọn "Nhận tại cửa hàng" hoặc khi ở trạng thái không chọn */
+.radio-container.inactive {
+    background-color: #fafafa; /* Nền xám nhẹ giống mẫu */
+    color: #999;
+}
+
+/* Hiệu ứng khi được chọn (Active) */
+.radio-container:has(input:checked) {
+    background-color: #fffdf5; /* Nền vàng cực nhạt đồng bộ với tông màu mới */
+}
+
+/* Khoảng cách cho nút radio */
+.radio-container input[type="radio"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--detail-pink); /* Nút chọn màu hồng làm điểm nhấn */
+}
+
+/* Chỉnh lại khung tổng để không có kẽ hở giữa các màu nền */
+.shipping-method-box {
+    border: 1px solid var(--border-sharp);
+    border-radius: 4px; /* Vuông vắn hơn theo yêu cầu */
+    margin-top: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.address-fields { 
+    padding: 20px; 
+    background: #fcfcfc; /* Chỉnh màu nền sáng hơn cho sạch sẽ */
+    border-top: 1px solid var(--border-sharp); 
+    border-bottom: 1px solid var(--border-sharp);
+    display: flex;
+    flex-direction: column; /* Xếp chồng các hàng lên nhau */
+    gap: 10px; /* Tạo khoảng cách 10px giữa ô địa chỉ và hàng tỉnh/thành */
+}
+
+.address-fields input[type="text"] {
+    width: 100%; /* Đảm bảo ô địa chỉ dài hết chiều ngang khung */
+    box-sizing: border-box; /* Giữ padding không làm tràn khung */
+}
+
+/* Hàng chứa 3 ô chọn Tỉnh/Quận/Phường */
+.address-fields .triplet {
+    display: flex;
+    gap: 12px; /* Khoảng cách giữa các ô chọn với nhau */
+    margin-top: 0; /* Đã có gap 10px từ container cha */
+}
+
+/* PAYMENT OPTIONS */
+.payment-option {
+    display: block;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-top: -1px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.payment-option:hover { background-color: #fffcf0; }
+
+.option-content { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; }
+
+/* BANK INFO BOX (Tông vàng nhạt) */
+.bank-info-box {
+    background: var(--bg-light-yellow);
+    border: 1px solid var(--primary-yellow);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+.bank-card p { margin: 5px 0; font-size: 14px; line-height: 1.6; }
+.qr-placeholder { text-align: center; margin-top: 15px; border-top: 1px dashed var(--primary-yellow); padding-top: 15px; }
+.qr-placeholder img { width: 140px; border-radius: 8px; }
+
+/* FOOTER */
+.checkout-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+.back-link { 
+    color: var(--detail-pink); 
+    text-decoration: none; 
+    font-size: 14px; 
+    font-weight: 600; 
+}
+
+.btn-complete {
+    background: var(--primary-yellow);
+    color: var(--text-main);
+    border: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.btn-complete:hover {
+    background: #e6bd1c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 210, 31, 0.3);
+}
+
+/* --- CỘT PHẢI (SIDEBAR) --- */
+.checkout-sidebar {
+    background: #fcfcfc;
+    padding: 40px 10% 40px 40px;
+    border-left: 1px solid var(--border-color);
+}
+
+.summary-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.img-badge { 
+    position: relative; 
+    width: 64px; height: 64px; 
+    background: white; 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+}
+.img-badge img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+.badge {
+    position: absolute; top: -8px; right: -8px;
+    background: var(--detail-pink); /* Badge màu hồng */
+    color: white; border-radius: 50%;
+    width: 22px; height: 22px; font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+}
+
+.item-name { flex: 1; font-size: 14px; font-weight: 600; }
+.item-price { font-size: 14px; color: var(--text-main); font-weight: 500; }
+
+/* PROMO SECTION (Đúng hiệu ứng bạn yêu cầu) */
+.promo-section {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+.promo-section input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Quicksand', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.promo-section input:focus {
+    border-color: var(--detail-pink) !important;
+    background-color: #fffafc;
+    box-shadow: 0 0 8px rgba(240, 69, 147, 0.1);
+}
+
+.promo-section button {
+    background: #333; /* Đổi nút sử dụng sang màu đen cho sang trọng */
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.promo-section button:hover {
+    background: var(--detail-pink);
+    transform: translateY(-2px);
+}
+
+/* CALCULATION ROWS */
+.summary-calc .row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; color: var(--text-muted); }
+.summary-calc .row span:last-child { color: var(--text-main); font-weight: 500; }
+
+.summary-total { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 20px; 
+    border-top: 1px solid var(--border-color); 
+    padding-top: 20px; 
+}
+.summary-total span:first-child { font-size: 16px; font-weight: 600; }
+.price-large { font-size: 22px; font-weight: 700; color: var(--text-main); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .checkout-container { grid-template-columns: 1fr; }
+    .checkout-sidebar { border-left: none; border-top: 1px solid var(--border-color); padding: 40px 10%; }
+    .checkout-main { padding: 40px 10%; }
+}
+/* Nền mờ của Popup */
+.success-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px); /* Làm mờ nhẹ nền sau */
+}
+
+/* Khung nội dung */
+.success-modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 40px 20px;
+    border-radius: 4px; /* Vuông vắn đồng bộ */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Icon tích xanh */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: #00b894;
+    color: white;
+    font-size: 30px;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.success-modal-content h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.success-modal-content p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.btn-continue-shopping-link {
+    display: block; /* Để có thể chỉnh chiều rộng và padding */
+    background-color: #f04593; /* Màu hồng thương hiệu của bạn */
+    color: white !important;
+    text-decoration: none !important; /* Bỏ gạch chân */
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 4px; /* Bo góc nhẹ vuông vắn theo style thanh toán */
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box; /* Đảm bảo padding không làm tràn khung */
+}
+
+.btn-continue-shopping-link:hover {
+    background-color: #d83a82; /* Hồng đậm hơn khi hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(240, 69, 147, 0.2);
+}

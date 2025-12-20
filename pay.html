@@ -11,21 +11,20 @@
     />
   </head>
   <body>
-    <div id="header"></div>
     <div class="checkout-container">
       <main class="checkout-main">
         <section class="checkout-section">
           <div class="section-header">
             <h2>Thông tin giao hàng</h2>
-            <p>Bạn đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+            <p>Bạn đã có tài khoản? <a href="#">Đăng nhập</a></p>
           </div>
 
           <div class="input-group">
-            <input type="text" placeholder="Họ và tên" value="ngân" />
+            <input type="text" placeholder="Họ và tên" value="Ngân Phương" />
           </div>
           <div class="input-row">
             <input type="email" placeholder="Email" value="abc@gmail.com" />
-            <input type="tel" placeholder="Số điện thoại" value="031234567" />
+            <input type="tel" placeholder="Số điện thoại" value="0983954613" />
           </div>
 
           <div class="shipping-method-box">
@@ -100,7 +99,7 @@
                 <p><strong>Ngân hàng:</strong> MB Bank (Quân Đội)</p>
                 <p><strong>Số tài khoản:</strong> 1234 5678 9999</p>
                 <p><strong>Chủ tài khoản:</strong> NGUYEN PHUONGNGAN</p>
-                <p><strong>Nội dung:</strong>FOURPAW</p>
+                <p><strong>Nội dung:</strong>FOURPAWS</p>
                 <div class="qr-placeholder">
                   <p>Quét mã QR để thanh toán</p>
                   <img
@@ -288,7 +287,7 @@
       <div class="success-modal-content">
         <div class="success-icon">✓</div>
         <h2>Thanh toán thành công!</h2>
-        <p>Cảm ơn bạn đã ủng hộ FOURPAW. Đơn hàng của bạn đang được xử lý.</p>
+        <p>Cảm ơn bạn đã ủng hộ FOURPAWS. Đơn hàng của bạn đang được xử lý.</p>
         <a href="Sản phẩm.html" class="btn-continue-shopping-link">
           Tiếp tục mua hàng
         </a>
@@ -316,17 +315,5 @@
         window.location.href = "Sanpham.html"; // Thay đổi tên file trang chủ của bạn tại đây
       }
     </script>
-    <div id="footer"></div>
   </body>
 </html>
-<script>
-  // load header
-  fetch("assets/Component/header1.html")
-    .then((res) => res.text())
-    .then((data) => (document.getElementById("header").innerHTML = data));
-
-  // load footer
-  fetch("assets/Component/footer.html")
-    .then((res) => res.text())
-    .then((data) => (document.getElementById("footer").innerHTML = data));
-</script>

@@ -4,129 +4,344 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Products – Pet Shop</title>
+    <link rel="stylesheet" href="Sản phẩm.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .category-list li {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .category-list li.active {
+        background-color: #f04593;
+        color: white;
+        border-radius: 5px;
+      }
+      .category-list li:hover:not(.active) {
+        background-color: #fce4ec;
+      }
 
-    <link rel="stylesheet" href="assets/css/Sản phẩm.css" />
+      /* Đảm bảo thẻ link bassets/picture/webp/ao quanh không làm đổi màu chữ */
+      .product-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* CSS cho Modal */
+      .modal-product-info {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: fit-content;
+      }
+      .quantity-control button {
+        border: none;
+        background: #eee;
+        padding: 5px 12px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+      .quantity-control input {
+        width: 40px;
+        text-align: center;
+        border: none;
+        font-weight: bold;
+      }
+      .price-quantity-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 15px;
+      }
+      .modal-total-price {
+        color: #f04593;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    </style>
   </head>
   <body>
-    <!-- TOP BANNER -->
     <section class="top-banner">
       <div class="banner-content">
-        <span class="banner-tag">SUMMER COLLECTION</span>
-        <h1 class="banner-title">SẢN <span>PHẨM</span></h1>
+        <h1 class="banner-title"><span>SẢN</span> <span>PHẨM</span></h1>
         <p class="banner-desc">
-          Khám phá các sản phẩm tốt nhất dành cho thú cưng – an toàn, chất lượng
-          và đầy yêu thương.
+          <b>Mỗi sản phẩm bạn chọn là một bữa ăn, một mái nhà...</b> Toàn bộ lợi
+          nhuận được dùng để cưu mang thú cưng.
         </p>
         <div class="banner-actions">
-          <button class="btn-primary">Xem sản phẩm</button>
-          <button class="btn-outline">Dịch vụ grooming</button>
+          <button
+            class="btn-primary"
+            onclick="document.querySelector('.content').scrollIntoView()"
+          >
+            Xem sản phẩm
+          </button>
+          <button class="btn-outline">Ủng hộ</button>
         </div>
       </div>
-
       <div class="banner-image">
-        <img src="https://picsum.photos/700/900?random=9" />
+        <img src="assets/picture/webp/toy.png" alt="Banner" />
       </div>
     </section>
 
     <div class="page">
-      <!-- SIDEBAR -->
       <aside class="sidebar">
-        <h3 class="sidebar-title"></h3>
-        <ul class="category-list">
-          <li class="active">🐾 Danh mục sản phẩm</li>
-          <li>🎁Quà lưu niệm</li>
-          <li>🐕Đồ cho thú cưng</li>
+        <ul class="category-list" id="categoryMenu">
+          <li class="active" data-category="all">🐾 Danh mục sản phẩm</li>
+          <li data-category="Quà lưu niệm">🎁 Quà lưu niệm</li>
+          <li data-category="Đồ cho thú cưng">🐕 Đồ cho thú cưng</li>
         </ul>
-
         <div class="member-box">
           <h4>Mã khuyến mãi mới</h4>
-          <p>FRSS1234</p>
-          <button>Nhận ngay</button>
+          <p class="promo-code" id="voucherCode">FRSS1234</p>
+          <button class="promo-btn" onclick="copyVoucher()">Nhận ngay</button>
         </div>
       </aside>
 
-      <!-- MAIN -->
       <main class="content">
-        <h1>Tất cả sản phẩm</h1>
+        <h1 id="categoryTitle">Tất cả sản phẩm</h1>
         <div class="product-grid"></div>
       </main>
     </div>
 
-    <!-- ===== DỮ LIỆU JSON ===== -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-header">
+          <h2 style="font-size: 18px; margin: 0; font-weight: 700">
+            Thêm vào giỏ hàng
+          </h2>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer">
+          <button class="btn-continue" onclick="closeModal()">
+            Tiếp tục mua hàng
+          </button>
+          <button class="btn-go-to-cart" onclick="goToPay()">
+            Thanh toán ngay
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script id="product-data" type="application/json">
       [
         {
-          "name": "Premium Puppy Kibble",
-          "category": "DOG",
-          "price": 45.99,
-          "rating": 4.8,
-          "isNew": true,
-          "image": "https://picsum.photos/400/300?1"
+          "id": 1,
+          "name": "Lịch năm mới 2026 in hình mèo dễ thương",
+          "category": "Quà lưu niệm",
+          "price": 45,
+          "image": "assets/picture/webp/lich1.webp",
+          "isNew": true
         },
         {
-          "name": "Cat Salmon Food",
-          "category": "CAT",
-          "price": 2.99,
-          "rating": 4.9,
-          "isNew": false,
-          "image": "https://picsum.photos/400/300?2"
+          "id": 2,
+          "name": "Móc khóa hình chó mèo meme vui nhộn",
+          "category": "Quà lưu niệm",
+          "price": 15,
+          "image": "assets/picture/webp/moc4.webp",
+          "isNew": false
         },
         {
-          "name": "Organic Dog Beef Meal",
-          "category": "DOG",
-          "price": 39.99,
-          "rating": 4.7,
-          "isNew": false,
-          "image": "https://picsum.photos/400/300?3"
+          "id": 3,
+          "name": "ghim cài áo bằng bông hình mèo đen",
+          "category": "Quà lưu niệm",
+          "price": 23,
+          "image": "assets/picture/webp/ghim1.webp",
+          "isNew": false
         },
         {
-          "name": "Kitten Chicken Delight",
-          "category": "CAT",
-          "price": 29.99,
-          "rating": 4.8,
-          "isNew": true,
-          "image": "https://picsum.photos/400/300?4"
+          "id": 4,
+          "name": "Cần câu lông nhiều màu chơi đùa với mèo",
+          "category": "Đồ cho thú cưng",
+          "price": 12,
+          "image": "assets/picture/webp/cc1.webp",
+          "isNew": true
         },
         {
-          "name": "Senior Dog Health Formula",
-          "category": "DOG",
-          "price": 49.99,
-          "rating": 4.6,
-          "isNew": false,
-          "image": "https://picsum.photos/400/300?5"
+          "id": 5,
+          "name": "Dây gặm bạn tennis 2 đầu dành cho chó",
+          "category": "Đồ cho thú cưng",
+          "price": 30,
+          "image": "assets/picture/webp/can1.webp",
+          "isNew": false
         },
         {
-          "name": "Cat Tuna Gourmet",
-          "category": "CAT",
-          "price": 24.99,
-          "rating": 4.9,
-          "isNew": true,
-          "image": "https://picsum.photos/400/300?6"
+          "id": 6,
+          "name": "Áo giữ ấm cho thú cưng vào mùa đông",
+          "category": "Đồ cho thú cưng",
+          "price": 50,
+          "image": "assets/picture/webp/ao1.webp",
+          "isNew": true
         }
       ]
     </script>
 
-    <!-- ===== JS RENDER ===== -->
     <script>
-      const data = document.getElementById("product-data").textContent;
-      const products = JSON.parse(data);
-
+      const products = JSON.parse(
+        document.getElementById("product-data").textContent
+      );
       const grid = document.querySelector(".product-grid");
+      const categoryTitle = document.getElementById("categoryTitle");
+      const menuItems = document.querySelectorAll("#categoryMenu li");
+      let currentProduct = null;
+      let currentQuantity = 1;
 
-      products.forEach((p) => {
-        const html = `
-    <div class="product">
-      ${p.isNew ? `<span class="badge">NEW</span>` : ""}
-      <img src="${p.image}" alt="${p.name}">
-      <span class="tag">${p.category}</span>
-      <h3>${p.name}</h3>
-      <div class="rating">★★★★★ <small>(${p.rating})</small></div>
-      <div class="price">$${p.price}</div>
-      <button class="cart">🛒</button>
-    </div>
-  `;
-        grid.insertAdjacentHTML("beforeend", html);
+      // 1. Hàm Render sản phẩm (Đã thêm lại href để vào trang chi tiết)
+      function displayProducts(filterCategory) {
+        grid.innerHTML = "";
+        const filtered =
+          filterCategory === "all"
+            ? products
+            : products.filter((p) => p.category === filterCategory);
+        categoryTitle.innerText =
+          filterCategory === "all" ? "Tất cả sản phẩm" : filterCategory;
+
+        filtered.forEach((p) => {
+          const html = `
+        <a href="Chi tiết sản phẩm.html?id=${p.id}" class="product-card-link">
+          <div class="product">
+            ${p.isNew ? `<span class="badge">NEW</span>` : ""}
+            <img src="${p.image}" alt="${p.name}">
+            <span class="tag">${p.category}</span>
+            <div class="product-panels">
+              <div class="panel panel-front">
+                <h3 class="product-name">${p.name}</h3>
+                <div class="price">${(p.price * 1000).toLocaleString(
+                  "vi-VN"
+                )} đ</div>
+              </div>
+              <div class="panel panel-back">
+                <h3 class="product-name">${p.name}</h3>
+                <div class="btn-buy" onclick="handleBuyClick(event, ${
+                  p.id
+                })">Mua ngay</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      `;
+          grid.insertAdjacentHTML("beforeend", html);
+        });
+      }
+
+      // 2. Hàm xử lý riêng khi bấm nút Mua ngay để không bị nhảy sang trang chi tiết
+      function handleBuyClick(event, productId) {
+        event.preventDefault(); // Ngăn chặn thẻ <a> chuyển hướng
+        event.stopPropagation(); // Ngăn sự kiện nổi bọt
+        addToCart(productId);
+      }
+
+      function addToCart(productId) {
+        currentProduct = products.find((p) => p.id === productId);
+        currentQuantity = 1;
+        renderModalContent();
+        document.getElementById("cartModal").style.display = "block";
+      }
+
+      function renderModalContent() {
+        const modalBody = document.getElementById("modalBody");
+        const totalPrice = currentProduct.price * 1000 * currentQuantity;
+
+        modalBody.innerHTML = `
+        <div class="modal-product-info">
+            <img src="${
+              currentProduct.image
+            }" width="120" style="border-radius:4px; border:1px solid #eee; object-fit: cover;">
+            <div class="modal-product-details">
+                <p style="margin:0; font-weight:700; font-size:18px;">${
+                  currentProduct.name
+                }</p>
+                <p style="color: #666; font-size: 14px; margin: 5px 0;">Đơn giá: ${(
+                  currentProduct.price * 1000
+                ).toLocaleString("vi-VN")}đ</p>
+                <div class="price-quantity-row">
+                    <div class="quantity-control">
+                        <button onclick="changeQty(-1)">−</button>
+                        <input type="text" id="modalQty" value="${currentQuantity}" readonly>
+                        <button onclick="changeQty(1)">+</button>
+                    </div>
+                    <div style="text-align: right;">
+                        <small style="color:#666;">Tổng cộng:</small>
+                        <div class="modal-total-price">${totalPrice.toLocaleString(
+                          "vi-VN"
+                        )}đ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+      }
+
+      function changeQty(delta) {
+        currentQuantity += delta;
+        if (currentQuantity < 1) currentQuantity = 1;
+        renderModalContent();
+      }
+
+      function closeModal() {
+        document.getElementById("cartModal").style.display = "none";
+      }
+
+      // 3. Hàm lưu và đi tới trang thanh toán
+      function goToPay() {
+        if (!currentProduct) return;
+        const itemToPay = {
+          id: currentProduct.id,
+          name: currentProduct.name,
+          price: currentProduct.price,
+          image: currentProduct.image,
+          quantity: currentQuantity,
+        };
+        localStorage.setItem("cart", JSON.stringify([itemToPay]));
+        window.location.href = "pay.html";
+      }
+
+      // 4. Các sự kiện phụ
+      menuItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          menuItems.forEach((i) => i.classList.remove("active"));
+          this.classList.add("active");
+          displayProducts(this.getAttribute("data-category"));
+        });
       });
+
+      function copyVoucher() {
+        const codeText = document.getElementById("voucherCode").innerText;
+        navigator.clipboard.writeText(codeText).then(() => {
+          const btn = document.querySelector(".promo-btn");
+          btn.innerText = "Đã sassets/picture/webp/ao chép! ✓";
+          setTimeout(() => {
+            btn.innerText = "Nhận ngay";
+          }, 2000);
+        });
+      }
+
+      window.onclick = function (event) {
+        let modal = document.getElementById("cartModal");
+        if (event.target == modal) closeModal();
+      };
+
+      displayProducts("all");
     </script>
   </body>
 </html>

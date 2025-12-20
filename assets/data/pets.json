@@ -7,7 +7,7 @@
         {
           "id": 1,
           "name": "Bon",
-          "defaultImage": "images/Bon.jpg",
+          "defaultImage": "assets/picture/images/Bon.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Bé Bon rất ngoan và quấn chủ."] },
           "specs": {
@@ -24,7 +24,7 @@
         {
           "id": 3,
           "name": "Bư",
-          "defaultImage": "images/Bu.jpeg",
+          "defaultImage": "assets/picture/images/Bu.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Bé Bư điềm tĩnh và thông minh."] },
           "specs": {
@@ -41,8 +41,8 @@
         {
           "id": 5,
           "name": "Kem",
-          "defaultImage": "images/Kem.jpeg",
-          "hoverImage": "images/Kem.jpeg",
+          "defaultImage": "assets/picture/images/Kem.jpeg",
+          "hoverImage": "assets/picture/images/Kem.jpeg",
           "description": {
             "paragraphs": ["Bé Kem lông trắng muốt, tinh nghịch."]
           },
@@ -60,7 +60,7 @@
         {
           "id": 8,
           "name": "Milo",
-          "defaultImage": "images/Milo.jpg",
+          "defaultImage": "assets/picture/images/Milo.jpg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": {
             "paragraphs": ["Milo trung thành và biết bảo vệ chủ."]
@@ -79,7 +79,7 @@
         {
           "id": 9,
           "name": "Mun",
-          "defaultImage": "images/Mun.jpg",
+          "defaultImage": "assets/picture/images/Mun.jpg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Mun đen tuyền, rất nhanh nhẹn."] },
           "specs": {
@@ -96,7 +96,7 @@
         {
           "id": 12,
           "name": "Tun",
-          "defaultImage": "images/Tun.jpg",
+          "defaultImage": "assets/picture/images/Tun.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Tun hiền lành và dễ gần."] },
           "specs": {
@@ -113,8 +113,8 @@
         {
           "id": 14,
           "name": "Béo",
-          "defaultImage": "images/Beo.jpg",
-          "hoverImage": "images/Beo.jpg",
+          "defaultImage": "assets/picture/images/Beo.jpg",
+          "hoverImage": "assets/picture/images/Beo.jpg",
           "description": { "paragraphs": ["Béo mũm mĩm, rất đáng yêu."] },
           "specs": {
             "Thông tin": {
@@ -130,7 +130,7 @@
         {
           "id": 18,
           "name": "Socola",
-          "defaultImage": "images/Socola.jpg",
+          "defaultImage": "assets/picture/images/Socola.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Socola có màu lông đặc biệt."] },
           "specs": {
@@ -147,7 +147,7 @@
         {
           "id": 20,
           "name": "Gấu",
-          "defaultImage": "images/Gau.jpg",
+          "defaultImage": "assets/picture/images/Gau.jpg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Gấu mạnh mẽ và dũng cảm."] },
           "specs": {
@@ -164,7 +164,7 @@
         {
           "id": 22,
           "name": "Vàng",
-          "defaultImage": "images/Vang.jpeg",
+          "defaultImage": "assets/picture/images/Vang.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": {
             "paragraphs": ["Vàng là người bạn đồng hành tuyệt vời."]
@@ -183,7 +183,7 @@
         {
           "id": 24,
           "name": "Đen",
-          "defaultImage": "images/Den.jpg",
+          "defaultImage": "assets/picture/images/Den.jpg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Đen thông minh và nhanh nhẹn."] },
           "specs": {
@@ -200,7 +200,7 @@
         {
           "id": 26,
           "name": "Tít",
-          "defaultImage": "images/Tit.jpg",
+          "defaultImage": "assets/picture/images/Tit.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Tít vui vẻ, hay chạy nhảy."] },
           "specs": {
@@ -217,8 +217,8 @@
         {
           "id": 29,
           "name": "Cún",
-          "defaultImage": "images/Cun.png",
-          "hoverImage": "images/Cun.png",
+          "defaultImage": "assets/picture/images/Cun.png",
+          "hoverImage": "assets/picture/images/Cun.png",
           "description": { "paragraphs": ["Cún con hiếu động."] },
           "specs": {
             "Thông tin": {
@@ -234,7 +234,7 @@
         {
           "id": 31,
           "name": "Lạc",
-          "defaultImage": "images/Lac.jpeg",
+          "defaultImage": "assets/picture/images/Lac.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Lạc dễ nuôi và rất ngoan."] },
           "specs": {
@@ -251,7 +251,7 @@
         {
           "id": 33,
           "name": "Bắp",
-          "defaultImage": "images/Bap.jpeg",
+          "defaultImage": "assets/picture/images/Bap.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Bắp thích được vuốt ve."] },
           "specs": {
@@ -268,8 +268,8 @@
         {
           "id": 36,
           "name": "Na",
-          "defaultImage": "images/Na.jpg",
-          "hoverImage": "images/Na.jpg",
+          "defaultImage": "assets/picture/images/Na.jpg",
+          "hoverImage": "assets/picture/images/Na.jpg",
           "description": { "paragraphs": ["Na hiền khô, ít sủa."] },
           "specs": {
             "Thông tin": {
@@ -285,7 +285,7 @@
         {
           "id": 38,
           "name": "Bánh",
-          "defaultImage": "images/Banh.jpeg",
+          "defaultImage": "assets/picture/images/Banh.jpeg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Bánh trung thành và điềm đạm."] },
           "specs": {
@@ -302,7 +302,7 @@
         {
           "id": 40,
           "name": "Cam",
-          "defaultImage": "images/Cam.jpeg",
+          "defaultImage": "assets/picture/images/Cam.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Cam rất thông minh."] },
           "specs": {
@@ -319,8 +319,8 @@
         {
           "id": 42,
           "name": "Gạo",
-          "defaultImage": "images/Gao.jpeg",
-          "hoverImage": "images/Gao.jpeg",
+          "defaultImage": "assets/picture/images/Gao.jpeg",
+          "hoverImage": "assets/picture/images/Gao.jpeg",
           "description": {
             "paragraphs": ["Gạo lông trắng mượt, rất sạch sẽ."]
           },
@@ -344,7 +344,7 @@
         {
           "id": 2,
           "name": "Bông",
-          "defaultImage": "images/Bong.jpg",
+          "defaultImage": "assets/picture/images/Bong.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": {
             "paragraphs": ["Bông thích nằm cuộn tròn trên ghế."]
@@ -363,7 +363,7 @@
         {
           "id": 4,
           "name": "Chíp",
-          "defaultImage": "images/Chip.jpg",
+          "defaultImage": "assets/picture/images/Chip.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Chíp thích chơi với cuộn len."] },
           "specs": {
@@ -380,7 +380,7 @@
         {
           "id": 6,
           "name": "Khoai",
-          "defaultImage": "images/Khoai.jpg",
+          "defaultImage": "assets/picture/images/Khoai.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Khoai bắt chuột rất giỏi."] },
           "specs": {
@@ -397,7 +397,7 @@
         {
           "id": 7,
           "name": "Leo",
-          "defaultImage": "images/Leo.jpg",
+          "defaultImage": "assets/picture/images/Leo.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Leo thích leo trèo và khám phá."] },
           "specs": {
@@ -414,7 +414,7 @@
         {
           "id": 10,
           "name": "Mướp",
-          "defaultImage": "images/Muop.jpg",
+          "defaultImage": "assets/picture/images/Muop.jpg",
           "hoverImage": "assets/picture/muop-hover.png",
           "description": { "paragraphs": ["Mướp có bộ lông vân sọc rất đẹp."] },
           "specs": {
@@ -431,8 +431,8 @@
         {
           "id": 11,
           "name": "Su",
-          "defaultImage": "images/Su.jpeg",
-          "hoverImage": "images/Su.jpeg",
+          "defaultImage": "assets/picture/images/Su.jpeg",
+          "hoverImage": "assets/picture/images/Su.jpeg",
           "description": {
             "paragraphs": ["Su rất tình cảm, hay dụi đầu vào tay chủ."]
           },
@@ -450,8 +450,8 @@
         {
           "id": 13,
           "name": "Lu",
-          "defaultImage": "images/Lu.jpeg",
-          "hoverImage": "images/Lu.jpeg",
+          "defaultImage": "assets/picture/images/Lu.jpeg",
+          "hoverImage": "assets/picture/images/Lu.jpeg",
           "description": { "paragraphs": ["Lu trầm tính và thích ngủ."] },
           "specs": {
             "Thông tin": {
@@ -467,7 +467,7 @@
         {
           "id": 15,
           "name": "Cà Phê",
-          "defaultImage": "images/CaPhe.jpg",
+          "defaultImage": "assets/picture/images/CaPhe.jpg",
           "hoverImage": "assets/picture/meo-xiem.png",
           "description": {
             "paragraphs": ["Cà Phê có bộ mặt đeo mặt nạ như mèo Xiêm."]
@@ -486,7 +486,7 @@
         {
           "id": 16,
           "name": "Đốm",
-          "defaultImage": "images/Dom.jpg",
+          "defaultImage": "assets/picture/images/Dom.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Đốm nghịch ngợm và tò mò."] },
           "specs": {
@@ -503,8 +503,8 @@
         {
           "id": 17,
           "name": "Mây",
-          "defaultImage": "images/May.jpeg",
-          "hoverImage": "images/May.jpeg",
+          "defaultImage": "assets/picture/images/May.jpeg",
+          "hoverImage": "assets/picture/images/May.jpeg",
           "description": { "paragraphs": ["Mây dịu dàng như một làn mây."] },
           "specs": {
             "Thông tin": {
@@ -520,8 +520,8 @@
         {
           "id": 19,
           "name": "Nắng",
-          "defaultImage": "images/Nang.jpg",
-          "hoverImage": "images/Nang.jpg",
+          "defaultImage": "assets/picture/images/Nang.jpg",
+          "hoverImage": "assets/picture/images/Nang.jpg",
           "description": { "paragraphs": ["Nắng sưởi ấm căn nhà của bạn."] },
           "specs": {
             "Thông tin": {
@@ -537,8 +537,8 @@
         {
           "id": 21,
           "name": "Bông Tuyết",
-          "defaultImage": "images/Bongtuyet.jpg",
-          "hoverImage": "images/Bongtuyet.jpg",
+          "defaultImage": "assets/picture/images/Bongtuyet.jpg",
+          "hoverImage": "assets/picture/images/Bongtuyet.jpg",
           "description": { "paragraphs": ["Bông Tuyết trắng tinh khôi."] },
           "specs": {
             "Thông tin": {
@@ -554,7 +554,7 @@
         {
           "id": 23,
           "name": "Mít",
-          "defaultImage": "images/Mit.jpeg",
+          "defaultImage": "assets/picture/images/Mit.jpeg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Mít tròn xoe và ham ăn."] },
           "specs": {
@@ -571,8 +571,8 @@
         {
           "id": 25,
           "name": "Sữa",
-          "defaultImage": "images/Sua.jpg",
-          "hoverImage": "images/Sua.jpg",
+          "defaultImage": "assets/picture/images/Sua.jpg",
+          "hoverImage": "assets/picture/images/Sua.jpg",
           "description": {
             "paragraphs": ["Sữa thích uống sữa và lười vận động."]
           },
@@ -590,8 +590,8 @@
         {
           "id": 27,
           "name": "Lúa",
-          "defaultImage": "images/Lua.jpg",
-          "hoverImage": "images/Lua.jpg",
+          "defaultImage": "assets/picture/images/Lua.jpg",
+          "hoverImage": "assets/picture/images/Lua.jpg",
           "description": { "paragraphs": ["Lúa hiền lành, dễ kết bạn."] },
           "specs": {
             "Thông tin": {
@@ -607,7 +607,7 @@
         {
           "id": 28,
           "name": "Râu",
-          "defaultImage": "images/Rau.jpg",
+          "defaultImage": "assets/picture/images/Rau.jpg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Râu có bộ ria mép rất oai."] },
           "specs": {
@@ -624,8 +624,8 @@
         {
           "id": 30,
           "name": "Mỡ",
-          "defaultImage": "images/Mo.jpeg",
-          "hoverImage": "images/Mo.jpeg",
+          "defaultImage": "assets/picture/images/Mo.jpeg",
+          "hoverImage": "assets/picture/images/Mo.jpeg",
           "description": { "paragraphs": ["Mỡ tròn trĩnh và lười biếng."] },
           "specs": {
             "Thông tin": {
@@ -641,7 +641,7 @@
         {
           "id": 32,
           "name": "Bơ",
-          "defaultImage": "images/Bo.jpeg",
+          "defaultImage": "assets/picture/images/Bo.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Bơ vàng ươm, rất quấn người."] },
           "specs": {
@@ -658,7 +658,7 @@
         {
           "id": 34,
           "name": "Khói",
-          "defaultImage": "images/Khoi.jpeg",
+          "defaultImage": "assets/picture/images/Khoi.jpeg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": {
             "paragraphs": ["Khói có màu lông xám đen huyền bí."]
@@ -677,7 +677,7 @@
         {
           "id": 35,
           "name": "Ốc",
-          "defaultImage": "images/Oc.jpg",
+          "defaultImage": "assets/picture/images/Oc.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Ốc nhỏ bé nhưng nhanh nhẹn."] },
           "specs": {
@@ -694,7 +694,7 @@
         {
           "id": 37,
           "name": "Dừa",
-          "defaultImage": "images/Dua.jpeg",
+          "defaultImage": "assets/picture/images/Dua.jpeg",
           "hoverImage": "assets/picture/vang-hover.png",
           "description": { "paragraphs": ["Dừa trắng thơm, rất sạch sẽ."] },
           "specs": {
@@ -711,8 +711,8 @@
         {
           "id": 39,
           "name": "Muối",
-          "defaultImage": "images/Muoi.jpg",
-          "hoverImage": "images/Muoi.jpg",
+          "defaultImage": "assets/picture/images/Muoi.jpg",
+          "hoverImage": "assets/picture/images/Muoi.jpg",
           "description": { "paragraphs": ["Muối mặn mà, hay pha trò."] },
           "specs": {
             "Thông tin": {
@@ -728,7 +728,7 @@
         {
           "id": 41,
           "name": "Mướt",
-          "defaultImage": "images/Muot.jpeg",
+          "defaultImage": "assets/picture/images/Muot.jpeg",
           "hoverImage": "assets/picture/den-hover.png",
           "description": { "paragraphs": ["Mướt lông mượt, nhìn rất yêu."] },
           "specs": {
@@ -745,7 +745,7 @@
         {
           "id": 43,
           "name": "Hạt",
-          "defaultImage": "images/Hat.jpeg",
+          "defaultImage": "assets/picture/images/Hat.jpeg",
           "hoverImage": "assets/picture/tam-the-hover.png",
           "description": {
             "paragraphs": ["Hạt nhỏ xíu, có bộ lông Tam Thể đặc biệt."]
