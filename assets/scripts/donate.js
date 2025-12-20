@@ -408,4 +408,3 @@ document.addEventListener('DOMContentLoaded', () => {
 // Console easter egg
 console.log('%c🐾 Cảm ơn bạn đã quan tâm đến Hanoi Pet Adoption! 🐾', 'font-size: 20px; color: #FFD05B; font-weight: bold;');
 console.log('%cMỗi khoản đóng góp đều giúp chúng tôi cứu sống những thú cưng bị bỏ rơi. ❤️', 'font-size: 14px; color: #FFB5D8;');
-

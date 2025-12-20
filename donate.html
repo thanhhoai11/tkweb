@@ -1,410 +1,301 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ủng Hộ - FourPaws</title>
-    <link rel="stylesheet" href="assets/css/donate.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body>
+    <link rel="stylesheet" href="css/donate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-content">
-        <div class="paw-decoration paw-1">🐾</div>
-        <div class="paw-decoration paw-2">🐾</div>
-        <div class="paw-decoration paw-3">🐾</div>
-
-        <h1 class="hero-title">
-          <span class="title-icon">👉</span>
-          Ủng hộ để mang lại tương lai tốt hơn cho các thú cưng bị bỏ rơi
-        </h1>
-        <p class="hero-subtitle">
-          <span class="subtitle-icon">🐾</span>
-          Mọi khoản đóng góp đều đóng vai trò quan trọng trong việc chăm sóc và
-          cứu sống các bé.
-        </p>
-        <a href="#ung-ho-tien" class="cta-button">
-          <span>Ủng hộ ngay</span>
-          <span class="button-heart">❤️</span>
-        </a>
-      </div>
-      <div class="hero-wave"></div>
+        <div class="hero-content">
+            <div class="paw-decoration paw-1">🐾</div>
+            <div class="paw-decoration paw-2">🐾</div>
+            <div class="paw-decoration paw-3">🐾</div>
+            
+            <h1 class="hero-title">
+                <span class="title-icon">👉</span>
+                Ủng hộ để mang lại tương lai tốt hơn cho các thú cưng bị bỏ rơi
+            </h1>
+            <p class="hero-subtitle">
+                <span class="subtitle-icon">🐾</span>
+                Mọi khoản đóng góp đều đóng vai trò quan trọng trong việc chăm sóc và cứu sống các bé.
+            </p>
+            <button class="cta-button" onclick="scrollToSupport()">
+                <span>Ủng hộ ngay</span>
+                <span class="button-heart">❤️</span>
+            </button>
+        </div>
+        <div class="hero-wave"></div>
     </section>
 
     <!-- Why Support Section -->
     <section class="why-support">
-      <div class="container">
-        <h2 class="section-title">Tại sao cần sự ủng hộ của bạn?</h2>
-        <div class="support-message">
-          <p class="message-highlight">
-            Tất cả hoạt động cứu hộ của chúng tôi dựa trên sự đồng hành và đóng
-            góp của cộng đồng.
-          </p>
-        </div>
+        <div class="container">
+            <h2 class="section-title">Tại sao cần sự ủng hộ của bạn?</h2>
+            <div class="support-message">
+                <p class="message-highlight">
+                    Tất cả hoạt động cứu hộ của chúng tôi dựa trên sự đồng hành và đóng góp của cộng đồng.
+                </p>
+            </div>
 
-        <div class="cost-grid">
-          <div class="cost-card">
-            <div class="cost-icon">🏠</div>
-            <h3>Thuê nhà</h3>
-            <p>Chi phí thuê không gian an toàn và thoáng mát cho các bé</p>
-          </div>
-          <div class="cost-card">
-            <div class="cost-icon">🍖</div>
-            <h3>Thức ăn</h3>
-            <p>Thức ăn dinh dưỡng hàng ngày cho hàng chục thú cưng</p>
-          </div>
-          <div class="cost-card">
-            <div class="cost-icon">💉</div>
-            <h3>Viện phí</h3>
-            <p>Chi phí khám, chữa trị và phẫu thuật cứu sống</p>
-          </div>
-          <div class="cost-card">
-            <div class="cost-icon">🩺</div>
-            <h3>Vật tư y tế</h3>
-            <p>Thuốc men, băng gạc và dụng cụ chăm sóc</p>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="cost-grid">
+                <div class="cost-card">
+                    <div class="cost-icon">🏠</div>
+                    <h3>Thuê nhà</h3>
+                    <p>Chi phí thuê không gian an toàn và thoáng mát cho các bé</p>
+                </div>
+                <div class="cost-card">
+                    <div class="cost-icon">🍖</div>
+                    <h3>Thức ăn</h3>
+                    <p>Thức ăn dinh dưỡng hàng ngày cho hàng chục thú cưng</p>
+                </div>
+                <div class="cost-card">
+                    <div class="cost-icon">💉</div>
+                    <h3>Viện phí</h3>
+                    <p>Chi phí khám, chữa trị và phẫu thuật cứu sống</p>
+                </div>
+                <div class="cost-card">
+                    <div class="cost-icon">🩺</div>
+                    <h3>Vật tư y tế</h3>
+                    <p>Thuốc men, băng gạc và dụng cụ chăm sóc</p>
+                </div>
+            </div>
 
-    <!-- Impact Statistics Section -->
-    <section class="impact-stats">
-      <div class="container">
-        <h2 class="section-title">Hành trình cứu trợ của chúng tôi</h2>
-
-        <!-- Progress Timeline -->
-        <div class="timeline-wrapper">
-          <h3 class="timeline-title">Cột mốc quan trọng</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-year">2018</div>
-              <div class="timeline-content">
-                <h4>Khởi đầu</h4>
-                <p>Thành lập nhóm cứu trợ đầu tiên</p>
-              </div>
+            <div class="support-types">
+                <p class="types-intro">
+                    <strong>Bạn có thể ủng hộ:</strong>
+                </p>
+                <ul class="types-list">
+                    <li>💰 Tiền mặt hoặc chuyển khoản</li>
+                    <li>🎁 Hiện vật như quần áo, bỉm, thức ăn</li>
+                    <li>⏰ Đăng ký ủng hộ định kỳ hàng tháng</li>
+                </ul>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2020</div>
-              <div class="timeline-content">
-                <h4>Mở rộng</h4>
-                <p>Khai trương trung tâm chăm sóc chính thức</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2023</div>
-              <div class="timeline-content">
-                <h4>Phát triển</h4>
-                <p>Đạt 1000+ ca cứu trợ thành công</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2025</div>
-              <div class="timeline-content">
-                <h4>Hiện tại</h4>
-                <p>Tiếp tục sứ mệnh cứu trợ và bảo vệ</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Support Methods Section -->
     <section class="support-methods" id="support-section">
-      <div class="container">
-        <h2 class="section-title">Phương thức ủng hộ</h2>
-        <div class="support-grid-layout">
-          <!-- Bank Transfer -->
-          <div class="method-card bank-transfer" id="ung-ho-tien">
-            <div class="method-header">
-              <h3>💳 Ủng hộ bằng tiền</h3>
-            </div>
-            <div class="bank-info">
-              <div class="bank-detail">
-                <span class="bank-label">Ngân hàng:</span>
-                <span class="bank-value">MB Bank</span>
-              </div>
-              <div class="bank-detail">
-                <span class="bank-label">Số tài khoản:</span>
-                <span class="bank-value account-number">1848108108</span>
-                <button class="copy-btn" onclick="copyAccountNumber()">
-                  📋 Sao chép
-                </button>
-              </div>
-              <div class="bank-detail">
-                <span class="bank-label">Chủ tài khoản:</span>
-                <span class="bank-value">FourPaws</span>
-              </div>
-              <div class="qr-code-container">
-                <p class="qr-instruction">Quét mã QR để chuyển khoản nhanh:</p>
-                <img
-                  src="assets/picture/qrungho.png"
-                  alt="Mã QR ủng hộ"
-                  class="qr-code-img"
-                />
-              </div>
-            </div>
-            <div class="security-note">
-              <span class="note-icon">🔒</span>
-              <p>
-                Chúng tôi không bao giờ yêu cầu OTP hoặc thông tin thẻ từ bạn.
-              </p>
-            </div>
-          </div>
-          <!-- In-kind Donations -->
-          <div class="method-card inkind-donations">
-            <div class="method-header">
-              <h3>🎁 Ủng hộ hiện vật</h3>
-              <p class="method-description">
-                Chúng tôi luôn cần các vật dụng thiết yếu để chăm sóc các bé
-              </p>
-            </div>
-            <div class="inkind-grid">
-              <div class="inkind-item">
-                <div class="inkind-icon">🧷</div>
-                <h4>Bỉm</h4>
-                <p>Cho chó mèo con hoặc các bé đang điều trị</p>
-              </div>
-              <div class="inkind-item">
-                <div class="inkind-icon">👕</div>
-                <h4>Quần áo</h4>
-                <p>Giữ ấm cho các bé trong mùa lạnh</p>
-              </div>
-              <div class="inkind-item">
-                <div class="inkind-icon">🥫</div>
-                <h4>Thức ăn</h4>
-                <p>Thức ăn khô, pate hoặc sữa cho các bé</p>
-              </div>
-              <div class="inkind-item">
-                <div class="inkind-icon">🧸</div>
-                <h4>Đồ dùng khác</h4>
-                <p>Đồ chơi, lồng, nệm, chăn...</p>
-              </div>
-            </div>
-            <div class="contact-info">
-              <p>
-                📞 Liên hệ với chúng tôi để biết thêm thông tin về cách gửi hiện
-                vật
-              </p>
-            </div>
-          </div>
-        </div>
+        <div class="container">
+            <h2 class="section-title">Phương thức ủng hộ</h2>
 
-        <!-- Monthly Packages -->
-        <div class="method-card monthly-packages">
-          <div class="method-header">
-            <h3>⏰ Ủng hộ định kỳ hàng tháng</h3>
-            <p class="method-description">
-              Đồng hành cùng chúng tôi mỗi tháng để tạo sự ổn định cho các bé
-            </p>
-          </div>
-          <div class="packages-grid">
-            <div class="package-card">
-              <div class="package-illustration">
-                <img src="assets/picture/choan.jpg" alt="Thức ăn một ngày" />
-              </div>
-              <div class="package-amount">50.000đ</div>
-              <p class="package-desc">Mỗi tháng</p>
-              <ul class="package-benefits">
-                <li>Giúp nuôi 1 bé trong 1 ngày</li>
-              </ul>
-              <button class="package-button" onclick="selectPackage('50k')">
-                Chọn gói này
-              </button>
+            <!-- Bank Transfer -->
+            <div class="method-card bank-transfer">
+                <div class="method-header">
+                    <h3>💳 Ủng hộ bằng tiền</h3>
+                </div>
+                <div class="bank-info">
+                    <div class="bank-detail">
+                        <span class="bank-label">Ngân hàng:</span>
+                        <span class="bank-value">MB Bank</span>
+                    </div>
+                    <div class="bank-detail">
+                        <span class="bank-label">Số tài khoản:</span>
+                        <span class="bank-value account-number">1848108108</span>
+                        <button class="copy-btn" onclick="copyAccountNumber()">📋 Sao chép</button>
+                    </div>
+                    <div class="bank-detail">
+                        <span class="bank-label">Chủ tài khoản:</span>
+                        <span class="bank-value">FourPaws</span>
+                    </div>
+                </div>
+                <div class="security-note">
+                    <span class="note-icon">🔒</span>
+                    <p>Chúng tôi không bao giờ yêu cầu OTP hoặc thông tin thẻ từ bạn.</p>
+                </div>
             </div>
 
-            <div class="package-card featured">
-              <div class="featured-badge">Phổ biến nhất</div>
-              <div class="package-illustration">
-                <img
-                  src="assets/picture/chotiemphong.jpg"
-                  alt="Chăm sóc y tế"
-                />
-              </div>
-              <div class="package-amount">100.000đ</div>
-              <p class="package-desc">Mỗi tháng</p>
-              <ul class="package-benefits">
-                <li>Giúp nuôi 2 bé trong 1 ngày</li>
-              </ul>
-              <button class="package-button" onclick="selectPackage('100k')">
-                Chọn gói này
-              </button>
-            </div>
+            <!-- Monthly Packages -->
+            <div class="method-card monthly-packages">
+                <div class="method-header">
+                    <h3>⏰ Ủng hộ định kỳ hàng tháng</h3>
+                    <p class="method-description">Đồng hành cùng chúng tôi mỗi tháng để tạo sự ổn định cho các bé</p>
+                </div>
+                <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-illustration">
+                        <img src="images/choan.jpg" alt="Thức ăn một ngày">
+                    </div>
+                    <div class="package-amount">50.000đ</div>
+                    <p class="package-desc">Mỗi tháng</p>
+                    <ul class="package-benefits">
+                        <li>Giúp nuôi 1 bé trong 1 ngày</li>
+                    </ul>
+                    <button class="package-button" onclick="selectPackage('50k')">Chọn gói này</button>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="featured-badge">Phổ biến nhất</div>
+                    <div class="package-illustration">
+                        <img src="images/chotiemphong.jpg" alt="Chăm sóc y tế">
+                    </div>
+                <div class="package-amount">100.000đ</div>
+                <p class="package-desc">Mỗi tháng</p>
+                <ul class="package-benefits">
+                    <li>Giúp nuôi 2 bé trong 1 ngày</li>
+                </ul>
+                <button class="package-button" onclick="selectPackage('100k')">Chọn gói này</button>
+                </div>
 
             <div class="package-card">
-              <div class="package-illustration">
-                <img
-                  src="assets/picture/chochoi.jpg"
-                  alt="Đồng hành cùng các bé"
-                />
-              </div>
-              <div class="package-amount">Tự chọn</div>
-              <p class="package-desc">Số tiền do bạn quyết định</p>
-              <ul class="package-benefits">
-                <li>Linh hoạt theo khả năng</li>
-              </ul>
-              <button class="package-button" onclick="selectPackage('custom')">
-                Chọn gói này
-              </button>
+                <div class="package-illustration">
+                    <img src="images/chochoi.jpg" alt="Đồng hành cùng các bé">
+                </div>
+                <div class="package-amount">Tự chọn</div>
+                <p class="package-desc">Số tiền do bạn quyết định</p>
+                <ul class="package-benefits">
+                    <li>Linh hoạt theo khả năng</li>
+                </ul>
+                <button class="package-button" onclick="selectPackage('custom')">Chọn gói này</button>
+                </div>
             </div>
-          </div>
+            </div>
+
+            <!-- In-kind Donations -->
+            <div class="method-card inkind-donations">
+                <div class="method-header">
+                    <h3>🎁 Ủng hộ hiện vật</h3>
+                    <p class="method-description">Chúng tôi luôn cần các vật dụng thiết yếu để chăm sóc các bé</p>
+                </div>
+                <div class="inkind-grid">
+                    <div class="inkind-item">
+                        <div class="inkind-icon">🧷</div>
+                        <h4>Bỉm</h4>
+                        <p>Cho chó mèo con hoặc các bé đang điều trị</p>
+                    </div>
+                    <div class="inkind-item">
+                        <div class="inkind-icon">👕</div>
+                        <h4>Quần áo</h4>
+                        <p>Giữ ấm cho các bé trong mùa lạnh</p>
+                    </div>
+                    <div class="inkind-item">
+                        <div class="inkind-icon">🥫</div>
+                        <h4>Thức ăn</h4>
+                        <p>Thức ăn khô, pate hoặc sữa cho các bé</p>
+                    </div>
+                    <div class="inkind-item">
+                        <div class="inkind-icon">🧸</div>
+                        <h4>Đồ dùng khác</h4>
+                        <p>Đồ chơi, lồng, nệm, chăn...</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p>📞 Liên hệ với chúng tôi để biết thêm thông tin về cách gửi hiện vật</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
     <!--Nhat ki cuu ho-->
     <section class="rescue-diary">
-      <div class="container">
+    <div class="container">
         <h2 class="section-title">Nhật Ký Cứu Hộ</h2>
-        <p class="sponsors-subtitle">
-          Sự thay đổi kỳ diệu nhờ vào đóng góp của bạn
-        </p>
-
+        <p class="sponsors-subtitle">Sự thay đổi kỳ diệu nhờ vào đóng góp của bạn</p>
+        
         <div class="diary-grid">
-          <div class="diary-card">
-            <div class="diary-images">
-              <div class="before">
-                <img src="assets/picture/Lua1.jpg" alt="Lúa Trước" />
-                <span>Trước</span>
-              </div>
-              <div class="after">
-                <img src="assets/picture/Lua.jpg" alt="Lúa Sau" />
-                <span>Sau</span>
-              </div>
+            <div class="diary-card">
+                <div class="diary-images">
+                    <div class="before">
+                        <img src="images/Lua1.jpg" alt="Lúa Trước">
+                        <span>Trước</span>
+                    </div>
+                    <div class="after">
+                        <img src="images/Lua.jpg" alt="Lúa Sau">
+                        <span>Sau</span>
+                    </div>
+                </div>
+                <div class="diary-info">
+                    <h3>Bé Lúa</h3>
+                    <p>Được tìm thấy trong tình trạng suy kiệt, giờ đây đã tìm được mái ấm hạnh phúc.</p>
+                </div>
             </div>
-            <div class="diary-info">
-              <h3>Bé Lúa</h3>
-              <p>
-                Được tìm thấy trong tình trạng suy kiệt, giờ đây đã tìm được mái
-                ấm hạnh phúc.
-              </p>
-            </div>
-          </div>
 
-          <div class="diary-card">
-            <div class="diary-images">
-              <div class="before">
-                <img src="assets/picture/Lac.jpeg" alt="Lucky Trước" />
-                <span>Trước</span>
-              </div>
-              <div class="after">
-                <img src="assets/picture/chophoc.jpg" alt="Lucky Sau" />
-                <span>Sau</span>
-              </div>
+            <div class="diary-card">
+                <div class="diary-images">
+                    <div class="before">
+                        <img src="images/Lac.jpeg" alt="Lucky Trước">
+                        <span>Trước</span>
+                    </div>
+                    <div class="after">
+                        <img src="images/chophoc.jpg" alt="Lucky Sau">
+                        <span>Sau</span>
+                    </div>
+                </div>
+                <div class="diary-info">
+                    <h3>Bé Lucky</h3>
+                    <p>Vượt qua chấn thương nặng sau tai nạn và hiện tại đã có thể chạy nhảy bình thường.</p>
+                </div>
             </div>
-            <div class="diary-info">
-              <h3>Bé Lucky</h3>
-              <p>
-                Vượt qua chấn thương nặng sau tai nạn và hiện tại đã có thể chạy
-                nhảy bình thường.
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
     <!-- Sponsors Section -->
     <section class="sponsors">
-      <div class="container">
-        <h2 class="section-title">Nhà tài trợ & Mạnh thường quân</h2>
-        <p class="sponsors-subtitle">
-          Cảm ơn những người bạn đồng hành đã và đang ủng hộ chúng tôi
-        </p>
-
-        <div class="sponsors-grid">
-          <div class="sponsor-card">
-            <div class="sponsor-logo">
-              <img src="assets/picture/meovietnam.jpg" alt="Me-O" />
-              <div class="sponsor-overlay">
-                <p class="sponsor-description">
-                  Đồng hành cùng FourPaws trong việc duy trì nguồn thực phẩm
-                  chất lượng cao hàng ngày
-                </p>
-              </div>
+        <div class="container">
+            <h2 class="section-title">Nhà tài trợ & Mạnh thường quân</h2>
+            <p class="sponsors-subtitle">Cảm ơn những người bạn đồng hành đã và đang ủng hộ chúng tôi</p>
+            
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <span class="sponsor-text">Me-O</span>
+                    </div>
+                    <p class="sponsor-name">Me-O Việt Nam</p>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <span class="sponsor-text">SmartHeart</span>
+                    </div>
+                    <p class="sponsor-name">Smartheart Việt Nam</p>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <span class="sponsor-text">BWH</span>
+                    </div>
+                    <p class="sponsor-name">Better World Hanoi</p>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-logo">
+                        <span class="sponsor-text">IELTS</span>
+                    </div>
+                    <p class="sponsor-name">IELTS Thầy Jim</p>
+                </div>
             </div>
-            <p class="sponsor-name">Me-O Việt Nam</p>
-          </div>
-          <div class="sponsor-card">
-            <div class="sponsor-logo">
-              <img src="assets/picture/smartheart.jpg" alt="SmartHeart" />
-              <div class="sponsor-overlay">
-                <p class="sponsor-description">
-                  Tài trợ định kỳ các dòng sản phẩm đặc trị cho thú cưng đang
-                  trong quá trình hồi phục y tế
-                </p>
-              </div>
-            </div>
-            <p class="sponsor-name">Smartheart Việt Nam</p>
-          </div>
-          <div class="sponsor-card">
-            <div class="sponsor-logo">
-              <img
-                src="assets/picture/betterworld.jpg"
-                alt="Better World Hanoi"
-              />
-              <div class="sponsor-overlay">
-                <p class="sponsor-description">
-                  Hỗ trợ kết nối các nguồn lực tình nguyện và truyền thông cho
-                  chiến dịch "Nhận nuôi thay vì mua bán"
-                </p>
-              </div>
-            </div>
-            <p class="sponsor-name">Better World Hanoi</p>
-          </div>
-          <div class="sponsor-card">
-            <div class="sponsor-logo">
-              <img src="assets/picture/ieltsthayjim.png" alt="IELTS Thầy Jim" />
-              <div class="sponsor-overlay">
-                <p class="sponsor-description">
-                  Nhà tài trợ kim cương hỗ trợ chi phí vận hành và nâng cấp cơ
-                  sở hạ tầng cho Nhà chung của các bé
-                </p>
-              </div>
-            </div>
-            <p class="sponsor-name">IELTS Thầy Jim</p>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Thank You Section -->
     <section class="thank-you">
-      <div class="container">
-        <div class="thank-you-content">
-          <h2 class="thank-you-title">Cảm ơn các bạn đã đồng hành ❤️</h2>
-          <p class="thank-you-message">
-            Mỗi khoản đóng góp của bạn đều giúp chúng tôi cứu sống và chăm sóc
-            những thú cưng bị bỏ rơi. Cùng nhau, chúng ta đang tạo nên sự khác
-            biệt!
-          </p>
-          <div class="action-buttons">
-            <a href="#ung-ho-tien" class="action-btn primary">
-              <span>Ủng hộ tiếp</span>
-            </a>
-            <button class="action-btn secondary" onclick="shareOnSocial()">
-              <span>Chia sẻ trang</span>
-              <span class="share-icons">📱</span>
-            </button>
-          </div>
+        <div class="container">
+            <div class="thank-you-content">
+                <h2 class="thank-you-title">Cảm ơn các bạn đã đồng hành ❤️</h2>
+                <p class="thank-you-message">
+                    Mỗi khoản đóng góp của bạn đều giúp chúng tôi cứu sống và chăm sóc những thú cưng bị bỏ rơi. 
+                    Cùng nhau, chúng ta đang tạo nên sự khác biệt!
+                </p>
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="scrollToSupport()">
+                        <span>Ủng hộ tiếp</span>
+                    </button>
+                    <button class="action-btn secondary" onclick="shareOnSocial()">
+                        <span>Chia sẻ trang</span>
+                        <span class="share-icons">📱</span>
+                    </button>
+                </div>
+            </div>
+            <div class="floating-pets">
+                <span class="pet-emoji">🐕</span>
+                <span class="pet-emoji">🐈</span>
+                <span class="pet-emoji">🐾</span>
+            </div>
         </div>
-        <div class="floating-pets">
-          <span class="pet-emoji">🐕</span>
-          <span class="pet-emoji">🐈</span>
-          <span class="pet-emoji">🐾</span>
-        </div>
-      </div>
     </section>
 
-    <script src="assets/scripts/donate.js"></script>
-  </body>
+
+    <script src="scripts/donate.js"></script>
+</body>
 </html>

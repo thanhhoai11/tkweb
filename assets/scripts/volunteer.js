@@ -168,4 +168,3 @@ function slideTestimonials(direction) {
     const slideWidth = cards[0].offsetWidth + 30; // 30 là gap giữa các card
     track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
 }
-
