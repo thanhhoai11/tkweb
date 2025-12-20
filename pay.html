@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán – FOURPAWS</title>
+    <link rel="stylesheet" href="pay.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="checkout-container">
+      <main class="checkout-main">
+        <section class="checkout-section">
+          <div class="section-header">
+            <h2>Thông tin giao hàng</h2>
+            <p>Bạn đã có tài khoản? <a href="#">Đăng nhập</a></p>
+          </div>
+
+          <div class="input-group">
+            <input type="text" placeholder="Họ và tên" value="Ngân Phương" />
+          </div>
+          <div class="input-row">
+            <input type="email" placeholder="Email" value="abc@gmail.com" />
+            <input type="tel" placeholder="Số điện thoại" value="0983954613" />
+          </div>
+
+          <div class="shipping-method-box">
+            <label class="radio-container">
+              <input type="radio" name="delivery" checked />
+              <span>Giao tận nơi</span>
+            </label>
+
+            <div class="address-fields">
+              <input
+                type="text"
+                placeholder="Địa chỉ cụ thể (Số nhà, tên đường...)"
+              />
+              <div class="input-row triplet">
+                <select id="province">
+                  <option value="">Chọn Tỉnh / thành</option>
+                </select>
+                <select id="district">
+                  <option value="">Chọn Quận / huyện</option>
+                </select>
+                <select id="ward">
+                  <option value="">Chọn Phường / xã</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="radio-container inactive">
+              <input type="radio" name="delivery" />
+              <span>Nhận tại cửa hàng</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="checkout-section">
+          <h2>Phương thức thanh toán</h2>
+          <div class="payment-methods">
+            <label class="payment-option">
+              <input
+                type="radio"
+                name="payment"
+                value="cod"
+                checked
+                onclick="toggleBankInfo(false)"
+              />
+              <div class="option-content">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/6491/6491490.png"
+                  width="24"
+                />
+                <span>Thanh toán khi nhận hàng (COD)</span>
+              </div>
+            </label>
+
+            <label class="payment-option">
+              <input
+                type="radio"
+                name="payment"
+                value="bank"
+                onclick="toggleBankInfo(true)"
+              />
+              <div class="option-content">
+                <img
+                  src="https://img.icons8.com/color/48/000000/bank-building.png"
+                  width="24"
+                />
+                <span>Chuyển khoản ngân hàng</span>
+              </div>
+            </label>
+
+            <div id="bank-details" class="bank-info-box" style="display: none">
+              <div class="bank-card">
+                <p><strong>Ngân hàng:</strong> MB Bank (Quân Đội)</p>
+                <p><strong>Số tài khoản:</strong> 1234 5678 9999</p>
+                <p><strong>Chủ tài khoản:</strong> NGUYEN PHUONGNGAN</p>
+                <p><strong>Nội dung:</strong>FOURPAWS</p>
+                <div class="qr-placeholder">
+                  <p>Quét mã QR để thanh toán</p>
+                  <img
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=PETSHOME_PAYMENT"
+                    alt="QR Code"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="checkout-footer">
+          <a href="giohang.html" class="back-link">Quay lại giỏ hàng</a>
+          <button class="btn-complete">Hoàn tất đơn hàng</button>
+        </footer>
+      </main>
+
+      <aside class="checkout-sidebar" id="order-summary-sidebar"></aside>
+    </div>
+
+    <script>
+      // 1. Khai báo biến lưu số tiền giảm giá toàn cục
+      let discountValue = 0;
+
+      // 2. Hàm ẩn/hiện thông tin ngân hàng
+      function toggleBankInfo(show) {
+        const bankDetails = document.getElementById("bank-details");
+        if (bankDetails) {
+          bankDetails.style.display = show ? "block" : "none";
+        }
+      }
+
+      // 3. Hàm hiển thị tóm tắt đơn hàng (Gộp cả logic giảm giá)
+      function renderSummary() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const sidebar = document.getElementById("order-summary-sidebar");
+
+        if (!sidebar) return;
+
+        let subtotal = 0;
+
+        // Tạo danh sách sản phẩm
+        const itemsHtml = cart
+          .map((item) => {
+            const price = item.price * 1000;
+            subtotal += price * item.quantity;
+            return `
+                <div class="summary-item">
+                    <div class="img-badge">
+                        <img src="${item.image}" alt="${item.name}">
+                        <span class="badge">${item.quantity}</span>
+                    </div>
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-price">${(
+                      price * item.quantity
+                    ).toLocaleString("vi-VN")}đ</span>
+                </div>`;
+          })
+          .join("");
+
+        // Tính tổng tiền sau khi trừ giảm giá
+        const grandTotal = subtotal - discountValue;
+
+        // Đổ toàn bộ HTML vào Sidebar (Bao gồm ô nhập mã giảm giá)
+        sidebar.innerHTML = `
+            <div class="summary-list">
+                ${itemsHtml}
+            </div>
+            
+            <div class="promo-section-wrapper">
+                <div class="promo-section">
+                    <input type="text" id="promo-input" placeholder="Mã giảm giá" value="${
+                      discountValue > 0 ? "FRSS1234" : ""
+                    }">
+                    <button onclick="applyDiscount()">Sử dụng</button>
+                </div>
+                <div id="promo-message" style="font-size: 13px; margin-left: 5px;"></div>
+            </div>
+
+            <div class="summary-calc">
+                <div class="row">
+                    <span>Tạm tính</span>
+                    <span>${subtotal.toLocaleString("vi-VN")}đ</span>
+                </div>
+                
+                ${
+                  discountValue > 0
+                    ? `
+                <div class="row" style="color: #f04593; font-weight: 600;">
+                    <span>Giảm giá (FRSS1234)</span>
+                    <span>- ${discountValue.toLocaleString("vi-VN")}đ</span>
+                </div>`
+                    : ""
+                }
+                
+                <div class="row">
+                    <span>Phí vận chuyển</span>
+                    <span>—</span>
+                </div>
+            </div>
+
+            <div class="summary-total">
+                <span>Tổng cộng</span>
+                <span class="price-large">VND ${(grandTotal > 0
+                  ? grandTotal
+                  : 0
+                ).toLocaleString("vi-VN")}đ</span>
+            </div>
+        `;
+      }
+
+      // 4. Hàm xử lý mã giảm giá
+      function applyDiscount() {
+        const promoInput = document.getElementById("promo-input").value.trim();
+        const messageEl = document.getElementById("promo-message");
+
+        if (promoInput === "FRSS1234") {
+          discountValue = 15000;
+          renderSummary(); // Vẽ lại để cập nhật số tiền trước
+
+          // Sau khi vẽ lại, phải lấy lại phần tử message mới để hiện chữ
+          const newMessageEl = document.getElementById("promo-message");
+          newMessageEl.innerText = "Áp dụng mã thành công! Bạn được giảm 15k.";
+          newMessageEl.style.color = "#00b894";
+          newMessageEl.style.marginTop = "8px";
+        } else {
+          discountValue = 0;
+          renderSummary();
+
+          const newMessageEl = document.getElementById("promo-message");
+          newMessageEl.innerText = "Mã giảm giá không hợp lệ.";
+          newMessageEl.style.color = "#f04593";
+          newMessageEl.style.marginTop = "8px";
+        }
+      }
+
+      // 5. Chạy lần đầu khi load trang
+      document.addEventListener("DOMContentLoaded", renderSummary);
+      const host = "https://provinces.open-api.vn/api/";
+
+      var renderData = (array, select) => {
+        let row = ' <option disable value="">Chọn</option>';
+        array.forEach((element) => {
+          row += `<option value="${element.code}">${element.name}</option>`;
+        });
+        document.querySelector("#" + select).innerHTML = row;
+      };
+
+      // 1. Gọi danh sách Tỉnh/Thành
+      var fetchProvinces = () => {
+        fetch(host + "?depth=1")
+          .then((response) => response.json())
+          .then((data) => renderData(data, "province"));
+      };
+      fetchProvinces();
+
+      // 2. Khi chọn Tỉnh -> Gọi Quận/Huyện
+      document
+        .querySelector("#province")
+        .addEventListener("change", function () {
+          let provinceCode = this.value;
+          fetch(host + "p/" + provinceCode + "?depth=2")
+            .then((response) => response.json())
+            .then((data) => {
+              renderData(data.districts, "district");
+              document.querySelector("#ward").innerHTML =
+                '<option value="">Chọn Phường / xã</option>';
+            });
+        });
+
+      // 3. Khi chọn Quận -> Gọi Phường/Xã
+      document
+        .querySelector("#district")
+        .addEventListener("change", function () {
+          let districtCode = this.value;
+          fetch(host + "d/" + districtCode + "?depth=2")
+            .then((response) => response.json())
+            .then((data) => {
+              renderData(data.wards, "ward");
+            });
+        });
+    </script>
+    <div id="successModal" class="success-modal">
+      <div class="success-modal-content">
+        <div class="success-icon">✓</div>
+        <h2>Thanh toán thành công!</h2>
+        <p>Cảm ơn bạn đã ủng hộ FOURPAWS. Đơn hàng của bạn đang được xử lý.</p>
+        <a href="Sản phẩm.html" class="btn-continue-shopping-link">
+          Tiếp tục mua hàng
+        </a>
+      </div>
+    </div>
+    <script>
+      // Gán sự kiện khi trang đã load xong
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnComplete = document.querySelector(".btn-complete");
+        const successModal = document.getElementById("successModal");
+
+        if (btnComplete) {
+          btnComplete.addEventListener("click", function () {
+            // Hiển thị Popup
+            successModal.style.display = "block";
+
+            // Xóa giỏ hàng sau khi thanh toán thành công
+            localStorage.removeItem("cart");
+          });
+        }
+      });
+
+      // Hàm chuyển hướng về trang chủ sản phẩm
+      function goToHome() {
+        window.location.href = "Sanpham.html"; // Thay đổi tên file trang chủ của bạn tại đây
+      }
+    </script>
+  </body>
+</html>

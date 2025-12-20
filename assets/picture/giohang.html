@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng – Pet Shop</title>
+    <link rel="stylesheet" href="giohang.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="cart-container">
+    <header class="cart-header">
+        <h1>Giỏ hàng của bạn (<span id="cart-count">0</span> sản phẩm)</h1>
+        <p class="free-shipping-notice">Miễn phí vận chuyển cho đơn hàng trên 500.000 đ!</p>
+    </header>
+
+    <div class="cart-layout">
+        <main class="cart-items" id="cart-items-list">
+            </main>
+
+        <aside class="order-summary">
+            <h2>Tóm tắt đơn hàng</h2>
+            <div class="summary-row">
+                <span>Tạm tính</span>
+                <span id="subtotal">0 đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển</span>
+                <span id="shipping">Miễn phí</span>
+            </div>
+            <hr>
+            <div class="summary-row total">
+                <span>Tổng cộng</span>
+                <span id="grand-total">0 đ</span>
+            </div>
+
+           
+
+<button class="btn-checkout" onclick="window.location.href='pay.html'">
+    Tiến hành thanh toán
+</button>
+            
+            <a href="Sản phẩm.html" class="continue-shopping">← Tiếp tục mua sắm</a>
+            
+            
+        </aside>
+    </div>
+</div>
+
+<script>
+    // 1. Khai báo biến lưu số tiền giảm giá toàn cục
+let discountValue = 0; 
+
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const listContainer = document.getElementById("cart-items-list");
+    const countEl = document.getElementById("cart-count");
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("grand-total");
+    
+    countEl.innerText = cart.length;
+    
+    if (cart.length === 0) {
+        listContainer.innerHTML = `<div class="empty-cart">Giỏ hàng trống. <a href="Sản phẩm.html">Mua ngay!</a></div>`;
+        subtotalEl.innerText = "0 đ";
+        totalEl.innerText = "0 đ";
+        return;
+    }
+
+    let subtotal = 0;
+    listContainer.innerHTML = cart.map((item, index) => {
+        const itemPrice = item.price * 1000;
+        subtotal += itemPrice * item.quantity;
+        
+        return `
+            <div class="cart-item-card">
+                <img src="${item.image}" alt="${item.name}" class="item-img">
+                <div class="item-details">
+                    <div class="item-info">
+                        <h3>${item.name}</h3>
+                        <p class="item-category">Phân loại: Cửa hàng thú cưng</p>
+                        <span class="stock-status">Còn hàng</span>
+                    </div>
+                    <div class="item-controls">
+                        <div class="qty-selector">
+                            <button onclick="changeQty(${index}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                        <div class="price-remove">
+                            <span class="item-price">${(itemPrice * item.quantity).toLocaleString('vi-VN')} đ</span>
+                            <button class="btn-remove" onclick="removeItem(${index})">Xóa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+    // 2. Tính toán tổng cộng sau khi trừ mã giảm giá
+    const finalTotal = subtotal - discountValue;
+
+    subtotalEl.innerText = subtotal.toLocaleString('vi-VN') + " đ";
+    // Hiển thị tổng cộng (đảm bảo không hiển thị số âm nếu mã giảm lớn hơn tiền hàng)
+    totalEl.innerText = (finalTotal > 0 ? finalTotal : 0).toLocaleString('vi-VN') + " đ";
+}
+
+// 3. Hàm xử lý khi người dùng nhấn nút "Áp dụng"
+function applyDiscount() {
+    const promoInput = document.getElementById("promo-input").value.trim();
+    // Giả sử bạn có một thẻ div để hiện thông báo: <div id="promo-message"></div>
+    const messageEl = document.getElementById("promo-message"); 
+
+    if (promoInput === "FRSS1234") {
+        discountValue = 15000; // Lưu giá trị giảm 15k
+        if(messageEl) {
+            messageEl.innerText = "Đã áp dụng mã giảm giá 15.000 đ";
+            messageEl.style.color = "#f04593";
+          
+        }
+    } else {
+        discountValue = 0;
+        if(messageEl) {
+            messageEl.innerText = "Mã giảm giá không hợp lệ";
+            messageEl.style.color = "#f04593";
+      
+        }
+    }
+    renderCart(); // Gọi lại hàm để cập nhật giá trị hiển thị trên màn hình
+}
+
+function changeQty(index, delta) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart[index].quantity += delta;
+    if (cart[index].quantity < 1) cart[index].quantity = 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+renderCart();
+</script>
+</body>
+</html>

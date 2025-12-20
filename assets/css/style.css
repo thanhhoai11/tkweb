@@ -461,3 +461,24 @@ body {
     transform: translateY(-10px);
   }
 }
+h1 {
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  font-weight: 600;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.6;
+}
+h1,
+h2,
+h3 {
+  font-family: "Quicksand", sans-serif;
+}
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+}

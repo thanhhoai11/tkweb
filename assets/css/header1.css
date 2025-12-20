@@ -1,0 +1,46 @@
+/* Import biến màu từ file style.css chính nếu cần, 
+   nhưng thường trình duyệt đã hiểu nếu load cùng lúc */
+
+/* Hiệu ứng kính mờ cho Header */
+.glass-nav {
+  background: rgba(255, 246, 174, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Tùy chỉnh link điều hướng */
+.header-nav-links a {
+  position: relative !important;
+}
+
+/* Hiệu ứng gạch chân khi hover link menu */
+.header-nav-links a::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 2px !important;
+  bottom: -4px !important;
+  left: 0 !important;
+  background-color: var(--c-primary-hover) !important;
+  transition: width 0.3s ease !important;
+}
+
+.header-nav-links a:hover::after {
+  width: 100% !important;
+}
+
+/* Animation khi scroll (JS toggle class này) */
+.header-hidden {
+  transform: translateY(-100%) !important;
+  opacity: 0;
+}
+
+.header-visible {
+  transform: translateY(0) !important;
+  opacity: 1;
+}
+.cart {
+  color: pink !important;
+  border: rgb(222, 161, 234) !important;
+}

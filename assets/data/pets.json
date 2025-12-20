@@ -5,176 +5,335 @@
       "name": "Chó Cưng",
       "products": [
         {
-          "id": "dog-vang-01",
-          "name": "Vàng (Golden)",
-          "defaultImage": "assets/picture/vang-1.jpg",
+          "id": 1,
+          "name": "Bon",
+          "defaultImage": "assets/picture/images/Bon.jpg",
           "hoverImage": "assets/picture/vang-hover.png",
-          "description": {
-            "paragraphs": ["Vàng có nụ cười tỏa nắng, rất thân thiện."]
-          },
+          "description": { "paragraphs": ["Bé Bon rất ngoan và quấn chủ."] },
           "specs": {
             "Thông tin": {
-              "Giống": "Golden",
-              "Tuổi": "5 tháng",
-              "Giới tính": "Đực"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
             }
-          },
-          "tags": [
-            { "text": "Thân thiện", "class": "bg-yellow-100 text-yellow-800" }
-          ]
+          }
         },
         {
-          "id": "dog-muc-01",
-          "name": "Mực (Chó Ta)",
-          "defaultImage": "assets/picture/dog-muc-1.jpg",
-          "hoverImage": "assets/picture/muc-hover.jpg",
-          "description": {
-            "paragraphs": ["Mực thông minh, đen tuyền, giữ nhà giỏi."]
-          },
+          "id": 3,
+          "name": "Bư",
+          "defaultImage": "assets/picture/images/Bu.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Bé Bư điềm tĩnh và thông minh."] },
           "specs": {
             "Thông tin": {
-              "Giống": "Chó Mực",
-              "Tuổi": "4 tháng",
-              "Giới tính": "Đực"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
             }
-          },
-          "tags": [
-            { "text": "Giữ nhà", "class": "bg-stone-100 text-stone-800" }
-          ]
+          }
         },
         {
-          "id": "dog-ven-01",
-          "name": "Vện Chiến",
-          "defaultImage": "assets/picture/ven-1.jpg",
-          "hoverImage": "assets/picture/ven-3.jpg",
-          "description": { "paragraphs": ["Vện có màu lông rằn ri cực ngầu."] },
-          "specs": {
-            "Thông tin": {
-              "Giống": "Chó Vện",
-              "Tuổi": "1 tuổi",
-              "Giới tính": "Cái"
-            }
-          },
-          "tags": [
-            { "text": "Độc lạ", "class": "bg-orange-100 text-orange-800" }
-          ]
-        },
-        {
-          "id": "dog-dom-01",
-          "name": "Đốm",
-          "defaultImage": "assets/picture/dom-1.jpg",
-          "hoverImage": "assets/picture/dog-muc-6.jpg",
+          "id": 5,
+          "name": "Kem",
+          "defaultImage": "assets/picture/images/Kem.jpeg",
+          "hoverImage": "assets/picture/images/Kem.jpeg",
           "description": {
-            "paragraphs": ["Đốm trắng đen, nhìn rất thư sinh."]
-          },
-          "specs": {
-            "Thông tin": {
-              "Giống": "Chó Đốm",
-              "Tuổi": "2 tháng",
-              "Giới tính": "Đực"
-            }
-          },
-          "tags": [{ "text": "Cute", "class": "bg-gray-100 text-gray-800" }]
-        },
-        {
-          "id": "dog-beo-01",
-          "name": "Lu Béo",
-          "defaultImage": "assets/picture/beo-1.jpg",
-          "hoverImage": "assets/picture/lu.jpg",
-          "description": {
-            "paragraphs": ["Béo tròn vo, chỉ thích ăn và ngủ."]
+            "paragraphs": ["Bé Kem lông trắng muốt, tinh nghịch."]
           },
           "specs": {
             "Thông tin": {
               "Giống": "Chó Cỏ",
-              "Tuổi": "2 tuổi",
-              "Giới tính": "Cái"
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Trắng"
             }
-          },
-          "tags": [{ "text": "Ham ăn", "class": "bg-red-100 text-red-800" }]
+          }
         },
         {
-          "id": "dog-bacha-01",
-          "name": "Bắc Hà",
-          "defaultImage": "assets/picture/bacha-1.jpg",
-          "hoverImage": "assets/picture/bacha.jpg",
-          "description": { "paragraphs": ["Chó xù Bắc Hà, lông trắng muốt."] },
+          "id": 8,
+          "name": "Milo",
+          "defaultImage": "assets/picture/images/Milo.jpg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": {
+            "paragraphs": ["Milo trung thành và biết bảo vệ chủ."]
+          },
           "specs": {
             "Thông tin": {
-              "Giống": "Bắc Hà",
-              "Tuổi": "3 tháng",
-              "Giới tính": "Đực"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Đen"
             }
-          },
-          "tags": [
-            { "text": "Lông xù", "class": "bg-stone-100 text-stone-800" }
-          ]
+          }
         },
         {
-          "id": "dog-vang-02",
-          "name": "Vàng Nhỏ",
-          "defaultImage": "assets/picture/vang-3.jpg",
-          "hoverImage": "assets/picture/vang-4.jpg",
-          "description": { "paragraphs": ["Bé Vàng nhỏ nhắn, hay làm nũng."] },
+          "id": 9,
+          "name": "Mun",
+          "defaultImage": "assets/picture/images/Mun.jpg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Mun đen tuyền, rất nhanh nhẹn."] },
           "specs": {
             "Thông tin": {
-              "Giống": "Chó Vàng",
-              "Tuổi": "2 tháng",
-              "Giới tính": "Cái"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Đen"
             }
-          },
-          "tags": [
-            { "text": "Nhỏ nhắn", "class": "bg-yellow-50 text-yellow-600" }
-          ]
+          }
         },
         {
-          "id": "dog-muc-02",
-          "name": "Than",
-          "defaultImage": "assets/picture/dog-muc-4.jpg",
-          "hoverImage": "assets/picture/dog-muc-5.jpg",
-          "description": { "paragraphs": ["Than đen bóng, rất nhanh nhẹn."] },
+          "id": 12,
+          "name": "Tun",
+          "defaultImage": "assets/picture/images/Tun.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Tun hiền lành và dễ gần."] },
           "specs": {
             "Thông tin": {
-              "Giống": "Chó Mực",
-              "Tuổi": "1.5 tuổi",
-              "Giới tính": "Đực"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
             }
-          },
-          "tags": [
-            { "text": "Nhanh nhẹn", "class": "bg-blue-100 text-blue-800" }
-          ]
+          }
         },
         {
-          "id": "dog-vang-03",
-          "name": "Cậu Vàng",
-          "defaultImage": "assets/picture/vang-2.jpg",
-          "hoverImage": "assets/picture/vang-5.jpg",
-          "description": { "paragraphs": ["Cậu Vàng già dặn, điềm tĩnh."] },
+          "id": 14,
+          "name": "Béo",
+          "defaultImage": "assets/picture/images/Beo.jpg",
+          "hoverImage": "assets/picture/images/Beo.jpg",
+          "description": { "paragraphs": ["Béo mũm mĩm, rất đáng yêu."] },
           "specs": {
             "Thông tin": {
-              "Giống": "Chó Ta",
-              "Tuổi": "3 tuổi",
-              "Giới tính": "Đực"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
             }
-          },
-          "tags": [
-            { "text": "Trưởng thành", "class": "bg-orange-100 text-orange-800" }
-          ]
+          }
         },
         {
-          "id": "dog-muc-03",
-          "name": "Mực Nhí",
-          "defaultImage": "assets/picture/dog-muc-2.jpg",
-          "hoverImage": "assets/picture/dog-muc-3.jpg",
-          "description": { "paragraphs": ["Mực nhí rất quấn chủ."] },
+          "id": 18,
+          "name": "Socola",
+          "defaultImage": "assets/picture/images/Socola.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Socola có màu lông đặc biệt."] },
           "specs": {
             "Thông tin": {
-              "Giống": "Chó Mực",
-              "Tuổi": "2 tháng",
-              "Giới tính": "Cái"
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
             }
+          }
+        },
+        {
+          "id": 20,
+          "name": "Gấu",
+          "defaultImage": "assets/picture/images/Gau.jpg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Gấu mạnh mẽ và dũng cảm."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 22,
+          "name": "Vàng",
+          "defaultImage": "assets/picture/images/Vang.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": {
+            "paragraphs": ["Vàng là người bạn đồng hành tuyệt vời."]
           },
-          "tags": [{ "text": "Baby", "class": "bg-pink-100 text-pink-800" }]
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 24,
+          "name": "Đen",
+          "defaultImage": "assets/picture/images/Den.jpg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Đen thông minh và nhanh nhẹn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 26,
+          "name": "Tít",
+          "defaultImage": "assets/picture/images/Tit.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Tít vui vẻ, hay chạy nhảy."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 29,
+          "name": "Cún",
+          "defaultImage": "assets/picture/images/Cun.png",
+          "hoverImage": "assets/picture/images/Cun.png",
+          "description": { "paragraphs": ["Cún con hiếu động."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 31,
+          "name": "Lạc",
+          "defaultImage": "assets/picture/images/Lac.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Lạc dễ nuôi và rất ngoan."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 33,
+          "name": "Bắp",
+          "defaultImage": "assets/picture/images/Bap.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Bắp thích được vuốt ve."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 36,
+          "name": "Na",
+          "defaultImage": "assets/picture/images/Na.jpg",
+          "hoverImage": "assets/picture/images/Na.jpg",
+          "description": { "paragraphs": ["Na hiền khô, ít sủa."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 38,
+          "name": "Bánh",
+          "defaultImage": "assets/picture/images/Banh.jpeg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Bánh trung thành và điềm đạm."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 40,
+          "name": "Cam",
+          "defaultImage": "assets/picture/images/Cam.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Cam rất thông minh."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 42,
+          "name": "Gạo",
+          "defaultImage": "assets/picture/images/Gao.jpeg",
+          "hoverImage": "assets/picture/images/Gao.jpeg",
+          "description": {
+            "paragraphs": ["Gạo lông trắng mượt, rất sạch sẽ."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Chó Cỏ",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
+            }
+          }
         }
       ]
     },
@@ -183,66 +342,424 @@
       "name": "Mèo Cưng",
       "products": [
         {
-          "id": "cat-xiem-01",
-          "name": "Xiêm La",
-          "defaultImage": "assets/picture/meo-xiem-1.jpg",
-          "hoverImage": "assets/picture/meo-xiem.png",
-          "description": { "paragraphs": ["Mèo Xiêm mắt xanh, quý tộc."] },
+          "id": 2,
+          "name": "Bông",
+          "defaultImage": "assets/picture/images/Bong.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": {
+            "paragraphs": ["Bông thích nằm cuộn tròn trên ghế."]
+          },
           "specs": {
             "Thông tin": {
-              "Giống": "Xiêm",
-              "Tuổi": "1 tuổi",
-              "Giới tính": "Cái"
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
             }
-          },
-          "tags": [{ "text": "Quý tộc", "class": "bg-teal-100 text-teal-800" }]
+          }
         },
         {
-          "id": "cat-muop-01",
+          "id": 4,
+          "name": "Chíp",
+          "defaultImage": "assets/picture/images/Chip.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Chíp thích chơi với cuộn len."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 6,
+          "name": "Khoai",
+          "defaultImage": "assets/picture/images/Khoai.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Khoai bắt chuột rất giỏi."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 7,
+          "name": "Leo",
+          "defaultImage": "assets/picture/images/Leo.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Leo thích leo trèo và khám phá."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 10,
           "name": "Mướp",
-          "defaultImage": "assets/picture/muop-1.jpg",
+          "defaultImage": "assets/picture/images/Muop.jpg",
           "hoverImage": "assets/picture/muop-hover.png",
-          "description": {
-            "paragraphs": ["Mướp đại ca, bắt chuột siêu đỉnh."]
-          },
+          "description": { "paragraphs": ["Mướp có bộ lông vân sọc rất đẹp."] },
           "specs": {
             "Thông tin": {
               "Giống": "Mèo Mướp",
-              "Tuổi": "2 tuổi",
-              "Giới tính": "Đực"
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Đen"
             }
-          },
-          "tags": [{ "text": "Đại ca", "class": "bg-green-100 text-green-800" }]
+          }
         },
         {
-          "id": "cat-tamthe-01",
-          "name": "Tam Thể",
-          "defaultImage": "assets/picture/meo-tam-the-1.jpg",
+          "id": 11,
+          "name": "Su",
+          "defaultImage": "assets/picture/images/Su.jpeg",
+          "hoverImage": "assets/picture/images/Su.jpeg",
+          "description": {
+            "paragraphs": ["Su rất tình cảm, hay dụi đầu vào tay chủ."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 13,
+          "name": "Lu",
+          "defaultImage": "assets/picture/images/Lu.jpeg",
+          "hoverImage": "assets/picture/images/Lu.jpeg",
+          "description": { "paragraphs": ["Lu trầm tính và thích ngủ."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 15,
+          "name": "Cà Phê",
+          "defaultImage": "assets/picture/images/CaPhe.jpg",
+          "hoverImage": "assets/picture/meo-xiem.png",
+          "description": {
+            "paragraphs": ["Cà Phê có bộ mặt đeo mặt nạ như mèo Xiêm."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Xiêm",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 16,
+          "name": "Đốm",
+          "defaultImage": "assets/picture/images/Dom.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Đốm nghịch ngợm và tò mò."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 17,
+          "name": "Mây",
+          "defaultImage": "assets/picture/images/May.jpeg",
+          "hoverImage": "assets/picture/images/May.jpeg",
+          "description": { "paragraphs": ["Mây dịu dàng như một làn mây."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 19,
+          "name": "Nắng",
+          "defaultImage": "assets/picture/images/Nang.jpg",
+          "hoverImage": "assets/picture/images/Nang.jpg",
+          "description": { "paragraphs": ["Nắng sưởi ấm căn nhà của bạn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 21,
+          "name": "Bông Tuyết",
+          "defaultImage": "assets/picture/images/Bongtuyet.jpg",
+          "hoverImage": "assets/picture/images/Bongtuyet.jpg",
+          "description": { "paragraphs": ["Bông Tuyết trắng tinh khôi."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 23,
+          "name": "Mít",
+          "defaultImage": "assets/picture/images/Mit.jpeg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Mít tròn xoe và ham ăn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 25,
+          "name": "Sữa",
+          "defaultImage": "assets/picture/images/Sua.jpg",
+          "hoverImage": "assets/picture/images/Sua.jpg",
+          "description": {
+            "paragraphs": ["Sữa thích uống sữa và lười vận động."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 27,
+          "name": "Lúa",
+          "defaultImage": "assets/picture/images/Lua.jpg",
+          "hoverImage": "assets/picture/images/Lua.jpg",
+          "description": { "paragraphs": ["Lúa hiền lành, dễ kết bạn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 28,
+          "name": "Râu",
+          "defaultImage": "assets/picture/images/Rau.jpg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Râu có bộ ria mép rất oai."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 30,
+          "name": "Mỡ",
+          "defaultImage": "assets/picture/images/Mo.jpeg",
+          "hoverImage": "assets/picture/images/Mo.jpeg",
+          "description": { "paragraphs": ["Mỡ tròn trĩnh và lười biếng."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 32,
+          "name": "Bơ",
+          "defaultImage": "assets/picture/images/Bo.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Bơ vàng ươm, rất quấn người."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 34,
+          "name": "Khói",
+          "defaultImage": "assets/picture/images/Khoi.jpeg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": {
+            "paragraphs": ["Khói có màu lông xám đen huyền bí."]
+          },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 35,
+          "name": "Ốc",
+          "defaultImage": "assets/picture/images/Oc.jpg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Ốc nhỏ bé nhưng nhanh nhẹn."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 37,
+          "name": "Dừa",
+          "defaultImage": "assets/picture/images/Dua.jpeg",
+          "hoverImage": "assets/picture/vang-hover.png",
+          "description": { "paragraphs": ["Dừa trắng thơm, rất sạch sẽ."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Đực",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Vàng"
+            }
+          }
+        },
+        {
+          "id": 39,
+          "name": "Muối",
+          "defaultImage": "assets/picture/images/Muoi.jpg",
+          "hoverImage": "assets/picture/images/Muoi.jpg",
+          "description": { "paragraphs": ["Muối mặn mà, hay pha trò."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trẻ",
+              "Giới tính": "Cái",
+              "Triệt sản": "Chưa",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Trắng"
+            }
+          }
+        },
+        {
+          "id": 41,
+          "name": "Mướt",
+          "defaultImage": "assets/picture/images/Muot.jpeg",
+          "hoverImage": "assets/picture/den-hover.png",
+          "description": { "paragraphs": ["Mướt lông mượt, nhìn rất yêu."] },
+          "specs": {
+            "Thông tin": {
+              "Giống": "Mèo Ta",
+              "Tuổi": "Lớn tuổi",
+              "Giới tính": "Đực",
+              "Triệt sản": "Chưa rõ",
+              "Tiêm phòng": "Chưa rõ",
+              "Màu sắc": "Đen"
+            }
+          }
+        },
+        {
+          "id": 43,
+          "name": "Hạt",
+          "defaultImage": "assets/picture/images/Hat.jpeg",
           "hoverImage": "assets/picture/tam-the-hover.png",
-          "description": { "paragraphs": ["Tam thể mang lại may mắn."] },
+          "description": {
+            "paragraphs": ["Hạt nhỏ xíu, có bộ lông Tam Thể đặc biệt."]
+          },
           "specs": {
             "Thông tin": {
-              "Giống": "Tam Thể",
-              "Tuổi": "1.5 tuổi",
-              "Giới tính": "Cái"
+              "Giống": "Mèo Ta",
+              "Tuổi": "Trưởng thành",
+              "Giới tính": "Cái",
+              "Triệt sản": "Rồi",
+              "Tiêm phòng": "Rồi",
+              "Màu sắc": "Vàng"
             }
-          },
-          "tags": [{ "text": "May mắn", "class": "bg-red-100 text-red-800" }]
-        },
-        {
-          "id": "cat-cam-01",
-          "name": "Cam",
-          "defaultImage": "assets/picture/meo-cam-2.jpg",
-          "hoverImage": "assets/picture/meo-cam.jpg",
-          "description": { "paragraphs": ["Mèo cam lười biếng."] },
-          "specs": {
-            "Thông tin": {
-              "Giống": "Mèo Vàng",
-              "Tuổi": "3 tuổi",
-              "Giới tính": "Đực"
-            }
-          },
-          "tags": [{ "text": "Lười", "class": "bg-orange-100 text-orange-800" }]
+          }
         }
       ]
     }

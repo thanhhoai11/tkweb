@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Hồ sơ thú cưng - FOURPAWS</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF9EAA",
+              "primary-hover": "#F472B6",
+              secondary: "#FCD34D",
+              background: "#FFFBEB",
+            },
+            fontFamily: { sans: ["Spline Sans", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .pet-image-glow {
+        box-shadow: 0 20px 50px rgba(255, 158, 170, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-gray-800">
+    <div id="header"></div>
+
+    <main class="max-w-[1200px] mx-auto px-4 py-12 md:py-24">
+      <a
+        href="category.html"
+        class="inline-flex items-center gap-2 text-gray-500 hover:text-primary font-bold mb-8 transition-colors"
+      >
+        <span class="material-symbols-outlined">arrow_back</span> Quay lại danh
+        sách
+      </a>
+
+      <div
+        id="petDetailContent"
+        class="flex flex-col md:flex-row gap-12 items-start reveal"
+      >
+        <div class="w-full md:w-[40%] sticky top-24">
+          <div class="relative group">
+            <img
+              id="mainImage"
+              src=""
+              class="w-full aspect-square object-cover rounded-[3rem] pet-image-glow border-4 border-white transition-transform duration-500 group-hover:scale-[1.02]"
+              alt="Pet Image"
+            />
+            <div
+              class="absolute -bottom-4 -left-4 bg-white p-4 rounded-2xl shadow-xl border border-pink-100 max-w-[200px] animate-bounce-slow z-20"
+            >
+              <div
+                class="flex items-center gap-2 mb-1 text-primary font-bold text-xs"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >potted_plant</span
+                >
+                <span>Lời nhắn từ em</span>
+              </div>
+              <p class="text-[11px] text-gray-600 italic leading-snug">
+                "Em hứa sẽ thật ngoan, chỉ cần anh/chị cho em một mái ấm thôi
+                ạ!"
+              </p>
+            </div>
+
+            <div
+              class="absolute -top-4 -right-4 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-yellow-100 animate-pulse-slow z-20 hidden md:block"
+            >
+              <div
+                class="flex items-center gap-2 text-secondary font-bold text-[10px] uppercase"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >volunteer_activism</span
+                >
+                <span>Đang chờ bạn</span>
+              </div>
+            </div>
+            <div
+              id="genderBadge"
+              class="absolute top-6 left-6 px-4 py-2 rounded-full backdrop-blur-md bg-white/80 text-primary font-bold shadow-lg flex items-center gap-2"
+            ></div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-[60%] space-y-8">
+          <div>
+            <h1
+              id="petName"
+              class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight"
+            ></h1>
+            <p
+              id="petDescription"
+              class="text-lg text-gray-600 leading-relaxed italic"
+            ></p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="bg-white p-5 rounded-3xl border border-pink-50 shadow-sm hover:border-primary transition-colors"
+            >
+              <p
+                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1"
+              >
+                Tuổi
+              </p>
+              <p id="age" class="text-xl font-bold text-gray-800"></p>
+            </div>
+            <div
+              class="bg-white p-5 rounded-3xl border border-pink-50 shadow-sm hover:border-primary transition-colors"
+            >
+              <p
+                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1"
+              >
+                Màu sắc
+              </p>
+              <p id="color" class="text-xl font-bold text-gray-800"></p>
+            </div>
+            <div
+              class="bg-white p-5 rounded-3xl border border-pink-50 shadow-sm hover:border-primary transition-colors"
+            >
+              <p
+                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1"
+              >
+                Triệt sản
+              </p>
+              <p id="sterilized" class="text-xl font-bold text-gray-800"></p>
+            </div>
+            <div
+              class="bg-white p-5 rounded-3xl border border-pink-50 shadow-sm hover:border-primary transition-colors"
+            >
+              <p
+                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1"
+              >
+                Tiêm phòng
+              </p>
+              <p id="vaccinated" class="text-xl font-bold text-gray-800"></p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-center">
+            <a
+              href="https://docs.google.com/forms/d/1SSDdGhtCK2aVK_FZeK1W8HkL7O8JVF5Mu47Prm-74DA/viewform?fbclid=IwY2xjawOy-k9leHRuA2FlbQIxMABicmlkETFTN0kzdWdmU3lrbEhidjFrc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHh52o2Ub6dzrAFDkSINlHUtCviwpbZSp2_oMrMPue3N0rZEgyM0kGb6nZaMA_aem_01PDXKLPX0QPBrLoUgPjBw&edit_requested=true"
+              class="flex items-center gap-2 px-6 py-3 bg-[#FF9EAA] text-white font-bold rounded-2xl shadow-lg hover:bg-[#F472B6] transition-all transform hover:scale-105"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >favorite</span
+              >
+              <span>Đăng ký nhận nuôi</span>
+            </a>
+
+            <a
+              href="https://m.me/id=61585477106241#"
+              class="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 font-bold rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >chat_bubble</span
+              >
+              <span>Tư vấn</span>
+            </a>
+          </div>
+
+          <div
+            class="bg-yellow-100/50 p-6 rounded-3xl border-2 border-dashed border-yellow-200"
+          >
+            <h4 class="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-secondary">info</span>
+              Lưu ý nhỏ
+            </h4>
+            <p class="text-sm text-gray-600">
+              Việc nhận nuôi là một cam kết lâu dài. Bạn sẽ cần tham gia một
+              buổi phỏng vấn nhỏ với trạm cứu hộ trước khi đón bé về nhà.
+            </p>
+          </div>
+          <div
+            class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-[2.5rem] border border-pink-100 shadow-sm reveal"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="size-12 rounded-full bg-primary flex items-center justify-center text-white"
+              >
+                <span class="material-symbols-outlined">auto_awesome</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-xl tracking-tight">
+                Cảm ơn bạn đã ghé thăm
+              </h3>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              FOURPAWS Family vô cùng trân trọng sự quan tâm của bạn dành cho
+              các bé. Mỗi lượt xem, mỗi chia sẻ đều là một cơ hội mới để các em
+              tìm thấy gia đình đích thực.
+              <span class="font-bold text-primary"
+                >Hạnh phúc không phải là mua một con vật, mà là cứu sống một
+                linh hồn.</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="flex items-center gap-6 p-6 bg-white rounded-3xl border border-gray-100 shadow-sm reveal"
+          >
+            <div class="flex-1">
+              <h4 class="font-bold text-gray-800 mb-1 flex items-center gap-2">
+                <span class="material-symbols-outlined text-green-500"
+                  >verified</span
+                >
+                Bảo trợ trọn đời
+              </h4>
+              <p class="text-xs text-gray-500 leading-relaxed">
+                Chúng tôi cam kết đồng hành cùng bạn trong suốt quá trình chăm
+                sóc bé sau khi nhận nuôi.
+              </p>
+            </div>
+            <div class="flex -space-x-3">
+              <div
+                class="size-10 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[10px] font-bold"
+              >
+                BS
+              </div>
+              <div
+                class="size-10 rounded-full border-2 border-white bg-green-100 flex items-center justify-center text-[10px] font-bold text-primary"
+              >
+                4P
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="mt-20 reveal pt-20 border-t border-pink-100">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-black text-gray-900 mb-2">
+            Hành trình về nhà
+          </h2>
+          <div class="h-1.5 w-20 bg-primary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="glass-card text-center space-y-4 p-8 rounded-[2.5rem] bg-white/40 backdrop-blur-md border border-white/50 shadow-sm transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,158,170,0.3) hover:color-white] hover:-translate-y-2 group"
+          >
+            <div
+              class="size-20 bg-white/90 rounded-[1.5rem] shadow-sm flex items-center justify-center mx-auto text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:rotate-3"
+            >
+              <span class="material-symbols-outlined text-4xl hover:c-white"
+                >edit_document</span
+              >
+            </div>
+            <h4 class="font-black text-gray-800 text-lg">1. Đăng ký</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Nhấn nút "Nhận nuôi" để gửi thông tin cơ bản cho chúng mình nhé.
+            </p>
+          </div>
+
+          <div
+            class="glass-card text-center space-y-4 p-8 rounded-[2.5rem] bg-white/40 backdrop-blur-md border border-white/50 shadow-sm transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,158,170,0.3)] hover:-translate-y-2 group"
+          >
+            <div
+              class="size-20 bg-white/90 rounded-[1.5rem] shadow-sm flex items-center justify-center mx-auto text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:rotate-3"
+            >
+              <span class="material-symbols-outlined text-4xl">forum</span>
+            </div>
+            <h4 class="font-black text-gray-800 text-lg">2. Phỏng vấn</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Tình nguyện viên sẽ trò chuyện để tìm hiểu thêm về môi trường sống
+              của bạn.
+            </p>
+          </div>
+
+          <div
+            class="glass-card text-center space-y-4 p-8 rounded-[2.5rem] bg-white/40 backdrop-blur-md border border-white/50 shadow-sm transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,158,170,0.3)] hover:-translate-y-2 group"
+          >
+            <div
+              class="size-20 bg-white/90 rounded-[1.5rem] shadow-sm flex items-center justify-center mx-auto text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:rotate-3"
+            >
+              <span class="material-symbols-outlined text-4xl">home</span>
+            </div>
+            <h4 class="font-black text-gray-800 text-lg">3. Chuẩn bị</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Sắm sửa đồ dùng và tạo một không gian ấm cúng trước khi đón bé.
+            </p>
+          </div>
+
+          <div
+            class="glass-card text-center space-y-4 p-8 rounded-[2.5rem] bg-white/40 backdrop-blur-md border border-white/50 shadow-sm transition-all duration-500 hover:shadow-[0_20px_50px_rgba(252,211,77,0.3)] hover:-translate-y-2 group"
+          >
+            <div
+              class="size-20 bg-primary rounded-[1.5rem] shadow-lg flex items-center justify-center mx-auto text-white transition-all duration-500 group-hover:bg-secondary group-hover:rotate-12"
+            >
+              <span class="material-symbols-outlined text-4xl"
+                >celebration</span
+              >
+            </div>
+            <h4 class="font-black text-gray-800 text-lg">4. Đón bé</h4>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Hoàn tất thủ tục và chính thức chào mừng thành viên mới về nhà!
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="mt-24 mb-12 reveal">
+        <div
+          class="relative overflow-hidden rounded-[3rem] bg-gradient-to-r from-primary/20 to-secondary/20 p-12 md:p-20 text-center border border-white shadow-xl"
+        >
+          <div
+            class="absolute -top-10 -left-10 size-40 bg-white/30 rounded-full blur-3xl"
+          ></div>
+          <div
+            class="absolute -bottom-10 -right-10 size-40 bg-primary/20 rounded-full blur-3xl"
+          ></div>
+
+          <div class="relative z-10 space-y-6">
+            <span
+              class="material-symbols-outlined text-primary text-5xl animate-float"
+              >format_quote</span
+            >
+            <h2
+              class="text-3xl md:text-5xl font-black text-gray-800 leading-tight"
+            >
+              "Cứu một cá thể không thay đổi thế giới,
+              <br class="hidden md:block" />
+              nhưng với cá thể đó,
+              <span class="text-primary italic"
+                >thế giới đã thay đổi mãi mãi.</span
+              >"
+            </h2>
+            <div class="flex justify-center gap-3">
+              <div class="h-1.5 w-16 bg-primary rounded-full"></div>
+              <div class="h-1.5 w-4 bg-secondary rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script>
+      // Reveal logic
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll(".reveal").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100)
+            el.classList.add("active");
+        });
+      });
+      document.addEventListener("DOMContentLoaded", () =>
+        document.querySelector(".reveal").classList.add("active")
+      );
+
+      async function loadPetDetail() {
+        // 1. Lấy ID từ URL (ví dụ: profile_pet.html?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const petId = urlParams.get("id");
+
+        if (!petId) {
+          document.getElementById("petDetailContent").innerHTML =
+            '<h2 class="text-center w-full py-20 text-2xl font-bold">Không tìm thấy thông tin thú cưng!</h2>';
+          return;
+        }
+
+        try {
+          // 2. Fetch file JSON
+          const response = await fetch("assets/data/pets.json");
+          const data = await response.json();
+
+          // 3. Tìm bé có ID tương ứng trong cấu trúc categories -> products
+          let petFound = null;
+          data.categories.forEach((cat) => {
+            const found = cat.products.find(
+              (p) => p.id.toString() === petId.toString()
+            );
+            if (found) petFound = found;
+          });
+
+          if (petFound) {
+            const info = petFound.specs["Thông tin"];
+
+            // 4. Đổ dữ liệu vào HTML
+            document.title = `${petFound.name} - FOURPAWS`;
+            document.getElementById("petName").innerText = petFound.name;
+            document.getElementById("mainImage").src = petFound.defaultImage;
+            document.getElementById("petDescription").innerText =
+              petFound.description.paragraphs[0];
+
+            document.getElementById("age").innerText = info["Tuổi"];
+            document.getElementById("color").innerText = info["Màu sắc"];
+            document.getElementById("sterilized").innerText = info["Triệt sản"];
+            document.getElementById("vaccinated").innerText =
+              info["Tiêm phòng"];
+
+            // Gender Badge
+            const isMale = info["Giới tính"] === "Đực";
+            document.getElementById("genderBadge").innerHTML = `
+                        <span class="material-symbols-outlined ${
+                          isMale ? "text-blue-500" : "text-pink-500"
+                        }">
+                            ${isMale ? "male" : "female"}
+                        </span>
+                        ${info["Giới tính"]}
+                    `;
+          } else {
+            document.getElementById("petDetailContent").innerHTML =
+              '<h2 class="text-center w-full py-20 text-2xl font-bold">Thú cưng không tồn tại!</h2>';
+          }
+        } catch (error) {
+          console.error("Lỗi:", error);
+        }
+      }
+
+      loadPetDetail();
+    </script>
+    <style>
+      .text-4xl:hover {
+        color: white !important;
+      }
+    </style>
+    <div id="footer"></div>
+  </body>
+</html>
+<script>
+  // load header
+  fetch("assets/Component/header1.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("header").innerHTML = data));
+
+  // load footer
+  fetch("assets/Component/footer.html")
+    .then((res) => res.text())
+    .then((data) => (document.getElementById("footer").innerHTML = data));
+</script>
