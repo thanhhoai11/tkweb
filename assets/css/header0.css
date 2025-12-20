@@ -252,6 +252,6 @@ a {
     text-align: center;
   }
   body {
-    padding-top: 150px; /* = chiều cao header */
+    padding-top: 80px; /* = chiều cao header */
   }
 }

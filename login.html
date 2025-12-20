@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/header0.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -147,7 +147,7 @@
   <body
     class="bg-background-light text-gray-800 font-display overflow-x-hidden antialiased selection:bg-primary selection:text-black relative"
   >
-    <div id="header-placeholder"></div>
+    <div id="header-box"></div>
     <div
       class="fixed inset-0 z-[100] flex items-center justify-center bg-white animate-loader-fade"
       id="page-loader"
@@ -172,7 +172,7 @@
     </div>
 
     <div class="layout-container" id="mainContainer">
-      <header
+      <!-- <header
         class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-gray-100"
       >
         <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,7 +205,7 @@
             </div>
           </div>
         </div>
-      </header>
+      </header> -->
 
       <main
         class="min-h-screen pt-20 relative flex items-center justify-center"
@@ -704,5 +704,27 @@
         }
       }
     </script>
+    <div id="footer-box"></div>
+    <script src="assets/component/header0.js"></script>
+    <script>
+      // Load Header
+      fetch("assets/component/header0.html")
+        .then((res) => res.text())
+        .then(
+          (data) => (document.getElementById("header-box").innerHTML = data)
+        );
+
+      // Load Footer
+      fetch("assets/component/footer0.html")
+        .then((res) => res.text())
+        .then(
+          (data) => (document.getElementById("footer-box").innerHTML = data)
+        );
+    </script>
+    <style>
+      body {
+        padding-top: 120px;
+      }
+    </style>
   </body>
 </html>
